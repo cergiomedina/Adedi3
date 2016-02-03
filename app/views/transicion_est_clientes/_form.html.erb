@@ -1,0 +1,17 @@
+<%= form_for(@transicion_est_cliente) do |f| %>
+  <% if @transicion_est_cliente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@transicion_est_cliente.errors.count, "error") %> prohibited this transicion_est_cliente from being saved:</h2>
+
+      <ul>
+      <% @transicion_est_cliente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

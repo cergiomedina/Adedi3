@@ -1,0 +1,23 @@
+<h1>Listing transicion_est_clientes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transicion_est_clientes.each do |transicion_est_cliente| %>
+      <tr>
+        <td><%= link_to 'Show', transicion_est_cliente %></td>
+        <td><%= link_to 'Edit', edit_transicion_est_cliente_path(transicion_est_cliente) %></td>
+        <td><%= link_to 'Destroy', transicion_est_cliente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Transicion est cliente', new_transicion_est_cliente_path %>

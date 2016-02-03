@@ -1,0 +1,23 @@
+<h1>Listing vendedor_estados</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vendedor_estados.each do |vendedor_estado| %>
+      <tr>
+        <td><%= link_to 'Show', vendedor_estado %></td>
+        <td><%= link_to 'Edit', edit_vendedor_estado_path(vendedor_estado) %></td>
+        <td><%= link_to 'Destroy', vendedor_estado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vendedor estado', new_vendedor_estado_path %>

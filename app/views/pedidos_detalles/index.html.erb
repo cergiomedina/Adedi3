@@ -1,0 +1,23 @@
+<h1>Listing pedidos_detalles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pedidos_detalles.each do |pedidos_detalle| %>
+      <tr>
+        <td><%= link_to 'Show', pedidos_detalle %></td>
+        <td><%= link_to 'Edit', edit_pedidos_detalle_path(pedidos_detalle) %></td>
+        <td><%= link_to 'Destroy', pedidos_detalle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pedidos detalle', new_pedidos_detalle_path %>

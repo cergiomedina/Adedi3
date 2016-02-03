@@ -1,0 +1,23 @@
+<h1>Listing transicion_arriendos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transicion_arriendos.each do |transicion_arriendo| %>
+      <tr>
+        <td><%= link_to 'Show', transicion_arriendo %></td>
+        <td><%= link_to 'Edit', edit_transicion_arriendo_path(transicion_arriendo) %></td>
+        <td><%= link_to 'Destroy', transicion_arriendo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Transicion arriendo', new_transicion_arriendo_path %>

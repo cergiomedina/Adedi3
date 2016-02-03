@@ -1,0 +1,23 @@
+<h1>Listing disfrazs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @disfrazs.each do |disfraz| %>
+      <tr>
+        <td><%= link_to 'Show', disfraz %></td>
+        <td><%= link_to 'Edit', edit_disfraz_path(disfraz) %></td>
+        <td><%= link_to 'Destroy', disfraz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Disfraz', new_disfraz_path %>

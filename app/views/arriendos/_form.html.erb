@@ -1,0 +1,17 @@
+<%= form_for(@arriendo) do |f| %>
+  <% if @arriendo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@arriendo.errors.count, "error") %> prohibited this arriendo from being saved:</h2>
+
+      <ul>
+      <% @arriendo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

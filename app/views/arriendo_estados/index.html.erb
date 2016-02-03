@@ -1,0 +1,23 @@
+<h1>Listing arriendo_estados</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @arriendo_estados.each do |arriendo_estado| %>
+      <tr>
+        <td><%= link_to 'Show', arriendo_estado %></td>
+        <td><%= link_to 'Edit', edit_arriendo_estado_path(arriendo_estado) %></td>
+        <td><%= link_to 'Destroy', arriendo_estado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Arriendo estado', new_arriendo_estado_path %>

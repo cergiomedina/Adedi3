@@ -1,0 +1,2 @@
+module PedidosDetallesHelper
+end

@@ -1,0 +1,752 @@
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-02 21:23:33 -0300
+
+Gem::LoadError (Specified 'mysql2' for database adapter, but the gem is not loaded. Add `gem 'mysql2'` to your Gemfile (and ensure its version is at the minimum required by ActiveRecord).):
+  activerecord (4.1.8) lib/active_record/connection_adapters/connection_specification.rb:190:in `rescue in spec'
+  activerecord (4.1.8) lib/active_record/connection_adapters/connection_specification.rb:187:in `spec'
+  activerecord (4.1.8) lib/active_record/connection_handling.rb:50:in `establish_connection'
+  activerecord (4.1.8) lib/active_record/railtie.rb:129:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.1.8) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.1.8) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.1.8) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.1.8) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.1.8) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.1.8) lib/active_record/base.rb:326:in `<module:ActiveRecord>'
+  activerecord (4.1.8) lib/active_record/base.rb:23:in `<top (required)>'
+  activerecord (4.1.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:628:in `rescue in call'
+  activerecord (4.1.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:619:in `call'
+  activerecord (4.1.8) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.8) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.8) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (56.0ms)
+  [1m[36m (20.3ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (35.9ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateDatabase (1)
+  [1m[35m (2.0ms)[0m  DROP TABLE `arriendo`
+Mysql2::Error: Cannot delete or update a parent row: a foreign key constraint fails: DROP TABLE `arriendo`
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateDatabase (1)
+  [1m[35m (4.0ms)[0m  DROP TABLE `arriendo`
+Mysql2::Error: Cannot delete or update a parent row: a foreign key constraint fails: DROP TABLE `arriendo`
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateDatabase (1)
+  [1m[35m (1.0ms)[0m  DROP TABLE `arriendo`
+Mysql2::Error: Cannot delete or update a parent row: a foreign key constraint fails: DROP TABLE `arriendo`
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateDatabase (1)
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateDatabase (1)
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateDatabase (1)
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateDatabase (1)
+  [1m[35m (0.0ms)[0m  DROP TABLE `arriendo`
+Mysql2::Error: Cannot delete or update a parent row: a foreign key constraint fails: DROP TABLE `arriendo`
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateDatabase (1)
+  [1m[35m (0.0ms)[0m  DROP TABLE `arriendo`
+Mysql2::Error: Cannot delete or update a parent row: a foreign key constraint fails: DROP TABLE `arriendo`
+  [1m[36m (25.0ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (55.0ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateDatabase (1)
+  [1m[35m (37.0ms)[0m  CREATE TABLE `arriendo` (`ID_ARRIENDO` int(11) auto_increment PRIMARY KEY, `ID_VENDEDOR` int(11) NOT NULL, `ID_EST_ARRIENDO` int(11) NOT NULL, `ID_PEDIDO` int(11), `ID_CLIENTE` int(11) NOT NULL, `NUMERO_DISFRACES` int(11) NOT NULL, `FECHA_ARRIENDO` date NOT NULL, `ESTADO_ARRIENDO` varchar(20), `TOTAL_ARRIENDO` float(24) NOT NULL, `TOTAL_GARANTIA` float(24) NOT NULL) ENGINE=InnoDB
+  [1m[36m (15.0ms)[0m  [1mCREATE  INDEX `FK_RELATIONSHIP_10` USING btree ON `arriendo` (`ID_CLIENTE`) [0m
+  [1m[35m (15.0ms)[0m  CREATE  INDEX `FK_RELATIONSHIP_9` USING btree ON `arriendo` (`ID_EST_ARRIENDO`) 
+  [1m[36m (16.0ms)[0m  [1mCREATE  INDEX `FK_RELATIONSHIP_11` USING btree ON `arriendo` (`ID_PEDIDO`) [0m
+  [1m[35m (15.0ms)[0m  CREATE  INDEX `FK_RELATIONSHIP_13` USING btree ON `arriendo` (`ID_VENDEDOR`) 
+  [1m[36m (11.0ms)[0m  [1mCREATE TABLE `arriendo_estado` (`ID_EST_ARRIENDO` int(11) auto_increment PRIMARY KEY, `EST_ARRIENDO` varchar(20)) ENGINE=InnoDB[0m
+  [1m[35m (16.0ms)[0m  CREATE TABLE `categoria` (`ID_CATEGORIA` int(11) auto_increment PRIMARY KEY, `NOMBRE_CATEGORIA` varchar(20), `STOCK_CATEGORIA` int(11)) ENGINE=InnoDB
+  [1m[36m (14.0ms)[0m  [1mCREATE TABLE `cliente` (`ID_CLIENTE` int(11) auto_increment PRIMARY KEY, `ID_EST_CLIENTE` int(11) NOT NULL, `NOMBRE_CLIENTE` varchar(20) NOT NULL, `APELLIDO_CLIENTE` varchar(20) NOT NULL, `RUT_CLIENTE` int(11) NOT NULL, `CORREO_CLIENTE` varchar(50) NOT NULL, `DIRECCION_CLIENTE` varchar(50) NOT NULL, `TELEFONO_CLIENTE` int(11) NOT NULL, `ESTADO_CLIENTE` varchar(20), `PASSWORD_CLIENTE` varchar(10) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (14.0ms)[0m  CREATE  INDEX `FK_RELATIONSHIP_5` USING btree ON `cliente` (`ID_EST_CLIENTE`) 
+  [1m[36m (16.0ms)[0m  [1mCREATE TABLE `cliente_estado` (`ID_EST_CLIENTE` int(11) auto_increment PRIMARY KEY, `EST_CLIENTE` varchar(20)) ENGINE=InnoDB[0m
+  [1m[35m (15.0ms)[0m  CREATE TABLE `detalle_arriendo` (`ID_ARRIENDO` int(11) NOT NULL, `LINEA_DETALLE_ARRIENDO` int(11) NOT NULL, `ID_EJEMPLAR` int(11) NOT NULL, `GARANTIA_ARRIENDO` float(24), `PRECIO_ARRIENDO` float(24), `DIFERENCIA_DINERO` float(24)) ENGINE=InnoDB
+  [1m[36m (15.0ms)[0m  [1mCREATE  INDEX `FK_RELATIONSHIP_15` USING btree ON `detalle_arriendo` (`ID_EJEMPLAR`) [0m
+  [1m[35m (16.0ms)[0m  CREATE TABLE `detalle_devolucion` (`ID_DEVOLUCION` int(11) NOT NULL, `LINEA_DETALLE_DEV` int(11) NOT NULL, `ID_NOTA` int(11) NOT NULL, `ID_MULTA` int(11), `ID_EJEMPLAR` int(11) NOT NULL) ENGINE=InnoDB
+  [1m[36m (14.0ms)[0m  [1mCREATE  INDEX `FK_RELATIONSHIP_16` USING btree ON `detalle_devolucion` (`ID_EJEMPLAR`) [0m
+  [1m[35m (16.0ms)[0m  CREATE  INDEX `FK_RELATIONSHIP_17` USING btree ON `detalle_devolucion` (`ID_MULTA`) 
+  [1m[36m (15.0ms)[0m  [1mCREATE  INDEX `FK_RELATIONSHIP_18` USING btree ON `detalle_devolucion` (`ID_NOTA`) [0m
+  [1m[35m (20.0ms)[0m  CREATE TABLE `devolucion` (`ID_DEVOLUCION` int(11) auto_increment PRIMARY KEY, `ID_NOTA` int(11) NOT NULL, `ID_VENDEDOR` int(11) NOT NULL, `ID_ARRIENDO` int(11) NOT NULL, `FECHA_DEVOLUCION` date) ENGINE=InnoDB
+  [1m[36m (17.0ms)[0m  [1mCREATE  INDEX `FK_RELATIONSHIP_24` USING btree ON `devolucion` (`ID_ARRIENDO`) [0m
+  [1m[35m (16.0ms)[0m  CREATE  INDEX `FK_RELATIONSHIP_20` USING btree ON `devolucion` (`ID_NOTA`) 
+  [1m[36m (15.0ms)[0m  [1mCREATE  INDEX `FK_RELATIONSHIP_23` USING btree ON `devolucion` (`ID_VENDEDOR`) [0m
+  [1m[35m (14.0ms)[0m  CREATE TABLE `disfraz` (`ID_DISFRAZ` int(11) auto_increment PRIMARY KEY, `ID_CATEGORIA` int(11) NOT NULL, `CATEGORIA_DISFRAZ` varchar(20) NOT NULL, `STOCK_DISFRAZ` int(11) NOT NULL, `STOCK_DISPONIBLE` int(11) NOT NULL) ENGINE=InnoDB
+  [1m[36m (15.0ms)[0m  [1mCREATE  INDEX `FK_RELATIONSHIP_3` USING btree ON `disfraz` (`ID_CATEGORIA`) [0m
+  [1m[35m (14.0ms)[0m  CREATE TABLE `ejemplar` (`ID_EJEMPLAR` int(11) auto_increment PRIMARY KEY, `ID_ESTADO_CLIENTE` int(11) NOT NULL, `ID_DISFRAZ` int(11) NOT NULL, `TALLA_EJEMPLAR` varchar(20), `COLOR_EJEMPLAR` varchar(20), `ESTADO_EJEMPLAR` varchar(20), `PRECIO_EJEMPLAR` varchar(20)) ENGINE=InnoDB
+  [1m[36m (15.0ms)[0m  [1mCREATE  INDEX `FK_RELATIONSHIP_2` USING btree ON `ejemplar` (`ID_DISFRAZ`) [0m
+  [1m[35m (15.0ms)[0m  CREATE  INDEX `FK_RELATIONSHIP_1` USING btree ON `ejemplar` (`ID_ESTADO_CLIENTE`) 
+  [1m[36m (15.0ms)[0m  [1mCREATE TABLE `ejemplar_estado` (`ID_ESTADO_CLIENTE` int(11) auto_increment PRIMARY KEY, `EST_EJEMPLAR` varchar(20)) ENGINE=InnoDB[0m
+  [1m[35m (15.0ms)[0m  CREATE TABLE `log_auditoria` (`ID_LOG` int(11) auto_increment PRIMARY KEY, `RUT_USUARIO` int(11), `TABLA_AFECTADA` varchar(20), `INSTRUCCION` varchar(20), `DATOS_ANTES` varchar(20), `DATOS_DESPUES` varchar(20), `FECHA_MODIFICACION` varchar(20)) ENGINE=InnoDB
+  [1m[36m (41.0ms)[0m  [1mCREATE TABLE `multa` (`ID_MULTA` int(11) auto_increment PRIMARY KEY, `ID_DEVOLUCION` int(11) NOT NULL, `TOTAL_MULTA` float(24)) ENGINE=InnoDB[0m
+  [1m[35m (16.9ms)[0m  CREATE  INDEX `FK_RELATIONSHIP_22` USING btree ON `multa` (`ID_DEVOLUCION`) 
+  [1m[36m (43.0ms)[0m  [1mCREATE TABLE `nota_de_venta` (`ID_NOTA` int(11) auto_increment PRIMARY KEY, `ID_DEVOLUCION` int(11) NOT NULL, `TOTAL_NOTA` float(24)) ENGINE=InnoDB[0m
+  [1m[35m (15.0ms)[0m  CREATE  INDEX `FK_RELATIONSHIP_21` USING btree ON `nota_de_venta` (`ID_DEVOLUCION`) 
+  [1m[36m (17.0ms)[0m  [1mCREATE TABLE `parametro_sistema` (`ID_PARAMETRO` int(11) auto_increment PRIMARY KEY, `NOMBRE_PARAMETRO` varchar(20), `VALOR_PARAMETRO` int(11)) ENGINE=InnoDB[0m
+  [1m[35m (15.0ms)[0m  CREATE TABLE `pedido` (`ID_PEDIDO` int(11) auto_increment PRIMARY KEY, `ID_CLIENTE` int(11) NOT NULL, `ID_EST_PEDIDO` int(11) NOT NULL, `FECHA_PEDIDO` date, `ESTADO_PEDIDO` varchar(20)) ENGINE=InnoDB
+  [1m[36m (14.0ms)[0m  [1mCREATE  INDEX `FK_RELATIONSHIP_6` USING btree ON `pedido` (`ID_CLIENTE`) [0m
+  [1m[35m (15.0ms)[0m  CREATE  INDEX `FK_RELATIONSHIP_8` USING btree ON `pedido` (`ID_EST_PEDIDO`) 
+  [1m[36m (10.0ms)[0m  [1mCREATE TABLE `pedido_estado` (`ID_EST_PEDIDO` int(11) auto_increment PRIMARY KEY, `EST_PEDIDO` varchar(20)) ENGINE=InnoDB[0m
+  [1m[35m (15.0ms)[0m  CREATE TABLE `pedidos_detalle` (`ID_DISFRAZ` int(11) NOT NULL, `ID_PEDIDO` int(11) NOT NULL, `FECHA_RETIRO` date, `FECHA_DEV` date) ENGINE=InnoDB
+  [1m[36m (15.5ms)[0m  [1mCREATE  INDEX `FK_RELATIONSHIP_7` USING btree ON `pedidos_detalle` (`ID_PEDIDO`) [0m
+  [1m[35m (15.0ms)[0m  CREATE TABLE `transicion_arriendo` (`ARR_ID_EST_ARRIENDO` int(11) NOT NULL, `ID_EST_ARRIENDO` int(11) NOT NULL, `EST_INI_ARRIENDO` varchar(20), `EST_FIN_ARRIENDO` varchar(20)) ENGINE=InnoDB
+  [1m[36m (14.0ms)[0m  [1mCREATE  INDEX `FK_RELATIONSHIP_26` USING btree ON `transicion_arriendo` (`ID_EST_ARRIENDO`) [0m
+  [1m[35m (10.0ms)[0m  CREATE TABLE `transicion_est_cliente` (`ID_EST_CLIENTE` int(11) NOT NULL, `CLI_ID_EST_CLIENTE` int(11) NOT NULL, `EST_INI_CLIENTE` varchar(20), `EST_FIN_CLIENTE` varchar(20)) ENGINE=InnoDB
+  [1m[36m (14.0ms)[0m  [1mCREATE  INDEX `FK_RELATIONSHIP_28` USING btree ON `transicion_est_cliente` (`CLI_ID_EST_CLIENTE`) [0m
+  [1m[35m (14.0ms)[0m  CREATE TABLE `transicion_est_ejemplar` (`EJE_ID_ESTADO_CLIENTE` int(11) NOT NULL, `ID_ESTADO_CLIENTE` int(11) NOT NULL, `EST_INI_EJEMPLAR` varchar(20), `EST_FIN_EJEMPLAR` varchar(20)) ENGINE=InnoDB
+  [1m[36m (16.0ms)[0m  [1mCREATE  INDEX `FK_RELATIONSHIP_30` USING btree ON `transicion_est_ejemplar` (`ID_ESTADO_CLIENTE`) [0m
+  [1m[35m (16.0ms)[0m  CREATE TABLE `transicion_est_pedido` (`ID_EST_PEDIDO` int(11) NOT NULL, `PED_ID_EST_PEDIDO` int(11) NOT NULL, `EST_INI_PEDIDO` varchar(20), `EST_FIN_PEDIDO` varchar(20)) ENGINE=InnoDB
+  [1m[36m (15.0ms)[0m  [1mCREATE  INDEX `FK_RELATIONSHIP_34` USING btree ON `transicion_est_pedido` (`PED_ID_EST_PEDIDO`) [0m
+  [1m[35m (21.0ms)[0m  CREATE TABLE `transicion_est_vendedor` (`ID_EST_VENDEDOR` int(11) NOT NULL, `VEN_ID_EST_VENDEDOR` int(11) NOT NULL, `EST_INI_VENDEDOR` varchar(20), `EST_FIN_VENDEDOR` varchar(20)) ENGINE=InnoDB
+  [1m[36m (14.0ms)[0m  [1mCREATE  INDEX `FK_RELATIONSHIP_32` USING btree ON `transicion_est_vendedor` (`VEN_ID_EST_VENDEDOR`) [0m
+  [1m[35m (22.0ms)[0m  CREATE TABLE `vendedor` (`ID_VENDEDOR` int(11) auto_increment PRIMARY KEY, `ID_EST_VENDEDOR` int(11) NOT NULL, `NOMBRE_VENDEDOR` varchar(20), `APELLIDO_VENDEDOR` varchar(20), `RUT_VENDEDOR` int(11), `CORREO_VENDEDOR` varchar(50), `DIRECCION_VENDEDOR` varchar(50), `TELEFONO_VENDEDOR` int(11), `ESTADO_VENDEDOR` varchar(20), `PASSWORD_VENDEDOR` varchar(10)) ENGINE=InnoDB
+  [1m[36m (16.0ms)[0m  [1mCREATE  INDEX `FK_RELATIONSHIP_14` USING btree ON `vendedor` (`ID_EST_VENDEDOR`) [0m
+  [1m[35m (11.0ms)[0m  CREATE TABLE `vendedor_estado` (`ID_EST_VENDEDOR` int(11) auto_increment PRIMARY KEY, `EST_VENDEDOR` varchar(20)) ENGINE=InnoDB
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('0')
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('1')
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-02 22:10:32 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.1.8) lib/active_record/migration.rb:389:in `check_pending!'
+  activerecord (4.1.8) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.8) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.8) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (45.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-02 22:11:14 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 1537ms (Views: 1522.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2016-02-02 22:11:16 -0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-02-02 22:11:16 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-02-02 22:11:16 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-02-02 22:11:16 -0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-02-02 22:11:16 -0300
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2016-02-02 22:11:16 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-02-02 22:11:16 -0300
+
+
+Started GET "/clientes" for 127.0.0.1 at 2016-02-02 22:21:06 -0300
+
+ActionController::RoutingError (No route matches [GET] "/clientes"):
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (27.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (15.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (215.0ms)
+
+
+Started GET "/cliente" for 127.0.0.1 at 2016-02-02 22:21:09 -0300
+
+ActionController::RoutingError (No route matches [GET] "/cliente"):
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (24.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (165.0ms)
+
+
+Started GET "/clientes" for 127.0.0.1 at 2016-02-02 22:22:00 -0300
+
+ActionController::RoutingError (No route matches [GET] "/clientes"):
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (22.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (180.0ms)
+
+
+Started GET "/cliente" for 127.0.0.1 at 2016-02-02 22:22:02 -0300
+
+ActionController::RoutingError (No route matches [GET] "/cliente"):
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (25.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (164.0ms)
+
+
+Started GET "/clientes" for 127.0.0.1 at 2016-02-02 22:22:17 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+ActionController::RoutingError (No route matches [GET] "/clientes"):
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (23.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (14.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (201.0ms)
+
+
+Started GET "/clientes" for 127.0.0.1 at 2016-02-02 22:22:18 -0300
+
+ActionController::RoutingError (No route matches [GET] "/clientes"):
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (24.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (170.0ms)
+
+
+Started GET "/cliente" for 127.0.0.1 at 2016-02-02 22:22:19 -0300
+
+ActionController::RoutingError (No route matches [GET] "/cliente"):
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (23.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (169.0ms)
+
+
+Started GET "/clientes/index" for 127.0.0.1 at 2016-02-02 22:22:47 -0300
+Processing by ClientesController#index as HTML
+  [1m[35mCliente Load (1.0ms)[0m  SELECT `cliente`.* FROM `cliente`
+  Rendered clientes/index.html.erb within layouts/application (13.0ms)
+Completed 500 Internal Server Error in 34ms
+
+ActionView::Template::Error (undefined local variable or method `new_cliente_path' for #<#<Class:0x6154c38>:0x61543e0>):
+    20: 
+    21: <br>
+    22: 
+    23: <%= link_to 'New Cliente', new_cliente_path %>
+  app/views/clientes/index.html.erb:23:in `_app_views_clientes_index_html_erb___66129897_51018372'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (31.0ms)
+
+
+Started GET "/clientes" for 127.0.0.1 at 2016-02-02 22:23:10 -0300
+
+ActionController::RoutingError (No route matches [GET] "/clientes"):
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (24.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (169.0ms)
+
+
+Started GET "/clientes" for 127.0.0.1 at 2016-02-02 22:24:22 -0300
+Processing by ClientesController#index as HTML
+  [1m[36mCliente Load (1.0ms)[0m  [1mSELECT `cliente`.* FROM `cliente`[0m
+  Rendered clientes/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 88ms (Views: 84.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2016-02-02 22:24:22 -0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-02-02 22:24:22 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-02-02 22:24:22 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-02-02 22:24:22 -0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-02-02 22:24:22 -0300
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2016-02-02 22:24:22 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-02-02 22:24:22 -0300
+
+
+Started GET "/clientes/new" for 127.0.0.1 at 2016-02-02 22:24:24 -0300
+Processing by ClientesController#new as HTML
+  Rendered clientes/_form.html.erb (21.0ms)
+  Rendered clientes/new.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 90ms (Views: 80.0ms | ActiveRecord: 8.0ms)
+
+
+Started POST "/clientes" for 127.0.0.1 at 2016-02-02 22:24:25 -0300
+Processing by ClientesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7kQZ1YmWNaOL2lX4iEIlZ6NKcd1taISfyyvcl6MXFIw=", "commit"=>"Create Cliente"}
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO `cliente` VALUES ()[0m
+Mysql2::Error: Field 'ID_EST_CLIENTE' doesn't have a default value: INSERT INTO `cliente` VALUES ()
+  [1m[35m (0.0ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 4ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Field 'ID_EST_CLIENTE' doesn't have a default value: INSERT INTO `cliente` VALUES ()):
+  app/controllers/clientes_controller.rb:30:in `block in create'
+  app/controllers/clientes_controller.rb:29:in `create'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (45.0ms)
+
+
+Started POST "/clientes" for 127.0.0.1 at 2016-02-02 22:24:49 -0300
+Processing by ClientesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7kQZ1YmWNaOL2lX4iEIlZ6NKcd1taISfyyvcl6MXFIw=", "commit"=>"Create Cliente"}
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO `cliente` VALUES ()
+Mysql2::Error: Field 'NOMBRE_CLIENTE' doesn't have a default value: INSERT INTO `cliente` VALUES ()
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 4ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Field 'NOMBRE_CLIENTE' doesn't have a default value: INSERT INTO `cliente` VALUES ()):
+  app/controllers/clientes_controller.rb:30:in `block in create'
+  app/controllers/clientes_controller.rb:29:in `create'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (43.0ms)
+
+
+Started POST "/clientes" for 127.0.0.1 at 2016-02-02 22:25:54 -0300
+Processing by ClientesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7kQZ1YmWNaOL2lX4iEIlZ6NKcd1taISfyyvcl6MXFIw=", "commit"=>"Create Cliente"}
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO `cliente` VALUES ()[0m
+  [1m[35m (5.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/clientes/1
+Completed 302 Found in 13ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/clientes/1" for 127.0.0.1 at 2016-02-02 22:25:54 -0300
+Processing by ClientesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCliente Load (1.0ms)[0m  [1mSELECT  `cliente`.* FROM `cliente`  WHERE `cliente`.`ID_CLIENTE` = 1 LIMIT 1[0m
+  Rendered clientes/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 65ms (Views: 62.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2016-02-02 22:25:54 -0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-02-02 22:25:54 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-02-02 22:25:54 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-02-02 22:25:54 -0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-02-02 22:25:55 -0300
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2016-02-02 22:25:55 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-02-02 22:25:55 -0300
+
+
+Started GET "/clientes" for 127.0.0.1 at 2016-02-02 22:25:56 -0300
+Processing by ClientesController#index as HTML
+  [1m[35mCliente Load (0.0ms)[0m  SELECT `cliente`.* FROM `cliente`
+  Rendered clientes/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 57ms (Views: 56.0ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/clientes/1" for 127.0.0.1 at 2016-02-02 22:25:59 -0300
+Processing by ClientesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"7kQZ1YmWNaOL2lX4iEIlZ6NKcd1taISfyyvcl6MXFIw=", "id"=>"1"}
+  [1m[36mCliente Load (0.0ms)[0m  [1mSELECT  `cliente`.* FROM `cliente`  WHERE `cliente`.`ID_CLIENTE` = 1 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM `cliente` WHERE `cliente`.`ID_CLIENTE` = 1[0m
+  [1m[35m (0.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/clientes
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/clientes" for 127.0.0.1 at 2016-02-02 22:25:59 -0300
+Processing by ClientesController#index as HTML
+  [1m[36mCliente Load (0.0ms)[0m  [1mSELECT `cliente`.* FROM `cliente`[0m
+  Rendered clientes/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 62ms (Views: 61.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2016-02-02 22:25:59 -0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-02-02 22:25:59 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-02-02 22:25:59 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-02-02 22:25:59 -0300
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2016-02-02 22:25:59 -0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-02-02 22:25:59 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-02-02 22:25:59 -0300
+
+
+Started GET "/disfrazs" for 127.0.0.1 at 2016-02-02 22:26:16 -0300
+Processing by DisfrazsController#index as HTML
+  [1m[35mDisfraz Load (1.0ms)[0m  SELECT `disfraz`.* FROM `disfraz`
+  Rendered disfrazs/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 66ms (Views: 62.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-02-02 22:26:16 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-02-02 22:26:16 -0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-02-02 22:26:16 -0300
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2016-02-02 22:26:16 -0300
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2016-02-02 22:26:16 -0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-02-02 22:26:16 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-02-02 22:26:16 -0300
+
+
+Started GET "/disfrazs/new" for 127.0.0.1 at 2016-02-02 22:26:18 -0300
+Processing by DisfrazsController#new as HTML
+  Rendered disfrazs/_form.html.erb (4.0ms)
+  Rendered disfrazs/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 70ms (Views: 60.0ms | ActiveRecord: 9.0ms)
+
+
+Started POST "/disfrazs" for 127.0.0.1 at 2016-02-02 22:26:19 -0300
+Processing by DisfrazsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7kQZ1YmWNaOL2lX4iEIlZ6NKcd1taISfyyvcl6MXFIw=", "commit"=>"Create Disfraz"}
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO `disfraz` VALUES ()
+Mysql2::Error: Field 'ID_CATEGORIA' doesn't have a default value: INSERT INTO `disfraz` VALUES ()
+  [1m[36m (1.0ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 4ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Field 'ID_CATEGORIA' doesn't have a default value: INSERT INTO `disfraz` VALUES ()):
+  app/controllers/disfrazs_controller.rb:30:in `block in create'
+  app/controllers/disfrazs_controller.rb:29:in `create'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (43.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-02 22:26:32 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 55ms (Views: 54.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-02-02 22:26:33 -0300
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2016-02-02 22:26:33 -0300
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2016-02-02 22:26:33 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-02-02 22:26:33 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-02-02 22:26:33 -0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-02-02 22:26:33 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-02-02 22:26:33 -0300

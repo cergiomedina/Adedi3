@@ -1,0 +1,2 @@
+module DetalleArriendosHelper
+end

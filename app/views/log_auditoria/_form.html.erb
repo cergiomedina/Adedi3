@@ -1,0 +1,17 @@
+<%= form_for(@log_auditorium) do |f| %>
+  <% if @log_auditorium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@log_auditorium.errors.count, "error") %> prohibited this log_auditorium from being saved:</h2>
+
+      <ul>
+      <% @log_auditorium.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

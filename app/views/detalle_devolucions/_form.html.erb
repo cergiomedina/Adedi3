@@ -1,0 +1,17 @@
+<%= form_for(@detalle_devolucion) do |f| %>
+  <% if @detalle_devolucion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@detalle_devolucion.errors.count, "error") %> prohibited this detalle_devolucion from being saved:</h2>
+
+      <ul>
+      <% @detalle_devolucion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
