@@ -1,18 +1,3 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
 /*!
  * Materialize v0.97.5 (http://materializecss.com)
  * Copyright 2014-2015 Materialize
@@ -2921,7 +2906,6 @@ ul.staggered-list li {
   }
 }
 
-
 @media only screen and (max-width: 600px) {
   .center-on-small-only {
     text-align: center;
@@ -2931,8 +2915,7 @@ ul.staggered-list li {
 footer.page-footer {
   margin-top: 20px;
   padding-top: 20px;
-  background-color: #114454;
-  
+  background-color: #ee6e73;
 }
 
 footer.page-footer .footer-copyright {
@@ -2940,7 +2923,7 @@ footer.page-footer .footer-copyright {
   height: 50px;
   line-height: 50px;
   color: rgba(255, 255, 255, 0.8);
-  background-color: #0E3142;
+  background-color: rgba(51, 51, 51, 0.08);
 }
 
 table, th, td {
@@ -2951,8 +2934,6 @@ table {
   width: 100%;
   display: table;
 }
-
-
 
 table.bordered > thead > tr,
 table.bordered > tbody > tr {
@@ -7345,7 +7326,6 @@ nav i.material-icons {
 nav .nav-wrapper {
   position: relative;
   height: 100%;
-  background-color: #165751;
 }
 
 @media only screen and (min-width: 993px) {
