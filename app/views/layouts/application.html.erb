@@ -12,6 +12,8 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.js"></script>
 </head>
 <body>
 	<div class="navbar-fixed">
@@ -19,13 +21,17 @@
 
     <div class="nav-wrapper ">
       <a href="/" class="brand-logo ">ADEDI</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+     <ul id="nav-mobile" class="right hide-on-med-and-down">
 
       	<% if current_cliente %>
-      		<li><a href="/"><%= link_to current_cliente.email, "/clientes/#{current_cliente.id}" %></a></li>
+
+          <li><a href="/">Mis Solicitudes</a></li>
+          <li><a href="/">Mis Arriendos</a></li>
+      		<li><a href="/"><%= link_to "Mi Perfil", "/clientes/#{current_cliente.id}" %></a></li>
         	<li><%= link_to('Cerrar Sesion', destroy_cliente_session_path, :method => :delete) %> </li>
-        	<li><a href="/">Actividad</a></li>
-		<% else %>
+        	
+		    <% else %>
 		
 
       		<% if current_vendedor %>
@@ -49,6 +55,13 @@
 
 <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
+
+
+    <% if current_cliente %>
+
+      
+
+    <% end %>
 
 <%= yield %>
 
