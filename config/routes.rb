@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :clientes
+  devise_for :vendedors
   get 'home/index'
 
   get 'home/ayuda'

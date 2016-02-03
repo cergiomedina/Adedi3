@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 1) do
+ActiveRecord::Schema.define(version: 20160203035112) do
 
   create_table "arriendo", primary_key: "ID_ARRIENDO", force: true do |t|
     t.integer "ID_VENDEDOR",                 null: false
@@ -40,18 +40,30 @@ ActiveRecord::Schema.define(version: 1) do
   end
 
   create_table "cliente", primary_key: "ID_CLIENTE", force: true do |t|
-    t.integer "ID_EST_CLIENTE",               null: false
-    t.string  "NOMBRE_CLIENTE",    limit: 20, null: false
-    t.string  "APELLIDO_CLIENTE",  limit: 20, null: false
-    t.integer "RUT_CLIENTE",                  null: false
-    t.string  "CORREO_CLIENTE",    limit: 50, null: false
-    t.string  "DIRECCION_CLIENTE", limit: 50, null: false
-    t.integer "TELEFONO_CLIENTE",             null: false
-    t.string  "ESTADO_CLIENTE",    limit: 20
-    t.string  "PASSWORD_CLIENTE",  limit: 10, null: false
+    t.integer  "ID_EST_CLIENTE",                    default: 1,  null: false
+    t.string   "NOMBRE_CLIENTE",         limit: 20
+    t.string   "APELLIDO_CLIENTE",       limit: 20
+    t.integer  "RUT_CLIENTE"
+    t.string   "CORREO_CLIENTE",         limit: 50
+    t.string   "DIRECCION_CLIENTE",      limit: 50
+    t.integer  "TELEFONO_CLIENTE"
+    t.string   "ESTADO_CLIENTE",         limit: 20
+    t.string   "PASSWORD_CLIENTE",       limit: 10
+    t.string   "email",                             default: "", null: false
+    t.string   "encrypted_password",                default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                     default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
   end
 
   add_index "cliente", ["ID_EST_CLIENTE"], name: "FK_RELATIONSHIP_5", using: :btree
+  add_index "cliente", ["email"], name: "index_cliente_on_email", unique: true, using: :btree
+  add_index "cliente", ["reset_password_token"], name: "index_cliente_on_reset_password_token", unique: true, using: :btree
 
   create_table "cliente_estado", primary_key: "ID_EST_CLIENTE", force: true do |t|
     t.string "EST_CLIENTE", limit: 20
@@ -213,18 +225,30 @@ ActiveRecord::Schema.define(version: 1) do
   add_index "transicion_est_vendedor", ["VEN_ID_EST_VENDEDOR"], name: "FK_RELATIONSHIP_32", using: :btree
 
   create_table "vendedor", primary_key: "ID_VENDEDOR", force: true do |t|
-    t.integer "ID_EST_VENDEDOR",               null: false
-    t.string  "NOMBRE_VENDEDOR",    limit: 20
-    t.string  "APELLIDO_VENDEDOR",  limit: 20
-    t.integer "RUT_VENDEDOR"
-    t.string  "CORREO_VENDEDOR",    limit: 50
-    t.string  "DIRECCION_VENDEDOR", limit: 50
-    t.integer "TELEFONO_VENDEDOR"
-    t.string  "ESTADO_VENDEDOR",    limit: 20
-    t.string  "PASSWORD_VENDEDOR",  limit: 10
+    t.integer  "ID_EST_VENDEDOR",                   default: 1
+    t.string   "NOMBRE_VENDEDOR",        limit: 20
+    t.string   "APELLIDO_VENDEDOR",      limit: 20
+    t.integer  "RUT_VENDEDOR"
+    t.string   "CORREO_VENDEDOR",        limit: 50
+    t.string   "DIRECCION_VENDEDOR",     limit: 50
+    t.integer  "TELEFONO_VENDEDOR"
+    t.string   "ESTADO_VENDEDOR",        limit: 20
+    t.string   "PASSWORD_VENDEDOR",      limit: 10
+    t.string   "email",                             default: "", null: false
+    t.string   "encrypted_password",                default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                     default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
   end
 
   add_index "vendedor", ["ID_EST_VENDEDOR"], name: "FK_RELATIONSHIP_14", using: :btree
+  add_index "vendedor", ["email"], name: "index_vendedor_on_email", unique: true, using: :btree
+  add_index "vendedor", ["reset_password_token"], name: "index_vendedor_on_reset_password_token", unique: true, using: :btree
 
   create_table "vendedor_estado", primary_key: "ID_EST_VENDEDOR", force: true do |t|
     t.string "EST_VENDEDOR", limit: 20
