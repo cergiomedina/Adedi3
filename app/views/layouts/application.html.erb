@@ -22,7 +22,7 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
 
       	<% if current_cliente %>
-      		<li><a href="/"><%= current_cliente.email %></a></li>
+      		<li><a href="/"><%= link_to current_cliente.email, "/clientes/#{current_cliente.id}" %></a></li>
         	<li><%= link_to('Cerrar Sesion', destroy_cliente_session_path, :method => :delete) %> </li>
         	<li><a href="/">Actividad</a></li>
 		<% else %>

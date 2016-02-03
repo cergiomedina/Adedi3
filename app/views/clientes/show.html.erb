@@ -1,4 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
 
-<%= link_to 'Edit', edit_cliente_path(@cliente) %> |
-<%= link_to 'Back', clientes_path %>
+      <div class="col s12 m4 l3"> 
+
+      	<div class="card-panel grey darken-4 white-text">
+
+      		<h4>Tu Perfil</h4>
+      		<p>Aca se muestran los datos que posees en la aplicacion. Puedes editarlos con el boton inferior
+      			de la pagina web. Recuerda que necesitamos que sean datos reales, de esta manera te podremos entregar los disfraces que nos solicites.</p>
+      	</div>
+
+      </div>
+
+      <div class="col s12 m8 l9"> 
+      		<div class="card-panel">
+      			<h3>Datos del Cliente</h3>
+      			<div class="divider"></div>
+      			<div class="section">
+      				<h5><i class="fa fa-barcode"></i> Rut</h5>
+      				<p><%= current_cliente.RUT_CLIENTE %></p>
+      			</div>
+      			<div class="section">
+      				<h5><i class="fa fa-child"></i> Nombre</h5>
+      				<p><%= current_cliente.NOMBRE_CLIENTE %></p>
+      			</div>
+      			<div class="section">
+      				<h5><i class="fa fa-envelope-o"></i> Correo</h5>
+      				<p><%= current_cliente.email %></p>
+      			</div>
+      			<div class="section">
+      				<h5><i class="fa fa-home"></i> Direccion</h5>
+      				<p><%= current_cliente.DIRECCION_CLIENTE %></p>
+      			</div>
+      			
+      		</div>
+      </div>
+
+    </div>

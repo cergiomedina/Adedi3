@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :clientes
   devise_for :vendedors
+
+
   get 'home/index'
 
   get 'home/ayuda'
@@ -10,6 +12,8 @@ Rails.application.routes.draw do
   get 'vendedors/index'
 
   get 'vendedors/show'
+
+  get 'clientes/:id' => 'clientes#show'
 
   get 'transicion_arriendos/show'
 
