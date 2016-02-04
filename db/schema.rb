@@ -40,15 +40,15 @@ ActiveRecord::Schema.define(version: 20160203035112) do
   end
 
   create_table "cliente", primary_key: "ID_CLIENTE", force: true do |t|
-    t.integer  "ID_EST_CLIENTE",                    default: 1,  null: false
-    t.string   "NOMBRE_CLIENTE",         limit: 20
-    t.string   "APELLIDO_CLIENTE",       limit: 20
-    t.integer  "RUT_CLIENTE"
-    t.string   "CORREO_CLIENTE",         limit: 50
-    t.string   "DIRECCION_CLIENTE",      limit: 50
-    t.integer  "TELEFONO_CLIENTE"
+    t.integer  "ID_EST_CLIENTE",                                 null: false
+    t.string   "NOMBRE_CLIENTE",         limit: 20,              null: false
+    t.string   "APELLIDO_CLIENTE",       limit: 20,              null: false
+    t.integer  "RUT_CLIENTE",                                    null: false
+    t.string   "CORREO_CLIENTE",         limit: 50,              null: false
+    t.string   "DIRECCION_CLIENTE",      limit: 50,              null: false
+    t.integer  "TELEFONO_CLIENTE",                               null: false
     t.string   "ESTADO_CLIENTE",         limit: 20
-    t.string   "PASSWORD_CLIENTE",       limit: 10
+    t.string   "PASSWORD_CLIENTE",       limit: 10,              null: false
     t.string   "email",                             default: "", null: false
     t.string   "encrypted_password",                default: "", null: false
     t.string   "reset_password_token"
@@ -225,7 +225,7 @@ ActiveRecord::Schema.define(version: 20160203035112) do
   add_index "transicion_est_vendedor", ["VEN_ID_EST_VENDEDOR"], name: "FK_RELATIONSHIP_32", using: :btree
 
   create_table "vendedor", primary_key: "ID_VENDEDOR", force: true do |t|
-    t.integer  "ID_EST_VENDEDOR",                   default: 1
+    t.integer  "ID_EST_VENDEDOR",                                null: false
     t.string   "NOMBRE_VENDEDOR",        limit: 20
     t.string   "APELLIDO_VENDEDOR",      limit: 20
     t.integer  "RUT_VENDEDOR"
