@@ -1133,9 +1133,13 @@ if ($) {
 $(document).ready(function(){
   $('.materialboxed').materialbox();
 });
+$(document).ready(function(){
+    $('.parallax').parallax();
+   });
 
 }( jQuery ));
 ;(function ($) {
+
 
     $.fn.parallax = function () {
       var window_width = $(window).width();

@@ -1,40 +1,61 @@
 <div class="row">
-
       <div class="col s12 m4 l3"> 
-
-
-
       	<div class="card-panel grey darken-4 white-text">
 
-      		<h4><i class="fa fa-hand-o-right"></i> Tu Perfil</h4>
-      		<p>Aca se muestran los datos que posees en la aplicacion. Puedes editarlos con el boton inferior
-      			de la pagina web. Recuerda que necesitamos que sean datos reales, de esta manera te podremos entregar los disfraces que nos solicites.</p>
+      		<h4><i class="fa fa-hand-o-right"></i> Información</h4>
+      		<p>Acá se muestran los datos que posees en la aplicación. Puedes editarlos con el boton inferior
+      			de la página web. Recuerda que necesitamos que sean datos reales, de esta manera te podremos entregar los disfraces que nos solicites.</p>
       	</div>
 
       </div>
 
-      <div class="col s12 m8 l9"> 
-      		<div class="card-panel">
-      			<h3>Datos del Cliente</h3>
-      			<div class="divider"></div>
-      			<div class="section">
-      				<h5><i class="fa fa-barcode"></i> Rut</h5>
-      				<p><%= current_cliente.RUT_CLIENTE %></p>
-      			</div>
-      			<div class="section">
-      				<h5><i class="fa fa-child"></i> Nombre</h5>
-      				<p><%= current_cliente.NOMBRE_CLIENTE %></p>
-      			</div>
-      			<div class="section">
-      				<h5><i class="fa fa-envelope-o"></i> Correo</h5>
-      				<p><%= current_cliente.email %></p>
-      			</div>
-      			<div class="section">
-      				<h5><i class="fa fa-home"></i> Direccion</h5>
-      				<p><%= current_cliente.DIRECCION_CLIENTE %></p>
-      			</div>
-      			
-      		</div>
-      </div>
+       <div class="col s12 m8 l9"> 
+            <h4>Tu Perfil</h4>
+                        <div class="card-panel">
+                              
+                              <div class="row">
+                                    <div class="col s12 m2">
+                                          <img width="150" height="160" src="/assets/default.png" />
+                                    </div>
+                                    <div class="col s12 m5">
+                                          <h5>Perfil</h5>
+                                          <div class="divider"></div>
+                                          <div class="col s12 m3">
+                                                <p><b>Nombre: </b></p>
+                                                <p><b>Apellido: </b></p>
+                                                <p><b>Rut: </b></p>
+                                                
+                                                
+                                          </div>
+                                          <div class="col s12 m9"></div>
+                                          <p><%= current_cliente.NOMBRE_CLIENTE %> </p>
+                                          <p><%= current_cliente.APELLIDO_CLIENTE %></p>
+                                          <p><%= current_cliente.RUT_CLIENTE %></p>
+                                          
+                                    </div>
+                                    <div class="col s12 m5">
+                                          <h5>Contacto</h5>
+                                          <div class="divider"></div>
+                                          <div class="col s12 m3">
+                                                <p><b>Telefono: </b></p>
+                                                <p><b>Correo: </b></p>
+                                                <p><b>Direccion: </b></p>
+                                                
+                                          </div>
+                                          <div class="col s12 m9"></div>
+                                          <p><%= current_cliente.TELEFONO_CLIENTE %></p>
+                                          <p><%= current_cliente.email %> </p>
+                                          <p><%= current_cliente.DIRECCION_CLIENTE %></p>
+                                    </div>
+                              </div>
 
+                        </div>
+<% if false%>
+                        <div class="card-panel">
+                              <h4>Mis arriendos</h4>
+                              <div class="divider"></div>
+
+                        </div>
+                        <%end %>
+            </div>
     </div>
