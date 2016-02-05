@@ -9,7 +9,7 @@
 
 <div class="field">
     <%= f.label :rut %><br />
-    <%= f.text_field :RUT_CLIENTE , autofocus: true, autocomplete: "off"%>
+    <%= f.number_field :RUT_CLIENTE , autofocus: true, autocomplete: "off", min: 1%>
   </div>
   <div class="field">
     <%= f.label :nombre %><br />

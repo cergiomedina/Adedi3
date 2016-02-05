@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
 
   def configure_new_column_to_devise_permitted_parameters
     registration_params = [:NOMBRE_CLIENTE,:APELLIDO_CLIENTE,:TELEFONO_CLIENTE,:RUT_CLIENTE,:DIRECCION_CLIENTE, :email, :password, :password_confirmation,:ESTADO_CLIENTE]
+
     if params[:action] == 'create'
       devise_parameter_sanitizer.for(:sign_up) { 
         |u| u.permit(registration_params) 
