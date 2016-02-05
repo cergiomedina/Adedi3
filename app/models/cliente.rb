@@ -11,6 +11,6 @@ class Cliente < ActiveRecord::Base
       has_many :pedidos, :dependent => :nullify
       has_many :arriendos, :dependent => :nullify
       has_many :devolucions, :dependent => :nullify
-      
+      validates :RUT_CLIENTE, rut: true
 
 end

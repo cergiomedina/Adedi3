@@ -8,4 +8,5 @@ class Vendedor < ActiveRecord::Base
       validates_presence_of   :DIRECCION_VENDEDOR
       validates_presence_of   :RUT_VENDEDOR
       validates_presence_of   :TELEFONO_VENDEDOR
+      validates :RUT_VENDEDOR, rut: true
 end
