@@ -9,6 +9,7 @@
 
   <tbody>
     <% @clientes.each do |cliente| %>
+    
       <tr>
         <td><%= link_to 'Show', cliente %></td>
         <td><%= link_to 'Edit', edit_cliente_path(cliente) %></td>

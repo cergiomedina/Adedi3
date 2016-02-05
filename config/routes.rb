@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :clientes
+  devise_for :clientes# , controllers: { sessions: "clientes/sessions", registrations: "clientes/registrations" }
   devise_for :vendedors
 
 

@@ -7,11 +7,26 @@
       <div class="card-panel" >
   <h2><i class="fa fa-user"></i> Registrate</h2>
 
-
-
+<div class="field">
+    <%= f.label :rut %><br />
+    <%= f.text_field :RUT_CLIENTE , autofocus: true, autocomplete: "off"%>
+  </div>
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :NOMBRE_CLIENTE , autocomplete: "off"%>
+  </div>
+  <div class="field">
+    <%= f.label :apellido %><br />
+    <%= f.text_field :APELLIDO_CLIENTE , autocomplete: "off"%>
+  </div>
+  <div class="field">
+    <%= f.label :direccion %><br />
+    <%= f.text_field :DIRECCION_CLIENTE , autocomplete: "off"%>
+  </div>
+  
   <div class="field">
     <%= f.label :correo %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email , autocomplete: "off"%>
   </div>
 
   <div class="field">
