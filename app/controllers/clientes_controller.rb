@@ -1,7 +1,15 @@
 class ClientesController < ApplicationController
   before_action :set_cliente, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_cliente!, only: [:edit, :update, :destroy], except: [:index]
-  before_filter :authenticate_vendedor!, only: [:new, :edit, :update, :destroy,:index]
+  before_filter :cliente!, only: [:edit, :update, :destroy], except: [:index]
+  before_filter :vendedor!, only: [:new, :edit, :update, :destroy,:index]
+
+  def cliente!
+    redirect_to root_path, notice: 'No tienes suficientes permisos para estar acá.' unless current_cliente 
+  end
+
+  def vendedor!
+    redirect_to root_path, notice: 'No tienes suficientes permisos para estar acá.' unless current_vendedor 
+  end
 
   # GET /clientes
   # GET /clientes.json

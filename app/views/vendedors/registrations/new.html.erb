@@ -1,10 +1,31 @@
-<h3>Contacta al administrador</h3>
-<!--
-<h2>Sign up</h2>
+
+
+<h2>Crear Cuenta Vendedor/Admin</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
+
+<div class="field">
+    <%= f.label :rut %><br />
+    <%= f.number_field :RUT_VENDEDOR , autofocus: true, autocomplete: "off", min: 1%>
+  </div>
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :NOMBRE_VENDEDOR , autocomplete: "off"%>
+  </div>
+  <div class="field">
+    <%= f.label :apellido %><br />
+    <%= f.text_field :APELLIDO_VENDEDOR , autocomplete: "off"%>
+  </div>
+  <div class="field">
+    <%= f.label :direccion %><br />
+    <%= f.text_field :DIRECCION_VENDEDOR , autocomplete: "off"%>
+  </div>
+  <div class="field">
+    <%= f.label :telefono %><br />
+    <%= f.text_field :TELEFONO_VENDEDOR , autocomplete: "off"%>
+  </div>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
@@ -13,19 +34,24 @@
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> carácteres como mínimo)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :administrador %>
+     <%= f.check_box :ES_ADMIN %>
   </div>
 
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
--->
+
 

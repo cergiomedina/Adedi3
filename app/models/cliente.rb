@@ -8,4 +8,9 @@ class Cliente < ActiveRecord::Base
       validates_presence_of   :DIRECCION_CLIENTE
       validates_presence_of   :RUT_CLIENTE
       validates_presence_of   :TELEFONO_CLIENTE
+      has_many :pedidos, :dependent => :nullify
+      has_many :arriendos, :dependent => :nullify
+      has_many :devolucions, :dependent => :nullify
+      
+
 end

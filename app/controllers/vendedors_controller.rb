@@ -1,8 +1,14 @@
 class VendedorsController < ApplicationController
   before_action :set_vendedor, only: [:show, :edit, :update, :destroy]
-
+  before_filter :administrador!, only: [:new, :edit, :update, :destroy,:index]
+  before_filter :authenticate_vendedor!, only: [:edit, :update]
   # GET /vendedors
   # GET /vendedors.json
+
+  def administrador!
+    redirect_to root_path, notice: 'No tienes suficientes permisos para estar acá.' unless current_vendedor.ES_ADMIN == true
+  end 
+
   def index
     @vendedors = Vendedor.all
   end
