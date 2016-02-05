@@ -1,8 +1,13 @@
-<h2>Edita tu Perfil <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
+<div class="row">
+    <div class="col s12"><p></p></div>
+    <div class="col s12 m4 l2"><p></p></div>
+    <div class="col s12 m4 l8"><p> </p>
+      <div class="card-panel" >
+  <h2><i class="fa fa-user"></i> Edita tu Perfil</h2>
 
   <div class="field">
     <%= f.label :nombre %><br />
@@ -31,27 +36,44 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(Dejala en blanco si no la quieres cambiar)</i><br />
+    <%= f.label :nueva_contrasena %> <i>(Dejala en blanco si no la quieres cambiar)</i><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :confirmar_contrasena %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(Necesitamos tu contraseña actual para confirmar los cambios)</i><br />
+    <%= f.label :contrasena_actual %> <i>(Necesitamos tu contraseña actual para confirmar los cambios)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Actualizar" %>
+    <div class="actions">
+      <a class="waves-effect waves-light btn"><%= f.submit "Actualizar" %></a>
+      
+    </div>
+  <% end %>
   </div>
-<% end %>
 
-<h3>Eliminar mi cuenta</h3>
+    </div>
+    <div class="col s12 m4 l2"><p></p></div>
+  </div>
 
-<p>No estas contento con ADEDI? <%= button_to "Cancela tu cuenta", registration_path(resource_name), data: { confirm: "¿Estas seguro?" }, method: :delete %></p>
+<div class="row">
+    <div class="col s12"><p></p></div>
+    <div class="col s12 m4 l2"><p></p></div>
+    <div class="col s12 m4 l8"><p> </p>
+      <div class="card-panel" >
+  <h5><i class="fa fa-user"></i> Eliminar Cuenta</h5>
 
-<%= link_to "Volver", "/clientes/#{current_cliente.id}" %>
+<p>No estas contento con nuestra tienda de Disfraces? o simplemente quieres dejar de pertenecer a nosotros? <%= button_to "Cancela tu cuenta", registration_path(resource_name), data: { confirm: "¿Estas seguro?" }, method: :delete %></p>
+
+  </div>
+
+    </div>
+    <div class="col s12 m4 l2"><p></p></div>
+  </div>
+
+
