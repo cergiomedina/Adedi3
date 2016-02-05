@@ -16,52 +16,29 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.js"></script>
 </head>
 <body>
-	<div class="navbar-fixed">
-<nav>
+	
+  <%= render 'layouts/barra' %>
 
-    <div class="nav-wrapper ">
-      <a href="/" class="brand-logo ">ADEDI</a>
+  <% if notice %>
+  
+  <div class="container">
+    <div class="row">
 
-     <ul id="nav-mobile" class="right hide-on-med-and-down">
-
-      	<% if current_cliente %>
-
-          <li><a href="/">Mis Solicitudes</a></li>
-          <li><a href="/">Mis Arriendos</a></li>
-      		<li><a href="/"><%= link_to "Mi Perfil", "/clientes/#{current_cliente.id}" %></a></li>
-        	<li><%= link_to('Cerrar Sesion', destroy_cliente_session_path, :method => :delete) %> </li>
-        	
-		    <% else %>
-		
-
-      		<% if current_vendedor %>
-      			<li><a href="/">Solicitudes</a></li>
-		        <li><a href="/">Arriendos</a></li>
-		        <li><%= link_to('Cerrar Sesion', destroy_vendedor_session_path, :method => :delete) %>   </li>
-
-      		<% else %>
-
-	      		<li><a href="/clientes/sign_in">Iniciar Sesion</a></li>
-		        <li><a href="/clientes/sign_up">Registrarse</a></li>
-		        <li><a href="/vendedors/sign_in">Admin</a></li>
-
-      		<% end %>
-        
-        <%end%>
-      </ul>
-    </div>
-  </nav>
+    <p class="notice"><div class="success"><%= notice %>  </div></p>
   </div>
+  </div>
+  <% end %>
 
-<p class="notice"><%= notice %></p>
+  <% if alert %>
+  <div class="container">
+  <div class="row">
+  <div class="warning">
        <p class="alert"><%= alert %></p>
+       </div>
+       </div>
+       </div>
+  <% end %>
 
-
-    <% if current_cliente %>
-
-      
-
-    <% end %>
 
 <%= yield %>
 

@@ -1,0 +1,46 @@
+<div class="navbar-fixed">
+<nav>
+
+    <div class="nav-wrapper ">
+      <a href="/" class="brand-logo ">ADEDI</a>
+
+     <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+      	<% if current_cliente %>
+        <!-- BARRA DE CLIENTE -->
+
+          <li><a href="/">Mis Solicitudes</a></li>
+          <li><a href="/">Mis Arriendos</a></li>
+      		<li><a href="/"><%= link_to "Mi Perfil", "/clientes/#{current_cliente.id}" %></a></li>
+        	<li><%= link_to('Cerrar Sesion', destroy_cliente_session_path, :method => :delete) %> </li>
+        	
+		    <% else %>
+		
+
+      		<% if current_vendedor %>
+
+            <% if current_vendedor.ES_ADMIN == 1 %>
+            <!-- BARRA DE ADMINISTRADOR -->
+              <li><a href="/clientes">Clientes</a></li>
+              <li><a href="/disfrazs">Disfraces</a></li>
+
+            <% end %>
+
+            <!-- BARRA DE VENDEDOR -->
+      			<li><a href="/">Solicitudes</a></li>
+		        <li><a href="/">Arriendos</a></li>
+		        <li><%= link_to('Cerrar Sesion', destroy_vendedor_session_path, :method => :delete) %>   </li>
+
+      		<% else %>
+
+	      		<li><a href="/clientes/sign_in">Iniciar Sesion</a></li>
+		        <li><a href="/clientes/sign_up">Registrarse</a></li>
+		        <li><a href="/vendedors/sign_in">Admin</a></li>
+
+      		<% end %>
+        
+        <%end%>
+      </ul>
+    </div>
+  </nav>
+  </div>

@@ -1,5 +1,7 @@
 class ClientesController < ApplicationController
   before_action :set_cliente, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_cliente!, only: [:edit, :update, :destroy], except: [:index]
+  before_filter :authenticate_vendedor!, only: [:new, :edit, :update, :destroy,:index]
 
   # GET /clientes
   # GET /clientes.json
