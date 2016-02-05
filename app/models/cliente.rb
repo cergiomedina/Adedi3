@@ -4,5 +4,8 @@ class Cliente < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 		self.table_name = "cliente"
-
+      validates_presence_of   :NOMBRE_CLIENTE
+      validates_presence_of   :DIRECCION_CLIENTE
+      validates_presence_of   :RUT_CLIENTE
+      validates_presence_of   :TELEFONO_CLIENTE
 end
