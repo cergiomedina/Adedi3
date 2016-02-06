@@ -72,7 +72,9 @@ Rails.application.routes.draw do
 
   get 'categoria/index' => 'categorias#index'
 
-  get 'arriendo_estados/index'
+  get '/arriendo_estados' => 'arriendo_estados#index'
+
+  get 'arriendo_estado/new' => 'arriendo_estados#new'
 
 
 
