@@ -1,6 +1,17 @@
 class CategoriaController < ApplicationController
   before_action :set_categorium, only: [:show, :edit, :update, :destroy]
+  before_filter :vendedor!, only: [:new, :edit, :update, :destroy,:index]
+  before_filter :persona_normal!, only: [:show,:index]
 
+  def vendedor!
+    if current_vendedor
+      redirect_to root_path, notice: 'No tienes suficientes permisos para estar acá.' unless current_vendedor.ES_ADMIN==1
+    end
+  end
+
+  def persona_normal!
+    redirect_to root_path, notice: 'No tienes suficientes permisos para estar acá.' unless current_cliente || current_vendedor
+  end
 
   # GET /categoria
   # GET /categoria.json
@@ -29,7 +40,7 @@ class CategoriaController < ApplicationController
 
     respond_to do |format|
       if @categorium.save
-        format.html { redirect_to @categorium, notice: 'Categorium was successfully created.' }
+        format.html { redirect_to @categorium, notice: 'Categoría creada.' }
         format.json { render :show, status: :created, location: @categorium }
       else
         format.html { render :new }
@@ -43,7 +54,7 @@ class CategoriaController < ApplicationController
   def update
     respond_to do |format|
       if @categorium.update(categorium_params)
-        format.html { redirect_to @categorium, notice: 'Categorium was successfully updated.' }
+        format.html { redirect_to @categorium, notice: 'Categoría actualizada.' }
         format.json { render :show, status: :ok, location: @categorium }
       else
         format.html { render :edit }
@@ -57,7 +68,7 @@ class CategoriaController < ApplicationController
   def destroy
     @categorium.destroy
     respond_to do |format|
-      format.html { redirect_to categoria_url, notice: 'Categorium was successfully destroyed.' }
+      format.html { redirect_to categoria_url, notice: 'Categoría eliminada.' }
       format.json { head :no_content }
     end
   end
