@@ -5,47 +5,41 @@
     <div class="col s12"><p></p></div>
     <div class="col s12 m3 l2">
 
-      <div class="card-panel blue-grey darken-1 white-text z-depth-3">
-        <h5>Categorías</h5>
-        <div class="divider"></div>
-          <% @categorias.each do |c| %>
 
-              <li><%= c.NOMBRE_CATEGORIA%></li>
+<% if current_vendedor %>
+  <% if current_vendedor.ES_ADMIN==true %>
+    <ul class="collection with-header z-depth-3">
+        <li class="collection-header"><h5>MENU ADMIN</h5></li>
+          
+              <li class="collection-item"><div>Nuevo Disfraz<a href="/disfrazs/new" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+      </ul>
 
-        <% end %>
-        </div>
+  <% end %>  
+
+<% end %>
         
-    </div>
+        <ul class="collection with-header z-depth-3">
+        <li class="collection-header"><h4>Categorías</h4></li>
+          
+            <% @categorias.each do |c| %>
 
+              <li class="collection-item"><div><%= c.NOMBRE_CATEGORIA%><a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+
+            <% end %>
+      </ul>
+<% if current_cliente %>
+
+      <div class="card-panel blue darken-3  white-text z-depth-3">
+        <h5>Información</h5>
+        <div class="divider"></div>
+        <p>Acá puedes seleccionar los disfraces que deseas y agendarlos :D</p>
+      </div>
     
-      
+
+<% end %>
+    </div>  
           <h4><i class="fa fa-user"></i>Nuestros Disfraces</h4>
 
-
-<!--
-          <table>
-            <thead>
-              <tr>
-                <th>Nombre</th>
-
-              </tr>
-            </thead>
-
-             <tbody>
-              <% @disfrazs.each do |disfraz| %>
-                <tr>
-                  <td><%= disfraz.CATEGORIA_DISFRAZ %></td>
-                  <td><%= link_to 'Ver', disfraz ,class: 'waves-effect waves-light btn white-text '%>
-                  <%= link_to 'Editar', edit_disfraz_path(disfraz),class: 'waves-effect waves-light btn white-text ' %>
-                  <%= link_to 'Eliminar', disfraz, method: :delete, data: { confirm: 'Are you sure?' },class: 'waves-effect waves-light btn white-text red' %></td>
-                </tr>
-              <% end %>
-              
-            </tbody>
-
-          </table>
-
-        -->
         <% @disfrazs.each do |disfraz| %>
           <div class="col s12 m2">
           <div class="card-panel" >
@@ -59,12 +53,22 @@
             </div>
             <% if current_vendedor%>
               <% if current_vendedor.ES_ADMIN == true %>
-              <div class="container" align="center">
-                
 
-                  <p><%= link_to 'Editar', edit_disfraz_path(disfraz),class: 'waves-effect waves-light btn white-text ' %></p>
-                  <p><%= link_to 'Eliminar', disfraz, method: :delete, data: { confirm: 'Estas seguro?' },class: 'waves-effect waves-light btn white-text red' %></p>
+
+
+              <ul class="collapsible" data-collapsible="accordion">
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">filter_drama</i>ADMIN</div>
+                  <div class="collapsible-body" align="center">
+
+
+                  <p><%= link_to 'Editar', edit_disfraz_path(disfraz),class: 'waves-effect waves-light btn white-text ' %>
+                  <%= link_to 'Eliminar', disfraz, method: :delete, data: { confirm: 'Estas seguro?' },class: 'waves-effect waves-light btn white-text red' %></p>
+
                   </div>
+                </li>
+              </ul>
+                    
               <% end %>
             <% end %>
 

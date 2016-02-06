@@ -15,6 +15,7 @@ gem 'coffee-script-source', '1.8.0'
 gem 'font-awesome-sass'
 gem 'devise'
 gem 'rut_validator'
+gem 'jquery-turbolinks'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 

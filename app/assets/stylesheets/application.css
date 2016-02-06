@@ -2477,6 +2477,7 @@ button {
   overflow: visible;
 }
 
+
 /**
  * Address inconsistent `text-transform` inheritance for `button` and `select`.
  * All other form control elements do not inherit `text-transform` values.
@@ -7353,6 +7354,18 @@ nav ul a span.badge {
     left: 100%;
   }
 }
+ .button {
+     /* all your common button styles */
+ }
+
+ .big {
+     height: 60px;
+     width: 100px;
+ }
+ .small {
+     height: 40px;
+     width: 70px;
+ }
 
 nav {
   color: #fff;

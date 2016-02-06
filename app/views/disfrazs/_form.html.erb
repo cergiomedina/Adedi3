@@ -1,17 +1,43 @@
-<%= form_for(@disfraz) do |f| %>
-  <% if @disfraz.errors.any? %>
+
+
+<div class="row">
+
+  <div class="container">
+
+    <div class="card-panel">
+
+      <h4>Nueva Categoría</h4>
+      <br>
+
+     <%= form_for(@disfraz) do |f| %>
+     <% if @disfraz.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@disfraz.errors.count, "error") %> prohibited this disfraz from being saved:</h2>
 
-      <ul>
-      <% @disfraz.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+             <ul>
+            <% @disfraz.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+       <div class="section">
+        <%= f.label :nombre%>
+        <%= f.text_field :CATEGORIA_DISFRAZ %>
+      </div>
+      <div class="section">
+        <%= f.label :stock_total %>
+        <%= f.number_field :STOCK_DISFRAZ, min: 1 %>
+      </div>
+        </div>
+        <div class="actions">
+          <%= f.submit "Crear nuevo Disfraz", class: 'waves-effect waves-light btn white-text' %>
+        </div>
+      <% end %>
+
+      </div>
+<%= link_to 'Volver', disfrazs_path , class: 'waves-effect waves-light btn white-text' %>
+    </div>
+
+</div>
