@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160203035112) do
+ActiveRecord::Schema.define(version: 20160206053650) do
 
   create_table "arriendo", primary_key: "ID_ARRIENDO", force: true do |t|
     t.integer "ID_VENDEDOR",                 null: false
@@ -102,10 +102,14 @@ ActiveRecord::Schema.define(version: 20160203035112) do
   add_index "devolucion", ["ID_VENDEDOR"], name: "FK_RELATIONSHIP_23", using: :btree
 
   create_table "disfraz", primary_key: "ID_DISFRAZ", force: true do |t|
-    t.integer "ID_CATEGORIA",                 null: false
-    t.string  "CATEGORIA_DISFRAZ", limit: 20, null: false
-    t.integer "STOCK_DISFRAZ",                null: false
-    t.integer "STOCK_DISPONIBLE",             null: false
+    t.integer  "ID_CATEGORIA",                   null: false
+    t.string   "CATEGORIA_DISFRAZ",   limit: 20, null: false
+    t.integer  "STOCK_DISFRAZ",                  null: false
+    t.integer  "STOCK_DISPONIBLE",               null: false
+    t.string   "imagen_file_name"
+    t.string   "imagen_content_type"
+    t.integer  "imagen_file_size"
+    t.datetime "imagen_updated_at"
   end
 
   add_index "disfraz", ["ID_CATEGORIA"], name: "FK_RELATIONSHIP_3", using: :btree

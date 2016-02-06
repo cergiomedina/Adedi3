@@ -18,7 +18,7 @@ class DisfrazsControllerTest < ActionController::TestCase
 
   test "should create disfraz" do
     assert_difference('Disfraz.count') do
-      post :create, disfraz: {  }
+      post :create, disfraz: { CATEGORIA_DISFRAZ: @disfraz.CATEGORIA_DISFRAZ, ID_CATEGORIA: @disfraz.ID_CATEGORIA, ID_DISFRAZ: @disfraz.ID_DISFRAZ, STOCK_DISFRAZ: @disfraz.STOCK_DISFRAZ, STOCK_DISPONIBLE: @disfraz.STOCK_DISPONIBLE }
     end
 
     assert_redirected_to disfraz_path(assigns(:disfraz))
@@ -35,7 +35,7 @@ class DisfrazsControllerTest < ActionController::TestCase
   end
 
   test "should update disfraz" do
-    patch :update, id: @disfraz, disfraz: {  }
+    patch :update, id: @disfraz, disfraz: { CATEGORIA_DISFRAZ: @disfraz.CATEGORIA_DISFRAZ, ID_CATEGORIA: @disfraz.ID_CATEGORIA, ID_DISFRAZ: @disfraz.ID_DISFRAZ, STOCK_DISFRAZ: @disfraz.STOCK_DISFRAZ, STOCK_DISPONIBLE: @disfraz.STOCK_DISPONIBLE }
     assert_redirected_to disfraz_path(assigns(:disfraz))
   end
 

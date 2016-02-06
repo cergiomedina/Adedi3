@@ -1,43 +1,40 @@
-
-
-<div class="row">
-
-  <div class="container">
-
-    <div class="card-panel">
-
-      <h4>Nueva Categoría</h4>
-      <br>
-
-     <%= form_for(@disfraz) do |f| %>
-     <% if @disfraz.errors.any? %>
+<%= form_for @disfraz, :html => { :multipart => true } do |f| %>
+  <% if @disfraz.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@disfraz.errors.count, "error") %> prohibited this disfraz from being saved:</h2>
 
-             <ul>
-            <% @disfraz.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
-          </div>
-        <% end %>
-
-       <div class="section">
-        <%= f.label :nombre%>
-        <%= f.text_field :CATEGORIA_DISFRAZ %>
-      </div>
-      <div class="section">
-        <%= f.label :stock_total %>
-        <%= f.number_field :STOCK_DISFRAZ, min: 1 %>
-      </div>
-        </div>
-        <div class="actions">
-          <%= f.submit "Crear nuevo Disfraz", class: 'waves-effect waves-light btn white-text' %>
-        </div>
+      <ul>
+      <% @disfraz.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
-
-      </div>
-<%= link_to 'Volver', disfrazs_path , class: 'waves-effect waves-light btn white-text' %>
+      </ul>
     </div>
-
-</div>
+  <% end %>
+<div class="field">
+    <%= f.label :imagen %><br>
+    <%= f.file_field :imagen %>
+  </div>
+  <div class="field">
+    <%= f.label :ID_DISFRAZ %><br>
+    <%= f.text_field :ID_DISFRAZ %>
+  </div>
+  <div class="field">
+    <%= f.label :ID_CATEGORIA %><br>
+    <%= f.number_field :ID_CATEGORIA %>
+  </div>
+  <div class="field">
+    <%= f.label :CATEGORIA_DISFRAZ %><br>
+    <%= f.text_field :CATEGORIA_DISFRAZ %>
+  </div>
+  <div class="field">
+    <%= f.label :STOCK_DISFRAZ %><br>
+    <%= f.number_field :STOCK_DISFRAZ %>
+  </div>
+  <div class="field">
+    <%= f.label :STOCK_DISPONIBLE %><br>
+    <%= f.number_field :STOCK_DISPONIBLE %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

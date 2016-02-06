@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :disfrazs
+
   devise_for :clientes , controllers: { sessions: "clientes/sessions", registrations: "clientes/registrations" }
   devise_for :vendedors , controllers: { sessions: "vendedors/sessions", registrations: "vendedors/registrations" }
   

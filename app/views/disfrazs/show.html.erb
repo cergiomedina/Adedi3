@@ -1,4 +1,33 @@
 <p id="notice"><%= notice %></p>
 
+
+<p>
+<%= image_tag @disfraz.imagen.url(:thumb) %>
+</p>
+<p>
+  <strong>Id disfraz:</strong>
+  <%= @disfraz.ID_DISFRAZ %>
+</p>
+
+<p>
+  <strong>Id categoria:</strong>
+  <%= @disfraz.ID_CATEGORIA %>
+</p>
+
+<p>
+  <strong>Categoria disfraz:</strong>
+  <%= @disfraz.CATEGORIA_DISFRAZ %>
+</p>
+
+<p>
+  <strong>Stock disfraz:</strong>
+  <%= @disfraz.STOCK_DISFRAZ %>
+</p>
+
+<p>
+  <strong>Stock disponible:</strong>
+  <%= @disfraz.STOCK_DISPONIBLE %>
+</p>
+
 <%= link_to 'Edit', edit_disfraz_path(@disfraz) %> |
 <%= link_to 'Back', disfrazs_path %>
