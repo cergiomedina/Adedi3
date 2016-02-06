@@ -4,6 +4,7 @@ class DisfrazsController < ApplicationController
   # GET /disfrazs
   # GET /disfrazs.json
   def index
+    @categorias = Categoria.all
     @disfrazs = Disfraz.all
   end
 

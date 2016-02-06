@@ -1,23 +1,83 @@
-<h1>Listing disfrazs</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @disfrazs.each do |disfraz| %>
-      <tr>
-        <td><%= link_to 'Show', disfraz %></td>
-        <td><%= link_to 'Edit', edit_disfraz_path(disfraz) %></td>
-        <td><%= link_to 'Destroy', disfraz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+<div class="row">
+    <div class="col s12"><p></p></div>
+    <div class="col s12 m3 l2">
 
-<%= link_to 'New Disfraz', new_disfraz_path %>
+      <div class="card-panel blue-grey darken-1 white-text z-depth-3">
+        <h5>Categorías</h5>
+        <div class="divider"></div>
+          <% @categorias.each do |c| %>
+
+              <li><%= c.NOMBRE_CATEGORIA%></li>
+
+        <% end %>
+        </div>
+        
+    </div>
+
+    
+      
+          <h4><i class="fa fa-user"></i>Nuestros Disfraces</h4>
+
+
+<!--
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre</th>
+
+              </tr>
+            </thead>
+
+             <tbody>
+              <% @disfrazs.each do |disfraz| %>
+                <tr>
+                  <td><%= disfraz.CATEGORIA_DISFRAZ %></td>
+                  <td><%= link_to 'Ver', disfraz ,class: 'waves-effect waves-light btn white-text '%>
+                  <%= link_to 'Editar', edit_disfraz_path(disfraz),class: 'waves-effect waves-light btn white-text ' %>
+                  <%= link_to 'Eliminar', disfraz, method: :delete, data: { confirm: 'Are you sure?' },class: 'waves-effect waves-light btn white-text red' %></td>
+                </tr>
+              <% end %>
+              
+            </tbody>
+
+          </table>
+
+        -->
+        <% @disfrazs.each do |disfraz| %>
+          <div class="col s12 m2">
+          <div class="card-panel" >
+            <div class="row">
+              <h5><%= disfraz.CATEGORIA_DISFRAZ%></h5>
+              <div class="divider"></div>
+              <img width="170" height="170" src="/assets/default.png" />
+            </div>
+            <div class="container" align="center">
+            <p><%= link_to 'Ver', disfraz ,class: 'waves-effect waves-light btn white-text '%></p>
+            </div>
+            <% if current_vendedor%>
+              <% if current_vendedor.ES_ADMIN == true %>
+              <div class="container" align="center">
+                
+
+                  <p><%= link_to 'Editar', edit_disfraz_path(disfraz),class: 'waves-effect waves-light btn white-text ' %></p>
+                  <p><%= link_to 'Eliminar', disfraz, method: :delete, data: { confirm: 'Estas seguro?' },class: 'waves-effect waves-light btn white-text red' %></p>
+                  </div>
+              <% end %>
+            <% end %>
+
+          </div>
+          </div>
+        <% end %>
+          
+          
+ 
+
+    
+    </div>
+    </div>
+    </div>
+
+    

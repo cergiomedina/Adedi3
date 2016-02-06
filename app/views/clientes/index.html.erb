@@ -13,7 +13,7 @@
       <div class="card-panel" >
           <h2><i class="fa fa-user"></i> Clientes </h2>
 
-          <table>
+          <table class="striped">
             <thead>
               <tr>
                 <th>Id</th>
@@ -36,8 +36,8 @@
                   <td><%= cliente.DIRECCION_CLIENTE%></td>
                   <td><%= cliente.email%></td>
                   <td>
-                  <%= link_to 'Modificar', edit_cliente_path(cliente) %>
-                  <%= link_to 'Eliminar', cliente, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
+               <!--   <%= link_to 'Modificar', edit_cliente_path(cliente),class: 'waves-effect waves-light btn white-text '%>-->
+                  <%= link_to 'Eliminar', cliente, method: :delete, data: { confirm: 'Estas seguro?' },class: 'waves-effect waves-light btn white-text red ' %></td>
               
                 </tr>
            
