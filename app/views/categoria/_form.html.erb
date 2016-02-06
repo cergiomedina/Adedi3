@@ -11,17 +11,18 @@
     </div>
   <% end %>
 
-  <div class="section">
-    <%= f.label :nombre %>
+  <div class="field">
+    <%= f.label :NOMBRE_CATEGORIA %><br>
     <%= f.text_field :NOMBRE_CATEGORIA %>
-
   </div>
-  <div class="section">
-    <%= f.label :cantidad_disfraces %>
-    <%= f.text_field :STOCK_CATEGORIA %>
+  <div class="field">
+    <%= f.label :STOCK_CATEGORIA %><br>
+    <%= f.number_field :STOCK_CATEGORIA %>
   </div>
-
-
+  <div class="field">
+    <%= f.label :ID_CATEGORIA %><br>
+    <%= f.text_field :ID_CATEGORIA %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

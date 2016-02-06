@@ -18,7 +18,7 @@ class CategoriaControllerTest < ActionController::TestCase
 
   test "should create categorium" do
     assert_difference('Categorium.count') do
-      post :create, categorium: {  }
+      post :create, categorium: { ID_CATEGORIA: @categorium.ID_CATEGORIA, NOMBRE_CATEGORIA: @categorium.NOMBRE_CATEGORIA, STOCK_CATEGORIA: @categorium.STOCK_CATEGORIA }
     end
 
     assert_redirected_to categorium_path(assigns(:categorium))
@@ -35,7 +35,7 @@ class CategoriaControllerTest < ActionController::TestCase
   end
 
   test "should update categorium" do
-    patch :update, id: @categorium, categorium: {  }
+    patch :update, id: @categorium, categorium: { ID_CATEGORIA: @categorium.ID_CATEGORIA, NOMBRE_CATEGORIA: @categorium.NOMBRE_CATEGORIA, STOCK_CATEGORIA: @categorium.STOCK_CATEGORIA }
     assert_redirected_to categorium_path(assigns(:categorium))
   end
 

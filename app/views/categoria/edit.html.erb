@@ -1,26 +1,6 @@
-<div class="row">
-    <div class="col s12"><p></p></div>
-    <div class="col s12 m4 l3">
-
-      <div class="card-panel green darken-3 white-text">
-
-          <h4><i class="fa fa-hand-o-right"></i> Atención</h4>
-          <p>Los datos que edites aquí lo verán los demas usuarios de la aplicación, así que editalos a conciencia.</p>
-        </div>
-
-    </div>
-    <div class="col s12 m4 l9"><p> </p>
-      <div class="card-panel" >
-          <h2><i class="fa fa-user"></i> Editar Categoría - <%= @categorium.NOMBRE_CATEGORIA %> </h2>
+<h1>Editing categorium</h1>
 
 <%= render 'form' %>
 
-
-</div>
-
-    </div>
-    </div>
-    </div>
-    </div>
-
+<%= link_to 'Show', @categorium %> |
 <%= link_to 'Back', categoria_path %>

@@ -1,58 +1,29 @@
+<h1>Listing categoria</h1>
 
-<div class="row">
-    <div class="col s12"><p></p></div>
-    <div class="col s12 m4 l3">
+<table>
+  <thead>
+    <tr>
+      <th>Nombre categoria</th>
+      <th>Stock categoria</th>
+      <th>Id categoria</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-      <div class="card-panel green darken-3 white-text">
+  <tbody>
+    <% @categoria.each do |categorium| %>
+      <tr>
+        <td><%= categorium.NOMBRE_CATEGORIA %></td>
+        <td><%= categorium.STOCK_CATEGORIA %></td>
+        <td><%= categorium.ID_CATEGORIA %></td>
+        <td><%= link_to 'Show', categorium %></td>
+        <td><%= link_to 'Edit', edit_categorium_path(categorium) %></td>
+        <td><%= link_to 'Destroy', categorium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-          <h4><i class="fa fa-hand-o-right"></i> Información</h4>
-          <p>En esta sección se muestran las categorías presentes en la tienda, cada una de ellas posee un stock de disfraces asociados.</p>
-        </div>
-
-    </div>
-    <div class="col s12 m4 l9"><p> </p>
-      <div class="card-panel" >
-          <h2><i class="fa fa-user"></i> Categorías </h2>
-
-          <table>
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Stock</th>
-
-              </tr>
-            </thead>
-
-            <tbody>
-              <% @categoria.each do |categorium| %>
-                <tr>
-                  <td><%= categorium.id %></td>
-                  <td><%= categorium.NOMBRE_CATEGORIA%></td>
-                  <td><%= categorium.STOCK_CATEGORIA%></td>
-                  <td>
-                  <td><%= link_to 'Editar', edit_categorium_path(categorium) %></td>
-                  <td><%= link_to 'Eliminar', categorium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                </tr>
-           
-                  
-
-              <% end %>
-            </tbody>
-          </table>
-
-          <br>
-
-  </div>
-
-    </div>
-    </div>
-    </div>
-    </div>
-
-
-    
-<!-- 
+<br>
 
 <%= link_to 'New Categorium', new_categorium_path %>
--->

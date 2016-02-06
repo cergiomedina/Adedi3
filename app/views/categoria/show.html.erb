@@ -1,4 +1,19 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Nombre categoria:</strong>
+  <%= @categorium.NOMBRE_CATEGORIA %>
+</p>
+
+<p>
+  <strong>Stock categoria:</strong>
+  <%= @categorium.STOCK_CATEGORIA %>
+</p>
+
+<p>
+  <strong>Id categoria:</strong>
+  <%= @categorium.ID_CATEGORIA %>
+</p>
+
 <%= link_to 'Edit', edit_categorium_path(@categorium) %> |
 <%= link_to 'Back', categoria_path %>
