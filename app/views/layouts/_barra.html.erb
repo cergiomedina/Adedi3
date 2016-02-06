@@ -8,9 +8,9 @@
 
       	<% if current_cliente %>
         <!-- BARRA DE CLIENTE -->
-
-          <li><a href="/">Mis Solicitudes</a></li>
-          <li><a href="/">Mis Arriendos</a></li>
+          <li><a href="/disfrazs">Disfraces</a></li>
+          <li><a href="/pedidos">Mis Solicitudes</a></li>
+          <li><a href="/arriendos">Mis Arriendos</a></li>
       		<li><a href="/"><%= link_to "Mi Perfil", "/clientes/#{current_cliente.id}" %></a></li>
         	<li><%= link_to('Cerrar Sesion', destroy_cliente_session_path, :method => :delete) %> </li>
         	

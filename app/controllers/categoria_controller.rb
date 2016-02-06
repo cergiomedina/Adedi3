@@ -1,10 +1,11 @@
 class CategoriaController < ApplicationController
   before_action :set_categorium, only: [:show, :edit, :update, :destroy]
 
+
   # GET /categoria
   # GET /categoria.json
   def index
-    @categoria = Categorium.all
+    @categoria = Categoria.all
   end
 
   # GET /categoria/1
@@ -14,7 +15,7 @@ class CategoriaController < ApplicationController
 
   # GET /categoria/new
   def new
-    @categorium = Categorium.new
+    @categorium = Categoria.new
   end
 
   # GET /categoria/1/edit
@@ -24,7 +25,7 @@ class CategoriaController < ApplicationController
   # POST /categoria
   # POST /categoria.json
   def create
-    @categorium = Categorium.new(categorium_params)
+    @categorium = Categoria.new(categorium_params)
 
     respond_to do |format|
       if @categorium.save
@@ -64,7 +65,7 @@ class CategoriaController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_categorium
-      @categorium = Categorium.find(params[:id])
+      @categorium = Categoria.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

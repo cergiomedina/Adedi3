@@ -66,6 +66,12 @@ Rails.application.routes.draw do
 
   get 'categorias/index'
 
+  get 'categoria/new' => 'categorias#new'
+
+  post 'categoria/index' => 'categorias#create'
+
+  get 'categoria/index' => 'categorias#index'
+
   get 'arriendo_estados/index'
 
 
@@ -75,21 +81,24 @@ Rails.application.routes.draw do
     resource :cliente_estado
   end
 
+  resources :categoria
 
 
   resources :categorias do
-    resources :disfrazs, :ejemplars
+    resources :disfrazs
   end
 
   resources :cliente_estados
 
   resources :arriendos do
-    resources :detalle_arriendos
+    resources :detalle_arriendos,:devolucions
     resource :transicion_est_arriendo, :multa,:nota_de_venta
   end
 
   resources :devolucions
-  resources :disfrazs
+  resources :disfrazs do
+    resources :ejemplars
+  end
 
   resources :ejemplars do
     resource :ejemplar_estado
