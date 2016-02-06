@@ -1,29 +1,40 @@
-<%= form_for(@categorium) do |f| %>
-  <% if @categorium.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@categorium.errors.count, "error") %> prohibited this categorium from being saved:</h2>
+<div class="row">
 
-      <ul>
-      <% @categorium.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+  <div class="container">
+
+    <div class="card-panel">
+
+      <h4>Nueva Categoría</h4>
+      <br>
+
+      <%= form_for(@categorium) do |f| %>
+        <% if @categorium.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@categorium.errors.count, "error") %> prohibited this categorium from being saved:</h2>
+
+            <ul>
+            <% @categorium.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label :NOMBRE_CATEGORIA %><br>
+          <%= f.text_field :NOMBRE_CATEGORIA %>
+        </div>
+        <div class="field">
+          <%= f.label :STOCK_CATEGORIA %><br>
+          <%= f.number_field :STOCK_CATEGORIA %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Crear Categoría", class: 'waves-effect waves-light btn white-text' %>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :NOMBRE_CATEGORIA %><br>
-    <%= f.text_field :NOMBRE_CATEGORIA %>
-  </div>
-  <div class="field">
-    <%= f.label :STOCK_CATEGORIA %><br>
-    <%= f.number_field :STOCK_CATEGORIA %>
-  </div>
-  <div class="field">
-    <%= f.label :ID_CATEGORIA %><br>
-    <%= f.text_field :ID_CATEGORIA %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+      </div>
+<%= link_to 'Volver', categoria_path, class: 'waves-effect waves-light btn white-text' %>
+    </div>
+
+</div>
