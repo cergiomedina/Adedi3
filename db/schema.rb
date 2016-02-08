@@ -227,20 +227,21 @@ ActiveRecord::Schema.define(version: 20160206053650) do
   add_index "transicion_est_vendedor", ["VEN_ID_EST_VENDEDOR"], name: "FK_RELATIONSHIP_32", using: :btree
 
   create_table "vendedor", primary_key: "ID_VENDEDOR", force: true do |t|
-    t.integer  "ID_EST_VENDEDOR",                   default: 1,            null: false
-    t.string   "NOMBRE_VENDEDOR",        limit: 20,                        null: false
+    t.integer  "ID_EST_VENDEDOR",                                null: false
+    t.string   "NOMBRE_VENDEDOR",        limit: 20
     t.string   "APELLIDO_VENDEDOR",      limit: 20
-    t.integer  "RUT_VENDEDOR",                                             null: false
-    t.string   "DIRECCION_VENDEDOR",     limit: 50,                        null: false
-    t.integer  "TELEFONO_VENDEDOR",                                        null: false
-    t.string   "ESTADO_VENDEDOR",        limit: 20, default: "HABILITADO", null: false
-    t.boolean  "ES_ADMIN",                          default: false,        null: false
-    t.string   "email",                             default: "",           null: false
-    t.string   "encrypted_password",                default: "",           null: false
+    t.integer  "RUT_VENDEDOR"
+    t.string   "CORREO_VENDEDOR",        limit: 50
+    t.string   "DIRECCION_VENDEDOR",     limit: 50
+    t.integer  "TELEFONO_VENDEDOR"
+    t.string   "ESTADO_VENDEDOR",        limit: 20
+    t.string   "PASSWORD_VENDEDOR",      limit: 10
+    t.string   "email",                             default: "", null: false
+    t.string   "encrypted_password",                default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                     default: 0,            null: false
+    t.integer  "sign_in_count",                     default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
