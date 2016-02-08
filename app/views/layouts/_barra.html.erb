@@ -2,6 +2,7 @@
 <nav>
 
     <div class="nav-wrapper ">
+    <div class="container">
 
       
       <%= link_to('ADEDI',root_path, class: "brand-logo") %> 
@@ -9,11 +10,11 @@
 
       	<% if current_cliente %>
         <!-- BARRA DE CLIENTE -->
-          <li><a href="/disfrazs">Disfraces</a></li>
-          <li><a href="/pedidos">Mis Solicitudes</a></li>
-          <li><a href="/arriendos">Mis Arriendos</a></li>
-      		<li><a href="/"><%= link_to "Mi Perfil", "/clientes/#{current_cliente.id}" %></a></li>
-        	<li><%= link_to('Cerrar Sesion', destroy_cliente_session_path, :method => :delete) %> </li>
+          <li><a href="/disfrazs">DISFRACES</a></li>
+          <li><a href="/pedidos">MIS SOLICITUDES</a></li>
+          <li><a href="/arriendos">MIS ARRIENDOS</a></li>
+      		<li><a href="/"><%= link_to "MI PERFIL", "/clientes/#{current_cliente.id}" %></a></li>
+        	<li><%= link_to('CERRAR SESIÓN', destroy_cliente_session_path, :method => :delete) %> </li>
         	
 		    <% else %>
 		
@@ -22,26 +23,41 @@
 
             <% if current_vendedor.ES_ADMIN == true %>
             <!-- BARRA DE ADMINISTRADOR -->
-              <li><a href="/clientes">Clientes</a></li>
-              <li><a href="/disfrazs">Disfraces</a></li>
+              <li><a href="/clientes">CLIENTES</a></li>
+              <li><a href="/disfrazs">DISFRACES</a></li>
 
             <% end %>
 
             <!-- BARRA DE VENDEDOR -->
-      			<li><a href="/">Solicitudes</a></li>
-		        <li><a href="/">Arriendos</a></li>
-		        <li><%= link_to('Cerrar Sesion', destroy_vendedor_session_path, :method => :delete) %>   </li>
+      			<li><a href="/">SOLICITUDES</a></li>
+		        <li><a href="/">ARRIENDOS</a></li>
+		        <li><%= link_to('CERRAR SESIÓN', destroy_vendedor_session_path, :method => :delete) %>   </li>
 
       		<% else %>
 
-	      		<li><a href="/clientes/sign_in">Iniciar Sesion</a></li>
-		        <li><a href="/clientes/sign_up">Registrarse</a></li>
-		        <li><a href="/vendedors/sign_in">Admin</a></li>
+	      		<li><a href="/clientes/sign_in">INICIAR SESIÓN</a></li>
+		        <li><a href="/clientes/sign_up">REGISTRAR</a></li>
+		        <li><a href="/vendedors/sign_in">ADMIN</a></li>
 
       		<% end %>
         
         <%end%>
       </ul>
     </div>
+    </div>
   </nav>
   </div>
+
+<!-- BARRA DE BOTONES -->
+  <br>
+  <div class="center">
+      
+    <a href="/" class="waves-effect waves-light btn ">HOME</a>
+    <a href="/" class="waves-effect waves-light btn ">CATÁLOGO</a>
+    <a href="/home/acerca" class="waves-effect waves-light btn ">ACERCA</a>
+    <a href="/home/contacto" class="waves-effect waves-light btn ">CONTACTO</a>
+    <a href="/home/ayuda" class="waves-effect waves-light btn">AYUDA</a>     
+
+
+  </div>
+</br>
