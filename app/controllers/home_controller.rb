@@ -7,4 +7,7 @@ class HomeController < ApplicationController
 
   def acerca
   end
+
+  def contacto
+  end
 end

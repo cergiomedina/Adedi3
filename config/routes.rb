@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get 'home/acerca'
 
+  get 'home/contacto'
+
   get 'vendedors/index'
 
   get 'vendedors/show'
