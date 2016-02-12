@@ -10,5 +10,7 @@ class Disfraz < ActiveRecord::Base
 
 	def self.search(term)
 	   where("CATEGORIA_DISFRAZ like :term", term: "#{term}")
+	   where("ID_CATEGORIA like :term", term: "#{term}")
 	 end
+
 end
