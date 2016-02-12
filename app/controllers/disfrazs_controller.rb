@@ -5,7 +5,7 @@ class DisfrazsController < ApplicationController
 
   def index
     @categorias = Categoria.all
-    @disfrazs = Disfraz.paginate(:page => params[:page], :per_page => 5)
+    @disfrazs = Disfraz.paginate(:page => params[:page], :per_page => 6)
     respond_with(@disfrazs)
   end
 
