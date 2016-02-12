@@ -18,6 +18,8 @@ gem 'rut_validator'
 gem 'jquery-turbolinks'
 gem "paperclip", "~> 4.3"
 gem 'cocaine', '0.5.5'
+
+gem 'will_paginate-materialize'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 

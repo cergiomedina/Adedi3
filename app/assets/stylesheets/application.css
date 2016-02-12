@@ -3279,6 +3279,9 @@ nav ul a span.badge {
   -webkit-animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
           animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
 }
+.pagination a li.active {
+  color: #fff;
+}
 
 .progress .indeterminate:after {
   content: '';
