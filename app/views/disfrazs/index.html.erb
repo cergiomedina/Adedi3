@@ -2,9 +2,20 @@
 
 
 <div class="row">
-    <div class="col s12" align="center"><h4><i class="fa fa-child"></i> Catálogo de Disfraces</h4></div>
+    <div class="col s12" align="center"><h4><i class="fa fa-child"></i> Catálogo de Disfraces</h4> </div>
     <div class="col s12 m3 l2">
 
+ 
+
+  <div class="card-panel  z-depth-3">
+     <%= form_tag disfrazs_path, :method => 'get' do %>
+
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Buscar", :name => nil,class: 'waves-effect waves-light btn white-text green' %>
+
+      <% end %>
+      </div>
+  
 
 <% if current_vendedor %>
   <% if current_vendedor.ES_ADMIN==true %>
@@ -34,11 +45,12 @@
         <div class="divider"></div>
         <p>Acá puedes seleccionar los disfraces que deseas y agendarlos :D</p>
       </div>
-    
+
 
 <% end %>
     </div>  
           
+
 
         <% @disfrazs.each do |disfraz| %>
           <div class="col s12 m3">

@@ -5,7 +5,12 @@ class DisfrazsController < ApplicationController
 
   def index
     @categorias = Categoria.all
-    @disfrazs = Disfraz.paginate(:page => params[:page], :per_page => 6)
+    
+    if params[:search]
+      @disfrazs = Disfraz.search(params[:search]).paginate(:page => params[:page], :per_page => 6)
+    else
+      @disfrazs = Disfraz.paginate(:page => params[:page], :per_page => 6)
+    end
     respond_with(@disfrazs)
   end
 
