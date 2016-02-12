@@ -58,7 +58,7 @@
 
     <div class="actions">
       <a class="waves-effect waves-light btn"><%= f.submit "Actualizar" %></a>
-      
+      <%= link_to "Cancelar", "/clientes/#{current_cliente.id}",class: 'waves-effect waves-light btn white-text orange' %>
     </div>
   <% end %>
   </div>
@@ -67,19 +67,21 @@
     <div class="col s12 m4 l2"><p></p></div>
   </div>
 
-<div class="row">
-    <div class="col s12"><p></p></div>
-    <div class="col s12 m4 l2"><p></p></div>
-    <div class="col s12 m4 l8"><p> </p>
-      <div class="card-panel" >
-  <h5><i class="fa fa-user"></i> Eliminar Cuenta</h5>
+<div class="container">
+  <div class="row">
+     <ul class="collapsible popout" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header"><i class="fa fa-user"></i> No estás contento con nuestra Tienda?</div>
+            <div class="collapsible-body">
+              <div class="container" align="center">
+                <h5><i class="fa fa-user"></i> Eliminar Cuenta</h5>
 
 <p>No estas contento con nuestra tienda de Disfraces? o simplemente quieres dejar de pertenecer a nosotros? <%= button_to "Cancela tu cuenta", registration_path(resource_name), data: { confirm: "¿Estas seguro?" }, method: :delete ,class: 'waves-effect waves-light btn white-text red'%></p>
 
+              </div>  
+            </div>
+        </li>
+      </ul>
   </div>
-
-    </div>
-    <div class="col s12 m4 l2"><p></p></div>
-  </div>
-
+</div>
 
