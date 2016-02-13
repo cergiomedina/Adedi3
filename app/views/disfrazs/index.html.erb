@@ -35,16 +35,10 @@
           
             <% @categorias.each do |c| %>
             <%= form_tag disfrazs_path, :method => 'get' do %>  
-    <%= hidden_field_tag :search, params[:search], value: c.ID_CATEGORIA%>
+    <%= hidden_field_tag :ID_CATEGORIA, params[:ID_CATEGORIA], value: c.ID_CATEGORIA%>
 
               <li class="collection-item"><div><%= c.NOMBRE_CATEGORIA%>
-
-    
-    
-    
-
-
-    <input  type="submit" class="secondary-content"></div></li>
+              <input  type="submit" class="secondary-content"></div></li>
               <%end%>
 
             <% end %>

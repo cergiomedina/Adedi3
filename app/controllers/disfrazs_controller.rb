@@ -5,7 +5,7 @@ class DisfrazsController < ApplicationController
 
   def index
     @categorias = Categoria.all
-    
+    @disfrazs = Disfraz.paginate(:page => params[:page], :per_page => 6)
     if params[:search]
       @disfrazs = Disfraz.search(params[:search]).paginate(:page => params[:page], :per_page => 6)
       if @disfrazs.count == 0
@@ -13,11 +13,16 @@ class DisfrazsController < ApplicationController
       else
         respond_with(@disfrazs)
       end
+    elsif params[:ID_CATEGORIA]
+      @disfrazs = Disfraz.where(ID_CATEGORIA: params[:ID_CATEGORIA]).paginate(:page => params[:page], :per_page => 6)
+      if @disfrazs.count == 0
+         redirect_to disfrazs_path, notice: 'No se encontró ningún resultado.'
+      else
+        respond_with(@disfrazs)
+      end
     else
-      @disfrazs = Disfraz.paginate(:page => params[:page], :per_page => 6)
       respond_with(@disfrazs)
     end
-    
   end
 
   def show
