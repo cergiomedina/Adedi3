@@ -1,19 +1,37 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+
+
+    <div class="col s12 m4 l7"><p> </p>
+      <div class="card-panel" >
+          <h2><i class="fa fa-user"></i> Categoría: <%= @categorium.NOMBRE_CATEGORIA %> </h2>
+          <table>
 
 <p>
-  <strong>Nombre categoria:</strong>
-  <%= @categorium.NOMBRE_CATEGORIA %>
+  <b>Nombre categoria</b>: <%= @categorium.NOMBRE_CATEGORIA %>
 </p>
 
 <p>
-  <strong>Stock categoria:</strong>
-  <%= @categorium.STOCK_CATEGORIA %>
-</p>
-
-<p>
-  <strong>Id categoria:</strong>
+  <b>Id categoria:</b>
   <%= @categorium.ID_CATEGORIA %>
 </p>
 
-<%= link_to 'Edit', edit_categorium_path(@categorium) %> |
-<%= link_to 'Back', categoria_path %>
+
+<p>
+  <b>Stock categoria:</b> <%= @categorium.STOCK_CATEGORIA %>
+</p>
+
+          </table>
+
+          <br>
+          <%= link_to 'Editar', edit_categorium_path(@categorium), class: 'waves-effect waves-light btn white-text' %>
+
+          <!--FALTA BOTON ELIMINAR-->
+          <%= link_to 'volver', categoria_path, class: 'waves-effect waves-light btn white-text' %>
+
+  </div>
+
+    </div>
+</div>
+
+
