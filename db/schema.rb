@@ -231,7 +231,7 @@ ActiveRecord::Schema.define(version: 20160206053650) do
     t.string   "NOMBRE_VENDEDOR",        limit: 20
     t.string   "APELLIDO_VENDEDOR",      limit: 20
     t.integer  "RUT_VENDEDOR"
-    t.string   "CORREO_VENDEDOR",        limit: 50
+    t.boolean  "ES_ADMIN"
     t.string   "DIRECCION_VENDEDOR",     limit: 50
     t.integer  "TELEFONO_VENDEDOR"
     t.string   "ESTADO_VENDEDOR",        limit: 20
