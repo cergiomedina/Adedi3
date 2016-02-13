@@ -476,6 +476,9 @@ if ($) {
         }
     })
 });
+  $(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });
 }( jQuery ));;(function ($) {
 
   // Add posibility to scroll to selected option

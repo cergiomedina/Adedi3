@@ -31,6 +31,7 @@ class DisfrazsController < ApplicationController
   end
 
   def new
+    @categorias = Categoria.all
     @disfraz = Disfraz.new
     respond_with(@disfraz)
   end

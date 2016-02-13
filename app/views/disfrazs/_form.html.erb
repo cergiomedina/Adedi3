@@ -1,40 +1,27 @@
-<%= form_for @disfraz, :html => { :multipart => true } do |f| %>
-  <% if @disfraz.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@disfraz.errors.count, "error") %> prohibited this disfraz from being saved:</h2>
 
-      <ul>
-      <% @disfraz.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+
+<%= form_for @disfraz, :html => { :multipart => true } do |f| %>
 <div class="field">
     <%= f.label :imagen %><br>
     <%= f.file_field :imagen %>
   </div>
   <div class="field">
-    <%= f.label :ID_DISFRAZ %><br>
-    <%= f.text_field :ID_DISFRAZ %>
-  </div>
-  <div class="field">
-    <%= f.label :ID_CATEGORIA %><br>
+    <%= f.label :categoria_del_disfraz %><br>
     <%= f.number_field :ID_CATEGORIA %>
   </div>
   <div class="field">
-    <%= f.label :CATEGORIA_DISFRAZ %><br>
+    <%= f.label :nombre_del_disfraz %><br>
     <%= f.text_field :CATEGORIA_DISFRAZ %>
   </div>
   <div class="field">
     <%= f.label :STOCK_DISFRAZ %><br>
-    <%= f.number_field :STOCK_DISFRAZ %>
+    <%= f.number_field :STOCK_DISFRAZ, :value => 1 %>
   </div>
   <div class="field">
-    <%= f.label :STOCK_DISPONIBLE %><br>
-    <%= f.number_field :STOCK_DISPONIBLE %>
+    
+    <%= f.hidden_field :STOCK_DISPONIBLE, :value => :STOCK_DISFRAZ %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <a class="waves-effect waves-light btn"><%= f.submit "Añadir" %></a>  <%= link_to 'Cancelar', disfrazs_path, class: 'waves-effect waves-light btn red' %>
   </div>
 <% end %>

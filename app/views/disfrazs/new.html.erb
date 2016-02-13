@@ -1,5 +1,35 @@
-<h1>New disfraz</h1>
+<div class="row">
+	<div class="container row red-text">
+		<% if @disfraz.errors.any? %>
+    <div id="error_explanation">
+      <h2>Errores encontrados:</h2>
 
-<%= render 'form' %>
+      <ul>
+      <% @disfraz.errors.each do |attribute, message| %>
+        <% if message.is_a?(String)%>
+            <li><%= message %></li>
+        <% end %>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= link_to 'Back', disfrazs_path %>
+	</div>
+	<div class="col s12 m2">
+		<div class="card-panel blue darken-1 white-text">
+			<h4>Añadir Disfraz</h4>
+			<div class="divider"></div>
+			<p>Acá puedes añadir los disfraces nuevos a la tienda. Ten en cuenta que los disfraces tendrán automáticamente el stock disponible que aquí señales.</p>
+		</div>
+	</div>
+	<div class="col s12 m8">
+
+
+		<div class="card-panel">
+			<h1>Añadir disfraz</h1>
+			<div class="divider"></div>
+			<%= render 'form' %>
+
+		</div>
+	</div>
+</div>
