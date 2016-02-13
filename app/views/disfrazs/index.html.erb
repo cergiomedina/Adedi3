@@ -2,7 +2,26 @@
 
 
 <div class="row">
-    <div class="col s12" align="center"><h4><i class="fa fa-child"></i> Catálogo de Disfraces</h4> </div>
+     <div class="col s12" align="center"><!--<h4><i class="fa fa-child"></i> Catálogo de Disfraces</h4> -->
+
+     
+      <div class="row">
+     
+    <nav>
+    <div class="nav-wrapper " align="left">
+      <div class="col s12">
+        <a href="/disfrazs" class="breadcrumb ">Disfraces</a>
+         <% if params[:ID_CATEGORIA] %>
+        <a  class="breadcrumb "><%= @categoria.NOMBRE_CATEGORIA %></a>
+           <% end %>
+      </div>
+    </div>
+  </nav>
+
+      </div>
+ 
+
+    </div>
     <div class="col s12 m3 l2">
 
  
@@ -11,7 +30,7 @@
      <%= form_tag disfrazs_path, :method => 'get' do %>
 
     <i class="fa fa-search"></i><%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Buscar", :name => nil,class: 'waves-effect waves-light btn white-text green' %>
+    <%= submit_tag "Buscar", :name => nil,class: 'waves-effect waves-light btn white-text green ' %>
     <% if params[:search] %>
       <p><a href="/disfrazs" class="waves-effect waves-light btn blue">Todos</a></p>
     <% end %>
