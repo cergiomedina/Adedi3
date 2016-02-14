@@ -23,9 +23,18 @@
  
 
     </div>
-    <div class="col s12 m3 l2">
+    <div class="col s12 m3 l3">
 
- 
+ <% if current_cliente %>
+
+      <div class="card-panel blue darken-3  white-text z-depth-3">
+        <h5>Información</h5>
+        <div class="divider"></div>
+        <p>Acá puedes seleccionar los disfraces que deseas y agendarlos!</p>
+      </div>
+
+
+<% end %>
 
   <div class="card-panel  z-depth-3">
      <%= form_tag disfrazs_path, :method => 'get' do %>
@@ -58,22 +67,16 @@
             <%= form_tag disfrazs_path, :method => 'get' do %>  
     <%= hidden_field_tag :ID_CATEGORIA, params[:ID_CATEGORIA], value: c.ID_CATEGORIA%>
 
-              <li class="collection-item"><div><%= c.NOMBRE_CATEGORIA%>
-              <input  type="submit" class="secondary-content"></div></li>
+              <li class="collection-item">
+              <div class="center">
+              <br>
+              <input  type="submit"  value=<%= c.NOMBRE_CATEGORIA%> class = "waves-effect waves-light btn"></br>
+              </div>
+              </li>
               <%end%>
 
             <% end %>
       </ul>
-<% if current_cliente %>
-
-      <div class="card-panel blue darken-3  white-text z-depth-3">
-        <h5>Información</h5>
-        <div class="divider"></div>
-        <p>Acá puedes seleccionar los disfraces que deseas y agendarlos :D</p>
-      </div>
-
-
-<% end %>
     </div>  
           
 
@@ -101,6 +104,7 @@
 
 
                   <p><%= link_to 'Editar', edit_disfraz_path(disfraz),class: 'waves-effect waves-light btn white-text ' %>
+                  <br></br>
                   <%= link_to 'Eliminar', disfraz, method: :delete, data: { confirm: 'Estas seguro?' },class: 'waves-effect waves-light btn white-text red' %></p>
 
                   </div>
