@@ -1,23 +1,69 @@
-<h1>Listing vendedors</h1>
+<div class="row">
+    <div class="col s12"><p></p></div>
+    <div class="col s12 m4 l3">
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <div class="card-panel green darken-3 white-text">
 
-  <tbody>
-    <% @vendedors.each do |vendedor| %>
-      <tr>
-        <td><%= link_to 'Show', vendedor %></td>
-        <td><%= link_to 'Edit', edit_vendedor_path(vendedor) %></td>
-        <td><%= link_to 'Destroy', vendedor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <h4><i class="fa fa-hand-o-right"></i> Información</h4>
+          <p>En esta sección se muestran los vendedores que están registrados en la aplicación. Desde acá puedes modificar su información personal o eliminarlos, si así lo deseas.</p>
+        </div>
 
-<br>
+    </div>
+    <div class="col s12 m4 l9"><p> </p>
+      <div class="card-panel" >
+          <h2><i class="fa fa-user"></i> Vendedores </h2>
 
-<%= link_to 'New Vendedor', new_vendedor_path %>
+          <table class="striped">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Rut</th>
+                <th>Nombre</th>
+                <th>Telefono</th>
+                <th>Direccion</th>
+                <th>Email</th>
+                <th>Administrador</th>
+
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @vendedors.each do |vendedor| %>
+                <tr>
+                  <td><%= vendedor.id %></td>
+                  <td><%= vendedor.RUT_VENDEDOR%></td>
+                  <td><%= vendedor.NOMBRE_VENDEDOR%> <%= vendedor.APELLIDO_VENDEDOR%></td>
+                  <td><%= vendedor.TELEFONO_VENDEDOR%></td>
+                  <td><%= vendedor.DIRECCION_VENDEDOR%></td>
+                  <td><%= vendedor.email%></td>
+                  <% if vendedor.ES_ADMIN == true%>
+                  <td>Si</td>
+                  <%else%>
+                  <td>No</td>
+                  <%end%>
+
+                  <td>
+               <!--   <%= link_to 'Modificar', edit_cliente_path(vendedor),class: 'waves-effect waves-light btn white-text '%>-->
+                  <%= link_to 'Eliminar', vendedor, method: :delete, data: { confirm: 'Estas seguro?' },class: 'waves-effect waves-light btn white-text red ' %></td>
+              
+                </tr>
+           
+                  
+
+              <% end %>
+              <div class="col " align="center"><%= will_paginate @vendedors  %></div>
+            </tbody>
+          </table>
+
+          <br>
+
+  </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+
+<!--<%= link_to 'New Cliente', new_cliente_path %>
+
+-->

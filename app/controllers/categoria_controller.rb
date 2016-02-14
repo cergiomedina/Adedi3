@@ -5,7 +5,7 @@ class CategoriaController < ApplicationController
 
   def vendedor!
     if current_vendedor
-      redirect_to root_path, notice: 'No tienes suficientes permisos para estar acá.' unless current_vendedor.ES_ADMIN==1
+      redirect_to root_path, notice: 'No tienes suficientes permisos para estar acá.' unless current_vendedor.ES_ADMIN==true
     end
   end
 

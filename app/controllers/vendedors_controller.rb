@@ -10,7 +10,7 @@ class VendedorsController < ApplicationController
   end 
 
   def index
-    @vendedors = Vendedor.all
+    @vendedors = Vendedor.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /vendedors/1
