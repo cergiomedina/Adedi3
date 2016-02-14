@@ -31,19 +31,44 @@
             <ul id="dropdown2" class="dropdown-content">
                 <li><%= link_to "Mi Perfil", "/vendedors/#{current_vendedor.id}" %></li>
                 <li class="divider"></li>
+
+              <li><a href="/">Solicitudes</a></li>
+              <li><a href="/">Arriendos</a></li>
+                
+                <li class="divider"></li>
                 <li><%= link_to('Cerrar Sesión', destroy_vendedor_session_path, :method => :delete) %></li>
               </ul>
 
-              <li><a href="/">SOLICITUDES</a></li>
-              <li><a href="/">ARRIENDOS</a></li>
 
             <% if current_vendedor.ES_ADMIN == true %>
               
             <!-- BARRA DE ADMINISTRADOR -->
-              <li><a href="/clientes">CLIENTES</a></li>
-              <li><a href="/disfrazs">DISFRACES</a></li>
+
+            <ul id="dropdown3" class="dropdown-content">
+                <li><%= link_to "Mi Perfil", "/vendedors/#{current_vendedor.id}" %></li>
+                <li class="divider"></li>
+
+              <li><a href="/">Solicitudes</a></li>
+              <li><a href="/">Arriendos</a></li>
+
+              <li class="divider"></li>
+
+              <li><a href="/clientes">Clientes</a></li>
+              <li><a href="/disfrazs">Disfraces</a></li>
+              <li><a href="/categoria">Categorías</a></li>
+              
+                
+                <li class="divider"></li>
+                <li><%= link_to('Cerrar Sesión', destroy_vendedor_session_path, :method => :delete) %></li>
+              </ul>
+
+
+
+
+
+              
               <li>Administrador:</li>
-              <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><%= current_vendedor.NOMBRE_VENDEDOR %> <%= current_vendedor.APELLIDO_VENDEDOR %><i class="material-icons right">arrow_drop_down</i></a></li>
+              <li><a class="dropdown-button" href="#!" data-activates="dropdown3"><%= current_vendedor.NOMBRE_VENDEDOR %> <%= current_vendedor.APELLIDO_VENDEDOR %><i class="material-icons right">arrow_drop_down</i></a></li>
 
             <% else %>
 
