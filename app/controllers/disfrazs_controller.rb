@@ -27,7 +27,9 @@ class DisfrazsController < ApplicationController
   end
 
   def show
+
     respond_with(@disfraz)
+    
   end
 
   def new

@@ -86,7 +86,7 @@
             <div class="row" align="center">
               <h5><%= disfraz.CATEGORIA_DISFRAZ%></h5>
               <div class="divider"></div>
-              <%= image_tag disfraz.imagen.url(:medium) %>
+              <%= image_tag disfraz.imagen.url(:medium), class: 'materialboxed' %>
             </div>
             <div class="container" align="center">
             <p><%= link_to 'Ver', disfraz ,class: 'waves-effect waves-light btn white-text '%></p>

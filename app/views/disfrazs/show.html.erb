@@ -1,33 +1,37 @@
 <p id="notice"><%= notice %></p>
 
 
-<p>
-<%= image_tag @disfraz.imagen.url(:big) , class: 'materialboxed' %>
-</p>
-<p>
-  <strong>Id disfraz:</strong>
-  <%= @disfraz.ID_DISFRAZ %>
-</p>
+<div class="row">
+  <div class="col s12 m3">
+    
+  </div>
+  <div class="col s12 m8">
+    <div class="card-panel">
+      <h3><%= @disfraz.CATEGORIA_DISFRAZ %></h3>
+      <div class="divider"></div>
+        <div class="row">
+          <div class="col s6 m4">
+            <%= image_tag @disfraz.imagen.url(:medium), class: 'materialboxed z-depth-1'%>
+          </div>
+          <div class="col s12 m5">
+                                          <div class="divider"></div>
+                                          <div class="col s12 m6">
+                                                <p><b>Nombre: </b></p>
+                                                <p><b>Categoría: </b></p>
+                                                <p><b>Stock de la Tienda: </b></p>
+                                                <p><b>Stock actual: </b></p>
+                                                
+                                          </div>
+                                          <div class="col s12 m6"></div>
+                                          <p><%= @disfraz.CATEGORIA_DISFRAZ %> </p>
+                                          <p><%= @disfraz.ID_CATEGORIA %></p>
+                                          <p><%= @disfraz.STOCK_DISFRAZ %></p>
+                                          <p><%= @disfraz.STOCK_DISPONIBLE %></p>
+                                          
+                                    </div>
 
-<p>
-  <strong>Id categoria:</strong>
-  <%= @disfraz.ID_CATEGORIA %>
-</p>
 
-<p>
-  <strong>Categoria disfraz:</strong>
-  <%= @disfraz.CATEGORIA_DISFRAZ %>
-</p>
-
-<p>
-  <strong>Stock disfraz:</strong>
-  <%= @disfraz.STOCK_DISFRAZ %>
-</p>
-
-<p>
-  <strong>Stock disponible:</strong>
-  <%= @disfraz.STOCK_DISPONIBLE %>
-</p>
-
-<%= link_to 'Edit', edit_disfraz_path(@disfraz) %> |
-<%= link_to 'Back', disfrazs_path %>
+        </div>
+    </div>
+  </div>
+</div>

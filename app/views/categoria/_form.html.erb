@@ -15,6 +15,10 @@
     <%= f.label :nombre %><br>
     <%= f.text_field :NOMBRE_CATEGORIA %>
   </div>
+    <div class="field">
+    <% f.label :STOCK_CATEGORIA %><br>
+    <%= f.hidden_field :STOCK_CATEGORIA,:value => 1 %>
+  </div>
   <div class="actions">
     <%= f.submit class: 'waves-effect waves-light btn' %>
   </div>
