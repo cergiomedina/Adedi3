@@ -458,6 +458,9 @@ if ($) {
 
     });
   };
+  $(document).ready ->
+  $('select').material_select
+  return
 
   $(document).ready(function(){
     $('.collapsible').collapsible();
