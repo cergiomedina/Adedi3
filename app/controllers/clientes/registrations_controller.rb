@@ -1,7 +1,7 @@
 class Clientes::RegistrationsController < Devise::RegistrationsController
  before_filter :configure_sign_up_params, only: [:create]
  before_filter :configure_account_update_params, only: [:update]
- 
+ before_filter :configure_permitted_parameters
   # GET /resource/sign_up
   # def new
   #   super
@@ -39,6 +39,14 @@ class Clientes::RegistrationsController < Devise::RegistrationsController
    protected
 
   # If you have extra params to permit, append them to the sanitizer.
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) { |u|
+      u.permit(:email, :password, :password_confirmation, :NOMBRE_CLIENTE, :APELLIDO_CLIENTE, :DIRECCION_CLIENTE, :RUT_CLIENTE, :TELEFONO_CLIENTE)
+    }
+
+  end
+
+
    def configure_sign_up_params
 
      devise_parameter_sanitizer.for(:sign_up) << :NOMBRE_CLIENTE
@@ -54,6 +62,11 @@ class Clientes::RegistrationsController < Devise::RegistrationsController
      devise_parameter_sanitizer.for(:account_update) << :APELLIDO_CLIENTE
      devise_parameter_sanitizer.for(:account_update) << :DIRECCION_CLIENTE
      devise_parameter_sanitizer.for(:account_update) << :TELEFONO_CLIENTE
+     
+     devise_parameter_sanitizer.for(:account_update) { |u|
+      u.permit(:email, :password, :password_confirmation, :NOMBRE_CLIENTE, :APELLIDO_CLIENTE, :DIRECCION_CLIENTE, :TELEFONO_CLIENTE)
+    }
+
    end
 
 
@@ -67,4 +80,3 @@ class Clientes::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 end
-

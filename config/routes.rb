@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   devise_for :vendedors , controllers: { sessions: "vendedors/sessions", registrations: "vendedors/registrations" }
   
 
-
   get 'home/index'
 
   get 'home/ayuda'
