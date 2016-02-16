@@ -28,7 +28,7 @@ class EjemplarsController < ApplicationController
 
     respond_to do |format|
       if @ejemplar.save
-        format.html { redirect_to @ejemplar, notice: 'Ejemplar was successfully created.' }
+        format.html { redirect_to @ejemplar, notice: 'Ejemplar creado satisfactoriamente.' }
         format.json { render :show, status: :created, location: @ejemplar }
       else
         format.html { render :new }
@@ -56,7 +56,7 @@ class EjemplarsController < ApplicationController
   def destroy
     @ejemplar.destroy
     respond_to do |format|
-      format.html { redirect_to ejemplars_url, notice: 'Ejemplar was successfully destroyed.' }
+      format.html { redirect_to ejemplars_url, notice: 'Ejemplar eliminado satisfactoriamente.' }
       format.json { head :no_content }
     end
   end

@@ -1,4 +1,30 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
 
-<%= link_to 'Edit', edit_ejemplar_path(@ejemplar) %> |
-<%= link_to 'Back', ejemplars_path %>
+
+    <div class="col s12 m4 l7"><p> </p>
+      <div class="card-panel" >
+          <h2><i class="medium material-icons">clear_all</i> Ejemplar: <%= @ejemplar.id%> </h2>
+          <table>
+
+<p><b> Id Ejemplar </b>: <%= @ejemplar.id%></p>
+<p><b> Id Disfraz </b>: <%= @ejemplar.ID_DISFRAZ%></p>
+<p><b> Nombre Disfraz </b>: </p>
+<p><b> Categoría Disfraz</b>: </p>
+<p><b> Talla </b>: <%= @ejemplar.TALLA_EJEMPLAR%></p>
+<p><b> Color </b>: <%= @ejemplar.COLOR_EJEMPLAR%></p>
+<p><b> Estado </b>: <%= @ejemplar.ESTADO_EJEMPLAR%></p>
+<p><b> Precio </b>: <%= @ejemplar.PRECIO_EJEMPLAR%></p>
+          </table>
+
+          <br>
+          <%= link_to 'Editar', edit_ejemplar_path(@ejemplar), class: 'waves-effect waves-light btn white-text' %>
+
+          <%= link_to 'volver', ejemplars_path, class: 'waves-effect waves-light btn white-text' %>
+
+  </div>
+
+    </div>
+</div>
+
+
