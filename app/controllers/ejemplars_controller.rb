@@ -4,7 +4,7 @@ class EjemplarsController < ApplicationController
   # GET /ejemplars
   # GET /ejemplars.json
   def index
-    @ejemplars = Ejemplar.all
+    @ejemplars = Ejemplar.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /ejemplars/1

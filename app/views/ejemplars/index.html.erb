@@ -21,3 +21,64 @@
 <br>
 
 <%= link_to 'New Ejemplar', new_ejemplar_path %>
+
+
+<div class="row">
+    <div class="col s12"><p></p></div>
+    <div class="col s12 m4 l3">
+
+      <div class="card-panel green darken-3 white-text">
+
+          <h4><i class="fa fa-hand-o-right"></i> Información</h4>
+          <p>En esta sección se muestran los ejemplares que están registrados en la aplicación. Desde acá puedes modificar cada uno de ellos o eliminarlos, si así lo deseas.</p>
+        </div>
+
+    </div>
+    <div class="col s12 m4 l9"><p> </p>
+      <div class="card-panel" >
+          <h2><i class="fa fa-user"></i> Clientes </h2>
+
+          <table class="striped">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Id Disfraz</th>
+                <th>Talla</th>
+                <th>Color</th>
+                <th>Estado</th>
+                <th>Precio</th>
+
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @ejemplars.each do |ejemplar| %>
+                <tr>
+                  <td><%= ejemplar.id %></td>
+                  <td><%= ejemplar.ID_DISFRAZ%></td>
+                  <td><%= ejemplar.TALLA_EJEMPLAR%></td>
+                  <td><%= ejemplar.COLOR_EJEMPLAR%></td>
+                  <td><%= ejemplar.ESTADO_EJEMPLAR%></td>
+                  <td><%= ejemplar.PRECIO_EJEMPLAR%></td>
+                  <td>
+                  <%= link_to 'Modificar', edit_ejemplar_path(ejemplar),class: 'waves-effect waves-light btn white-text '%>
+                  <%= link_to 'Eliminar', ejemplar, method: :delete, data: { confirm: 'Estas seguro?' },class: 'waves-effect waves-light btn white-text red ' %></td>
+              
+                </tr>
+           
+                  
+
+              <% end %>
+              <div class="col " align="center"><%= will_paginate @ejemplars  %></div>
+
+            </tbody>
+          </table>
+
+          <br>
+
+  </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
