@@ -1,0 +1,37 @@
+<%= form_for(@ejemplar) do |f| %>
+  <% if @ejemplar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ejemplar.errors.count, "error") %> prohibited this ejemplar from being saved:</h2>
+
+      <ul>
+      <% @ejemplar.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="field">
+    <%= f.label :id_disfraz %><br>
+    <%= f.text_field :ID_DISFRAZ%>
+  </div>
+  <div class="field">
+    <%= f.label :talla %><br>
+    <%= f.text_field :TALLA_EJEMPLAR %>
+  </div>
+    <div class="field">
+   <%= f.label :color %><br>
+    <%= f.text_field :COLOR_EJEMPLAR%>
+  </div>
+  <div class="field">
+    <% f.label :ESTADO_EJEMPLAR %><br>
+    <%= f.hidden_field :ESTADO_EJEMPLAR,:value => 'Disponible' %>
+  </div>
+  <div class="field">
+    <%= f.label :precio %><br>
+    <%= f.text_field :PRECIO_EJEMPLAR%>
+  </div>
+  <div class="actions">
+    <%= f.submit class: 'waves-effect waves-light btn' %>
+  </div>
+
+<% end %>

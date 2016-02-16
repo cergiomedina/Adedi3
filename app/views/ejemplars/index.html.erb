@@ -16,12 +16,8 @@
           <table class="striped">
             <thead>
               <tr>
-                <th>Id</th>
-                <th>Id Disfraz</th>
-                <th>Talla</th>
-                <th>Color</th>
-                <th>Estado</th>
-                <th>Precio</th>
+                <th>Código</th>
+                <th>Nombre Disfraz</th>
 
               </tr>
             </thead>
@@ -29,13 +25,10 @@
             <tbody>
               <% @ejemplars.each do |ejemplar| %>
                 <tr>
-                  <td><%= ejemplar.id %></td>
-                  <td><%= ejemplar.ID_DISFRAZ%></td>
-                  <td><%= ejemplar.TALLA_EJEMPLAR%></td>
-                  <td><%= ejemplar.COLOR_EJEMPLAR%></td>
-                  <td><%= ejemplar.ESTADO_EJEMPLAR%></td>
-                  <td><%= ejemplar.PRECIO_EJEMPLAR%></td>
+                  <td><%= ejemplar.id %> - <%= ejemplar.ID_DISFRAZ%></td>
+                  <td></td>
                   <td>
+                  <%= link_to 'Ver', ejemplar , class: 'waves-effect waves-light btn white-text'%>
                   <%= link_to 'Modificar', edit_ejemplar_path(ejemplar),class: 'waves-effect waves-light btn white-text '%>
                   <%= link_to 'Eliminar', ejemplar, method: :delete, data: { confirm: 'Estas seguro?' },class: 'waves-effect waves-light btn white-text red ' %></td>
               
@@ -50,7 +43,7 @@
           </table>
 
           <br>
-
+          <%= link_to 'Nuevo Ejemplar', new_ejemplar_path, class: 'waves-effect waves-light btn white-text' %>
   </div>
 
     </div>
