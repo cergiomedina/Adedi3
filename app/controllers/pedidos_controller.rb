@@ -5,6 +5,9 @@ class PedidosController < ApplicationController
   # GET /pedidos.json
   def index
     @pedidos = Pedido.all
+    if current_cliente
+      @pedidos = Pedido.where(ID_CLIENTE: params[:ID_CLIENTE]).paginate(:page => params[:page], :per_page => 10)
+    end
   end
 
   # GET /pedidos/1

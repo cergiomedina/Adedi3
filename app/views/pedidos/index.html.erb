@@ -1,23 +1,33 @@
-<h1>Listing pedidos</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="container">
+    <div class="card-panel">
+      <h3>Pedidos</h3>
 
-  <tbody>
-    <% @pedidos.each do |pedido| %>
-      <tr>
-        <td><%= link_to 'Show', pedido %></td>
-        <td><%= link_to 'Edit', edit_pedido_path(pedido) %></td>
-        <td><%= link_to 'Destroy', pedido, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <table>
+        <thead>
+          <tr>
+            <th colspan="3">Estado</th>
+             <th colspan="3">Fecha Pedido</th>
+          </tr>
+        </thead>
 
-<br>
+        <tbody>
+          <% @pedidos.each do |pedido| %>
+            <tr>
+              <td><%= pedido.ESTADO_PEDIDO %></td>
+              <td><%= pedido.FECHA_PEDIDO %></td>
+              <td><%= link_to 'Ver', pedido %></td>
+              <td><%= link_to 'Modificar', edit_pedido_path(pedido) %></td>
+              <td><%= link_to 'Eliminar', pedido, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
 
-<%= link_to 'New Pedido', new_pedido_path %>
+      <br>
+
+      <%= link_to 'New Pedido', new_pedido_path %>
+    </div>
+  </div>
+</div>
