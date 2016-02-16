@@ -11,7 +11,27 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :talla %><br>
+    <%= f.text_field :TALLA_EJEMPLAR%>
+  </div>
+  <div class="field">
+    <%= f.label :color %><br>
+    <%= f.text_field :COLOR_EJEMPLAR%>
+  </div>
+
+  <div class="field">
+    <%= f.label :estado %><br>
+    <%= f.text_field :ESTADO_EJEMPLAR%>  
+  </div>
+
+  <div class="field">
+    <%= f.label :precio %><br>
+    <%= f.text_field :PRECIO_EJEMPLAR%>  
+  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "actualizar", class: 'waves-effect waves-light btn' %>
+    <%= link_to 'volver', ejemplars_path, class: 'waves-effect waves-light btn' %>
   </div>
 <% end %>

@@ -42,7 +42,7 @@ class EjemplarsController < ApplicationController
   def update
     respond_to do |format|
       if @ejemplar.update(ejemplar_params)
-        format.html { redirect_to @ejemplar, notice: 'Ejemplar was successfully updated.' }
+        format.html { redirect_to @ejemplar, notice: 'Ejemplar actualizado satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @ejemplar }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ class EjemplarsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ejemplar_params
-      params[:ejemplar]
+      params.require(:ejemplar).permit(:TALLA_EJEMPLAR, :COLOR_EJEMPLAR, :ESTADO_EJEMPLAR, :PRECIO_EJEMPLAR)
     end
 end
