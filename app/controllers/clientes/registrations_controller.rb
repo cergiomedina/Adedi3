@@ -18,9 +18,9 @@ class Clientes::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+   def update
+     super
+   end
 
   # DELETE /resource
   # def destroy
@@ -43,7 +43,7 @@ class Clientes::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.for(:sign_up) { |u|
       u.permit(:email, :password, :password_confirmation, :NOMBRE_CLIENTE, :APELLIDO_CLIENTE, :DIRECCION_CLIENTE, :RUT_CLIENTE, :TELEFONO_CLIENTE)
     }
-
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :password, :password_confirmation, :current_password, :NOMBRE_CLIENTE, :APELLIDO_CLIENTE,:DIRECCION_CLIENTE,:TELEFONO_CLIENTE) }
   end
 
 
@@ -63,10 +63,6 @@ class Clientes::RegistrationsController < Devise::RegistrationsController
      devise_parameter_sanitizer.for(:account_update) << :DIRECCION_CLIENTE
      devise_parameter_sanitizer.for(:account_update) << :TELEFONO_CLIENTE
      
-     devise_parameter_sanitizer.for(:account_update) { |u|
-      u.permit(:email, :password, :password_confirmation, :NOMBRE_CLIENTE, :APELLIDO_CLIENTE, :DIRECCION_CLIENTE, :TELEFONO_CLIENTE)
-    }
-
    end
 
 
