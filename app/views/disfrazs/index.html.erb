@@ -4,20 +4,6 @@
      
       <div class="row">
      
-    <nav>
-    <div class="nav-wrapper " align="left">
-      <div class="col s12">
-        <a href="/disfrazs" class="breadcrumb ">Disfraces</a>
-         <% if params[:ID_CATEGORIA] %>
-        <a  class="breadcrumb "><%= @categoria.NOMBRE_CATEGORIA %></a>
-           <% end %>
-           <% if params[:search] %>
-        <a  class="breadcrumb ">Busqueda</a>
-
-           <% end %>
-      </div>
-    </div>
-  </nav>
 
       </div>
  
@@ -25,16 +11,20 @@
     </div>
     <div class="col s12 m3 l3">
 
- <% if current_cliente %>
+          <nav>
+            <div class="nav-wrapper light-green darken-3" align="left">
+              <div class="col s12">
+                <a href="/disfrazs" class="breadcrumb ">Catálogo</a>
+                 <% if params[:ID_CATEGORIA] %>
+                <a  class="breadcrumb "><%= @categoria.NOMBRE_CATEGORIA %></a>
+                   <% end %>
+                   <% if params[:search] %>
+                <a  class="breadcrumb ">Busqueda</a>
 
-      <div class="card-panel blue darken-3  white-text z-depth-3">
-        <h5>Información</h5>
-        <div class="divider"></div>
-        <p>Acá puedes seleccionar los disfraces que deseas y agendarlos!</p>
-      </div>
-
-
-<% end %>
+                   <% end %>
+              </div>
+            </div>
+          </nav>
 
   <div class="card-panel  z-depth-3">
      <%= form_tag disfrazs_path, :method => 'get' do %>

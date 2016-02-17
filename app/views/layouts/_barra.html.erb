@@ -21,9 +21,19 @@
         </ul>
 
           <!-- Dropdown Trigger -->
-          <li>Cliente: </li>
-          <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><%= current_cliente.NOMBRE_CLIENTE %> <%= current_cliente.APELLIDO_CLIENTE %><i class="material-icons right">arrow_drop_down</i></a></li>
-        	
+        
+
+          <li>
+          <a  class="dropdown-button" href="#!" data-activates="dropdown1">
+          <div class="chip">
+            
+            <%= image_tag("default.png") %>
+            <%= current_cliente.NOMBRE_CLIENTE %> <%= current_cliente.APELLIDO_CLIENTE %>
+          </div>
+        	<i class="material-icons right">arrow_drop_down</i>
+          </a>
+          </li>
+          <li>CLIENTE</li>
 		    <% else %>
 		
 
@@ -67,18 +77,35 @@
 
 
 
-
+              <li>
+                <a  class="dropdown-button" href="#!" data-activates="dropdown3">
+                <div class="chip">
+                  
+                  <%= image_tag("default.png") %>
+                  <%= current_vendedor.NOMBRE_VENDEDOR %> <%= current_vendedor.APELLIDO_VENDEDOR %>
+                </div>
+                <i class="material-icons right">arrow_drop_down</i>
+                </a>
+                </li>
+                <li>ADMINISTRADOR</li>
 
                 
-              <li>Administrador:</li>
-              <li><a class="dropdown-button" href="#!" data-activates="dropdown3"><%= current_vendedor.NOMBRE_VENDEDOR %> <%= current_vendedor.APELLIDO_VENDEDOR %><i class="material-icons right">arrow_drop_down</i></a></li>
+          
 
             <% else %>
 
-            <li>Vendedor:</li>
-              <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><%= current_vendedor.NOMBRE_VENDEDOR %> <%= current_vendedor.APELLIDO_VENDEDOR %><i class="material-icons right">arrow_drop_down</i></a></li>
+            <li>
+                <a  class="dropdown-button" href="#!" data-activates="dropdown">
+                <div class="chip">
+                  
+                  <%= image_tag("default.png") %>
+                  <%= current_vendedor.NOMBRE_VENDEDOR %> <%= current_vendedor.APELLIDO_VENDEDOR %>
+                </div>
+                <i class="material-icons right">arrow_drop_down</i>
+                </a>
+                </li>
+                <li>VENDEDOR</li>
             <% end %>
-
       			
       		<% else %>
           <!-- BARRA DE PERSONA NO REGISTRADA -->
@@ -96,6 +123,7 @@
   </div>
 
 <!-- BARRA DE BOTONES -->
+<!-- 
   <br>
   <div class="center">
       
@@ -108,3 +136,25 @@
 
   </div>
 </br>
+-->
+
+<% if current_cliente || current_vendedor %>
+<div class="navbar">
+    <nav>
+    
+      <div class="nav-wrapper  teal darken-3" align="center">
+        <div class="container">
+        <a href="#!" class="brand-logo"></a>
+        <ul class="left hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+          <li><a href="/disfrazs">Catálogo</a></li>
+          <li><a href="/home/acerca" >Acerca</a></li>
+          <li><a href="/home/contacto">Contacto</a></li>
+          <li><a href="/home/ayuda" >Ayuda</a>  </li>
+        </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <%end%>
