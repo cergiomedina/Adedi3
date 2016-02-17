@@ -18,8 +18,13 @@
 	
 <div class="container">
 	<div class="row" align="center">
+		<% if current_cliente || current_vendedor %>
+		<p>Ya puedes utilizar la aplicación ! utiliza la barra de navegación superior o ve al catálogo desde el siguiente link!</p>
+			<a class="waves-effect  waves-light btn-large" href="/disfrazs">Catálogo</a>
+		<%else%>
 		<p>Si aun no te has registrado, hazlo ahora!</p>
 		<a class="waves-effect  waves-light btn-large" href="/clientes/sign_up">Registrate</a>
+		<% end %>
 	</div>
 	<div class="row">
 		<div class="col l4">

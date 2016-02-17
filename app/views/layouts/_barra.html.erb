@@ -22,18 +22,19 @@
 
           <!-- Dropdown Trigger -->
         
-
+          <li>CLIENTE</li>
           <li>
           <a  class="dropdown-button" href="#!" data-activates="dropdown1">
           <div class="chip">
+
+            <%= image_tag current_cliente.avatar.url %>
             
-            <%= image_tag("default.png") %>
             <%= current_cliente.NOMBRE_CLIENTE %> <%= current_cliente.APELLIDO_CLIENTE %>
           </div>
         	<i class="material-icons right">arrow_drop_down</i>
           </a>
           </li>
-          <li>CLIENTE</li>
+          
 		    <% else %>
 		
 
@@ -76,7 +77,7 @@
               </ul>
 
 
-
+              <li>ADMINISTRADOR</li>
               <li>
                 <a  class="dropdown-button" href="#!" data-activates="dropdown3">
                 <div class="chip">
@@ -87,13 +88,13 @@
                 <i class="material-icons right">arrow_drop_down</i>
                 </a>
                 </li>
-                <li>ADMINISTRADOR</li>
+                
 
                 
           
 
             <% else %>
-
+            <li>VENDEDOR</li>
             <li>
                 <a  class="dropdown-button" href="#!" data-activates="dropdown">
                 <div class="chip">
@@ -104,7 +105,7 @@
                 <i class="material-icons right">arrow_drop_down</i>
                 </a>
                 </li>
-                <li>VENDEDOR</li>
+                
             <% end %>
       			
       		<% else %>
