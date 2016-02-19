@@ -130,23 +130,25 @@
 -->
 
 <% if current_cliente || current_vendedor %>
-  <% if current_vendedor.ES_ADMIN== false%>
-    <ul id="dropdown4" class="dropdown-content">
-                    <li><a href="/pedidos">Solicitudes</a></li>
-                    <li><a href="/arriendos">Arriendos</a></li>
-                    <li class="divider"></li>
-                    <li><a href="">Añadir Cliente</a></li>
-    </ul>
-  <%else%> 
-    <ul id="dropdown4" class="dropdown-content">
-                    <li><a href="/pedidos">Solicitudes</a></li>
-                    <li><a href="/arriendos">Arriendos</a></li>
+  <% if current_vendedor %>
+    <% if current_vendedor.ES_ADMIN== false%>
+      <ul id="dropdown4" class="dropdown-content">
+                      <li><a href="/pedidos">Solicitudes</a></li>
+                      <li><a href="/arriendos">Arriendos</a></li>
+                      <li class="divider"></li>
+                      <li><a href="">Añadir Cliente</a></li>
+      </ul>
+    <%else%> 
+      <ul id="dropdown4" class="dropdown-content">
+                      <li><a href="/pedidos">Solicitudes</a></li>
+                      <li><a href="/arriendos">Arriendos</a></li>
 
-                    <li class="divider"></li>
-                    <li><a href="/clientes/sign_up">Añadir Cliente</a></li>
-                    <li><a href="/vendedors/sign_up">Añadir Personal</a></li>
-                    
-    </ul>
+                      <li class="divider"></li>
+                      <li><a href="/clientes/sign_up">Añadir Cliente</a></li>
+                      <li><a href="/vendedors/sign_up">Añadir Personal</a></li>
+                      
+      </ul>
+    <%end%>
   <%end%>
 <div class="navbar">
     <nav>
@@ -155,7 +157,9 @@
         <div class="container">
         <a href="#!" class="brand-logo"></a>
         <ul class="left hide-on-med-and-down">
+          <% if current_vendedor %>
           <li><a  class="dropdown-button" href="#!" data-activates="dropdown4" >Panel Administracion <i class="material-icons right">arrow_drop_down</i></a></li>
+          <%end%>
           <li><a href="/disfrazs">Catálogo</a></li>
           <% if current_vendedor%>
             <li><a href="/clientes">Clientes</a></li>
@@ -166,9 +170,9 @@
                     <li><a href="/categoria">Categorías</a></li>
             <% end %>
           <% end %>
-          <li><a href="/home/acerca">Acerca</a></li>
-          <li><a href="/home/contacto">Contacto</a></li>
-          <li><a href="/home/ayuda" >Ayuda</a>  </li>
+          <li><a href="/home/acerca"><i class="material-icons">supervisor_account</i></a></li>
+          <li><a href="/home/contacto"><i class="material-icons">email</i></a></li>
+          <li><a href="/home/ayuda" ><i class="material-icons">flag</i></a>  </li>
         </ul>
         </div>
       </div>

@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   devise_for :clientes , controllers: { sessions: "clientes/sessions", registrations: "clientes/registrations" }
   devise_for :vendedors , controllers: { sessions: "vendedors/sessions", registrations: "vendedors/registrations" }
-  
+  as :vendedor do
+  get "/vendedors/sign_up", to: "vendedors/registrations#new", as: "register"
+end
 
   get 'home/index'
 
