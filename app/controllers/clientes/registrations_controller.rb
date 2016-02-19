@@ -51,7 +51,7 @@ def configure_permitted_parameters2
 
   # The path used after sign up.
    def after_sign_up_path_for(resource)
-     redirect_to disfrazs_path
+     
    end
    def disfraz_params
       params.require(:cliente).permit(:email,:avatar, :password, :password_confirmation, :current_password, :NOMBRE_CLIENTE, :APELLIDO_CLIENTE,:DIRECCION_CLIENTE,:TELEFONO_CLIENTE)

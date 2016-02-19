@@ -6,7 +6,11 @@ class VendedorsController < ApplicationController
   # GET /vendedors.json
 
   def administrador!
-    redirect_to root_path, notice: 'No tienes suficientes permisos para estar acá.' unless current_vendedor.ES_ADMIN == true
+    if current_vendedor
+      redirect_to root_path, notice: 'No tienes suficientes permisos para estar acá.' unless current_vendedor.ES_ADMIN == true
+    else
+      #redirect_to root_path, notice: 'No tienes suficientes permisos para estar acá.' 
+    end
   end 
 
   def index

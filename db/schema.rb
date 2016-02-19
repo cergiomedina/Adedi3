@@ -40,19 +40,19 @@ ActiveRecord::Schema.define(version: 20160217001539) do
   end
 
   create_table "cliente", primary_key: "ID_CLIENTE", force: true do |t|
-    t.integer  "ID_EST_CLIENTE",                    default: 1,    null: false
+    t.integer  "ID_EST_CLIENTE",                    default: 1,  null: false
     t.string   "NOMBRE_CLIENTE",         limit: 20
     t.string   "APELLIDO_CLIENTE",       limit: 20
     t.integer  "RUT_CLIENTE"
     t.string   "DIRECCION_CLIENTE",      limit: 50
-    t.integer  "TELEFONO_CLIENTE",       limit: 8
-    t.boolean  "ESTADO_CLIENTE",                    default: true, null: false
-    t.string   "email",                             default: "",   null: false
-    t.string   "encrypted_password",                default: "",   null: false
+    t.integer  "TELEFONO_CLIENTE"
+    t.string   "ESTADO_CLIENTE",         limit: 20
+    t.string   "email",                             default: "", null: false
+    t.string   "encrypted_password",                default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                     default: 0,    null: false
+    t.integer  "sign_in_count",                     default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
