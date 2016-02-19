@@ -60,19 +60,7 @@
                 <li><%= link_to "Mi Perfil", "/vendedors/#{current_vendedor.id}" %></li>
                 <li class="divider"></li>
 
-              <li><a href="/">Solicitudes</a></li>
-              <li><a href="/">Arriendos</a></li>
-
-              <li class="divider"></li>
-
-              <li><a href="/clientes">Clientes</a></li>
-              <li><a href="/vendedors">Vendedores</a></li>
-              <li><a href="/disfrazs">Disfraces</a></li>
-              <li><a href="/ejemplars">Ejemplares</a></li>
-              <li><a href="/categoria">Categorías</a></li>
               
-                
-                <li class="divider"></li>
                 <li><%= link_to('Cerrar Sesión', destroy_vendedor_session_path, :method => :delete) %></li>
               </ul>
 
@@ -94,6 +82,8 @@
           
 
             <% else %>
+
+              
             <li>VENDEDOR</li>
             <li>
                 <a  class="dropdown-button" href="#!" data-activates="dropdown2">
@@ -140,6 +130,24 @@
 -->
 
 <% if current_cliente || current_vendedor %>
+  <% if current_vendedor.ES_ADMIN== false%>
+    <ul id="dropdown4" class="dropdown-content">
+                    <li><a href="/pedidos">Solicitudes</a></li>
+                    <li><a href="/arriendos">Arriendos</a></li>
+                    <li class="divider"></li>
+                    <li><a href="">Añadir Cliente</a></li>
+    </ul>
+  <%else%> 
+    <ul id="dropdown4" class="dropdown-content">
+                    <li><a href="/pedidos">Solicitudes</a></li>
+                    <li><a href="/arriendos">Arriendos</a></li>
+
+                    <li class="divider"></li>
+                    <li><a href="">Añadir Cliente</a></li>
+                    <li><a href="">Añadir Vendedor</a></li>
+                    <li><a href="">Añadir Admin</a></li>
+    </ul>
+  <%end%>
 <div class="navbar">
     <nav>
     
@@ -147,9 +155,19 @@
         <div class="container">
         <a href="#!" class="brand-logo"></a>
         <ul class="left hide-on-med-and-down">
+          <li><a  class="dropdown-button" href="#!" data-activates="dropdown4" >Panel Administracion <i class="material-icons right">arrow_drop_down</i></a></li>
           <li><a href="/">Home</a></li>
           <li><a href="/disfrazs">Catálogo</a></li>
-          <li><a href="/home/acerca" >Acerca</a></li>
+          <% if current_vendedor%>
+            <li><a href="/clientes">Clientes</a></li>
+            <% if current_vendedor.ES_ADMIN== true%>
+                    
+                    <li><a href="/vendedors">Vendedores</a></li>
+                    <li><a href="/ejemplars">Ejemplares</a></li>
+                    <li><a href="/categoria">Categorías</a></li>
+            <% end %>
+          <% end %>
+          <li><a href="/home/acerca">Acerca</a></li>
           <li><a href="/home/contacto">Contacto</a></li>
           <li><a href="/home/ayuda" >Ayuda</a>  </li>
         </ul>
