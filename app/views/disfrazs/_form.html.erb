@@ -7,18 +7,18 @@
   </div>
   <br>
   <div class="field">
-    <%= f.collection_select :ID_CATEGORIA, Categoria.all, :ID_CATEGORIA, :NOMBRE_CATEGORIA, { prompt: "Selecciona una Categoria" }, class: "browser-default" %>
+    <%= f.collection_select(:ID_CATEGORIA, Categoria.all, :ID_CATEGORIA, :NOMBRE_CATEGORIA, { prompt: "Selecciona una Categoria" }, class: "browser-default") %>
   </div>
+
   <div class="field">
-    <%= f.label :nombre_del_disfraz %><br>
-    <%= f.text_field :CATEGORIA_DISFRAZ %>
+    <%= f.label :NOMBRE_DISFRAZ %><br>
+    <%= f.text_field :NOMBRE_DISFRAZ %>
   </div>
   <div class="field">
     <%= f.label :STOCK_DISFRAZ %><br>
     <%= f.number_field :STOCK_DISFRAZ, :min => 1 %>
   </div>
   <div class="field">
-    
     <%= f.hidden_field :STOCK_DISPONIBLE, :value => :STOCK_DISFRAZ %>
   </div>
 
