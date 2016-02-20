@@ -12,6 +12,9 @@
   <% end %>
 
   <div class="field">
+    <%= f.collection_select(:ID_DISFRAZ, Disfraz.all, :ID_DISFRAZ, :NOMBRE_DISFRAZ, { prompt: "Selecciona un Disfraz" }, class: "browser-default") %>
+  </div>
+  <div class="field">
     <%= f.label :talla %><br>
     <%= f.text_field :TALLA_EJEMPLAR%>
   </div>
