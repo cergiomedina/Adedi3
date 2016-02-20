@@ -17,47 +17,27 @@
 </p>
 
 <div class="row" align="center"><h4>Disfraces de esta Categoría</h4></div>
-<div class="divider"></div>
 <div class="row">
 
-  <% @disfrazs.each do |disfraz| %>
-          <div class="col s12 m4">
-          <div class="card-panel" >
-            <div class="row" align="center">
-              <h5><%= disfraz.CATEGORIA_DISFRAZ%></h5>
-              <div class="divider"></div>
-              <%= image_tag disfraz.imagen.url(:thumb) %>
-            </div>
-            <div class="container" align="center">
-            <p><%= link_to 'Ver', disfraz ,class: 'waves-effect waves-light btn white-text '%></p>
-            </div>
-            <% if current_vendedor%>
-              <% if current_vendedor.ES_ADMIN == true %>
+<% if @disfrazs.count != 0 %>
+  <ul class="collection">
+    <% @disfrazs.each do |disfraz| %>
+    <li class="collection-item avatar">
+      <%= image_tag disfraz.imagen.url(:thumb), class: "circle" %>
+      <span class="title"><%= disfraz.CATEGORIA_DISFRAZ%></span>
+      <p><br>
+         Stock de la Tienda:
+      </p>
+      <%= link_to disfraz_path(disfraz), class: "secondary-content" do%>
+      <i class="material-icons">mode_edit</i>
+      <%end%>
+      
+    </li>
+    <%end%>
+  </ul>
 
+<%end %>
 
-
-              <ul class="collapsible" data-collapsible="accordion">
-                <li>
-                  <div class="collapsible-header"><i class="material-icons">filter_drama</i>ADMIN</div>
-                  <div class="collapsible-body" align="center">
-
-
-                  <p><%= link_to 'Editar', edit_disfraz_path(disfraz),class: 'waves-effect waves-light btn white-text ' %>
-                  <br></br>
-                  <%= link_to 'Eliminar', disfraz, method: :delete, data: { confirm: 'Estas seguro?' },class: 'waves-effect waves-light btn white-text red' %></p>
-
-                  </div>
-                </li>
-              </ul>
-                    
-              <% end %>
-            <% end %>
-
-          </div>
-
-          </div>
-
-        <% end %>
           
    <div class="col s12 m12" align="center"><%= will_paginate @disfrazs  %></div>
 
