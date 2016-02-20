@@ -24,22 +24,33 @@
 			<%= link_to "Categorías", "/categorias/new",class: 'waves-effect waves-light btn'%>
 			</p>
 		</div>
+		
 		<div class="card-panel blue darken-1 white-text">
 			<h5>Añadir Disfraz</h5>
 			<div class="divider"></div>
 			<p>Acá puedes añadir los disfraces nuevos a la tienda. Ten en cuenta que los disfraces tendrán automáticamente el stock disponible que aquí señales.</p>
 		</div>
-	
+		
 	</div>
 	<div class="col s12 m6">
 
+		<% if Categoria.all.count == 0%>
 
-		<div class="card-panel">
-			<h1>Añadir disfraz</h1>
-			<div class="divider"></div>
-			<%= render 'form' %>
+			<div class="card-panel">
+				<h1>No tienes categorías en la aplicación.</h1>
+				<div class="divider"></div>
+				<p>Añade una categoría en el menú de la izquierda</p>
+				
+			</div>
+		<%else%>
+			<div class="card-panel">
+				<h1>Añadir disfraz</h1>
+				<div class="divider"></div>
+				<%= render 'form' %>
 
-		</div>
+			</div>
+		<%end%>
+
 	</div>
 
 	<div class="col s12 m3">
