@@ -22,6 +22,7 @@ class CategoriaController < ApplicationController
   end
 
   def show
+    @disfrazs = Disfraz.where(ID_CATEGORIA: params[:id]).paginate(:page => params[:page], :per_page => 6)
     respond_with(@categorium)
   end
 

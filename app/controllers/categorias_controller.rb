@@ -17,6 +17,7 @@ class CategoriasController < ApplicationController
   end
 
   def show
+    
     respond_with(@categorium)
   end
 
