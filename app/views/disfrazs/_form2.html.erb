@@ -1,0 +1,16 @@
+<%= form_for @disfraz, :html => { :multipart => true } do |f| %>
+  <br>
+  <div class="field">
+    <%= f.collection_select(:ID_CATEGORIA, Categoria.all, :ID_CATEGORIA, :NOMBRE_CATEGORIA, { prompt: "Selecciona una Categoria" }, class: "browser-default") %>
+  </div>
+
+  <div class="field">
+    <%= f.label :NOMBRE_DISFRAZ %><br>
+    <%= f.text_field :NOMBRE_DISFRAZ %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Aceptar", class: 'waves-effect waves-light btn' %></a>  
+    <%= link_to 'Cancelar', disfrazs_path, class: 'waves-effect waves-light btn red' %>
+  </div>
+<% end %>
