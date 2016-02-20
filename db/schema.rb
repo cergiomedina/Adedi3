@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20160217001539) do
 
   create_table "categoria", primary_key: "ID_CATEGORIA", force: true do |t|
     t.string  "NOMBRE_CATEGORIA", limit: 20
-    t.integer "STOCK_CATEGORIA"
+    t.integer "STOCK_CATEGORIA",             default: 0, null: false
   end
 
   create_table "cliente", primary_key: "ID_CLIENTE", force: true do |t|
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 20160217001539) do
 
   create_table "disfraz", primary_key: "ID_DISFRAZ", force: true do |t|
     t.integer  "ID_CATEGORIA",                   null: false
+    t.string   "NOMBRE_DISFRAZ",      limit: 20, null: false
     t.string   "CATEGORIA_DISFRAZ",   limit: 20, null: false
     t.integer  "STOCK_DISFRAZ",                  null: false
     t.integer  "STOCK_DISPONIBLE",               null: false

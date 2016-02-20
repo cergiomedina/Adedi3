@@ -71,7 +71,7 @@ end
 
   get 'categorias/index'
 
-  get 'categoria/new' => 'categorias#new'
+  get 'categoria/new' => 'categoria#new'
 
   post 'categoria/index' => 'categorias#create'
 
