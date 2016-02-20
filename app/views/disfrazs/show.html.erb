@@ -6,26 +6,22 @@
   <div class="col s12 m8">
 
     <div class="card-panel">
-      <h3><%= @disfraz.CATEGORIA_DISFRAZ %></h3>
+      <h3><%= @disfraz.NOMBRE_DISFRAZ %></h3>
       <br>
         <div class="row">
           <div class="col s6 m4">
             <%= image_tag @disfraz.imagen.url(:original), class: 'materialboxed z-depth-1'%>
           </div>
-          <div class="col s12 m5">
+          <div class="col s6 m4">
                                           <div class="divider"></div>
                                           <div class="col s12 m6">
-                                                <p><b>Nombre: </b></p>
-                                                <p><b>Categoría: </b></p>
-                                                <p><b>Stock de la Tienda: </b></p>
-                                                <p><b>Stock actual: </b></p>
+                                                <p><b>Nombre: </b> <%= @disfraz.NOMBRE_DISFRAZ %></p>
+                                                <p><b>Categoría: </b><%= @disfraz.ID_CATEGORIA %></p>
+                                                <p><b>Stock de la Tienda: </b><%= @disfraz.STOCK_DISFRAZ %></p>
+                                                <p><b>Stock actual: </b><%= @disfraz.STOCK_DISPONIBLE %></p>
                                                 
                                           </div>
                                           <div class="col s12 m6"></div>
-                                          <p><%= @disfraz.CATEGORIA_DISFRAZ %> </p>
-                                          <p><%= @disfraz.ID_CATEGORIA %></p>
-                                          <p><%= @disfraz.STOCK_DISFRAZ %></p>
-                                          <p><%= @disfraz.STOCK_DISPONIBLE %></p>
                                           
                                     </div>
 
