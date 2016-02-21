@@ -1,15 +1,18 @@
+<!--
+<%= @disfraz = Disfraz.find(@ejemplar.ID_DISFRAZ)%>
+<%= @categoria = Categoria.find(@disfraz.ID_CATEGORIA)%>
+-->
 <div class="container">
 
 
     <div class="col s12 m4 l7"><p> </p>
       <div class="card-panel" >
-          <h2><i class="medium material-icons">clear_all</i> Ejemplar: <%= @ejemplar.id%> </h2>
+          <h2><i class="medium material-icons">clear_all</i> Ejemplar: <%= @disfraz.NOMBRE_DISFRAZ%> <%= @ejemplar.id%> - <%= @ejemplar.ID_DISFRAZ%> </h2>
           <table>
-
 <p><b> Id Ejemplar </b>: <%= @ejemplar.id%></p>
 <p><b> Id Disfraz </b>: <%= @ejemplar.ID_DISFRAZ%></p>
-<p><b> Nombre Disfraz </b>: </p>
-<p><b> Categoría Disfraz</b>: </p>
+<p><b> Nombre Disfraz </b>: <%= @disfraz.NOMBRE_DISFRAZ%></p>
+<p><b> Categoría Disfraz</b>: <%= @categoria.NOMBRE_CATEGORIA%></p>
 <p><b> Talla </b>: <%= @ejemplar.TALLA_EJEMPLAR%></p>
 <p><b> Color </b>: <%= @ejemplar.COLOR_EJEMPLAR%></p>
 <p><b> Estado </b>: <%= @ejemplar.ESTADO_EJEMPLAR%></p>
