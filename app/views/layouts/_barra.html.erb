@@ -100,7 +100,7 @@
       			
       		<% else %>
           <!-- BARRA DE PERSONA NO REGISTRADA -->
-	      		<li><a href="/clientes/sign_in" class="waves-effect waves-light btn ">Iniciar Sesión</a></li>
+	      		<li><a href="/clientes/sign_in" >Iniciar Sesión</a></li>
 		        <li><a href="/clientes/sign_up">Registrarse</a></li>
 		        <li><a href="/vendedors/sign_in">Administración</a></li>
 
@@ -157,6 +157,7 @@
         <div class="container">
         <a href="#!" class="brand-logo"></a>
         <ul class="left hide-on-med-and-down">
+          <li><i class="material-icons tooltipped" data-position="left" data-delay="50" data-tooltip="Escoge una opción">label</i></li>
           <% if current_vendedor %>
           <li><a  class="dropdown-button" href="#!" data-activates="dropdown4" >Panel Administracion <i class="material-icons right">arrow_drop_down</i></a></li>
           <%end%>
@@ -179,4 +180,21 @@
     </nav>
   </div>
 
-  <%end%>
+<%else%> 
+<div class="navbar">
+    <nav>
+    
+      <div class="nav-wrapper  teal darken-3" align="center">
+        <div class="container">
+        <a href="#!" class="brand-logo"></a>
+        <ul class="left hide-on-med-and-down">
+          <li><i class="material-icons tooltipped" data-position="left" data-delay="50" data-tooltip="Escoge una opción">label</i></li>
+          <li><a href="/home/acerca"><i class="material-icons">supervisor_account</i></a></li>
+          <li><a href="/home/contacto"><i class="material-icons">email</i></a></li>
+          <li><a href="/home/ayuda" ><i class="material-icons">flag</i></a>  </li>
+        </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+<%end%>
