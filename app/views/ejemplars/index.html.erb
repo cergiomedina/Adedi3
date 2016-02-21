@@ -18,18 +18,24 @@
               <tr>
                 <th>Código</th>
                 <th>Nombre Disfraz</th>
+                <th>Categoría Disfraz</th>
 
               </tr>
             </thead>
 
             <tbody>
               <% @ejemplars.each do |ejemplar| %>
+                <!--
+                <%= @disfraz = Disfraz.find(ejemplar.ID_DISFRAZ)%>
+                <%= @categoria = Categoria.find(@disfraz.ID_CATEGORIA)%>
+                -->
                 <tr>
                   <td><%= ejemplar.id %> - <%= ejemplar.ID_DISFRAZ%></td>
-                  <td></td>
+                  <td><%= @disfraz.NOMBRE_DISFRAZ%></td>
+                  <td><%= @categoria.NOMBRE_CATEGORIA%></td>
                   <td>
                   <%= link_to 'Ver', ejemplar , class: 'waves-effect waves-light btn white-text'%>
-                  <%= link_to 'Modificar', edit_ejemplar_path(ejemplar),class: 'waves-effect waves-light btn white-text '%>
+                  <%= link_to 'Editar', edit_ejemplar_path(ejemplar),class: 'waves-effect waves-light btn white-text '%>
                   <%= link_to 'Eliminar', ejemplar, method: :delete, data: { confirm: 'Estas seguro?' },class: 'waves-effect waves-light btn white-text red ' %></td>
               
                 </tr>
