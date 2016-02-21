@@ -24,12 +24,15 @@
     <% @disfrazs.each do |disfraz| %>
     <li class="collection-item avatar">
       <%= image_tag disfraz.imagen.url(:thumb), class: "circle" %>
-      <span class="title"><%= disfraz.CATEGORIA_DISFRAZ%></span>
+      <span class="title"><%= disfraz.NOMBRE_DISFRAZ%></span>
       <p><br>
-         Stock de la Tienda:
+         Stock: <%= disfraz.STOCK_DISFRAZ%>
+      </p>
+      <p>
+         Stock de la Tienda: <%= disfraz.STOCK_DISPONIBLE%>
       </p>
       <%= link_to disfraz_path(disfraz), class: "secondary-content" do%>
-      <i class="material-icons">mode_edit</i>
+      <i class="material-icons tooltipped" data-position="right" data-delay="50" data-tooltip="Ver">visibility</i>
       <%end%>
       
     </li>
