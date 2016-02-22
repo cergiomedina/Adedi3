@@ -76,6 +76,6 @@ class ParametroSistemasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def parametro_sistema_params
-      params.require(:parametro_sistema).permit(:ID_PARAMETRO, :NOMBRE_PARAMETRO, :VALOR_PARAMETRO)
+      params.require(:parametro_sistema).permit(:ID_PARAMETRO, :NOMBRE_PARAMETRO, :VALOR_PARAMETRO, :TIPO_PARAMETRO, :DESCRIPCION_PARAMETRO)
     end
 end

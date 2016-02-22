@@ -157,8 +157,10 @@ ActiveRecord::Schema.define(version: 20160217001539) do
   add_index "nota_de_venta", ["ID_DEVOLUCION"], name: "FK_RELATIONSHIP_21", using: :btree
 
   create_table "parametro_sistema", primary_key: "ID_PARAMETRO", force: true do |t|
-    t.string  "NOMBRE_PARAMETRO", limit: 20
+    t.string  "NOMBRE_PARAMETRO",      limit: 20
     t.integer "VALOR_PARAMETRO"
+    t.string  "TIPO_PARAMETRO",        limit: 11
+    t.text    "DESCRIPCION_PARAMETRO"
   end
 
   create_table "pedido", primary_key: "ID_PEDIDO", force: true do |t|

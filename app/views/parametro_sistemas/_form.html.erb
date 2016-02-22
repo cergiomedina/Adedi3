@@ -21,6 +21,17 @@
     <%= f.number_field :VALOR_PARAMETRO, min: 0 %>
   </div>
 
+  <div class="field">
+    <%= f.label :TIPO_PARAMETRO %><br>
+    <%= f.text_field :TIPO_PARAMETRO %>
+  </div>
+
+  <div class="field">
+    <%= f.label :DESCRIPCION_PARAMETRO %><br>
+    <%= f.text_field :DESCRIPCION_PARAMETRO %>
+  </div>
+
+
   <div class="actions">
     <%= f.submit "crear", class: 'waves-effect waves-light btn' %>
     <%= link_to 'volver', parametro_sistemas_path, class: 'waves-effect waves-light btn' %>
