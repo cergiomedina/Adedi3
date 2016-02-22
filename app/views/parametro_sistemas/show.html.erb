@@ -1,4 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+    <div class="col s12 m4 l7"><p> </p>
+      <div class="card-panel" >
+          <h2><i class="medium material-icons">settings</i> Parámetro: <%= @parametro_sistema.NOMBRE_PARAMETRO %> </h2>
+          <table>
 
-<%= link_to 'Edit', edit_parametro_sistema_path(@parametro_sistema) %> |
-<%= link_to 'Back', parametro_sistemas_path %>
+<p>
+  <b>Nombre parámetro</b>: <%= @parametro_sistema.NOMBRE_PARAMETRO  %>
+</p>
+
+<p>
+  <b>Valor parametro:</b>
+  <%= @parametro_sistema.VALOR_PARAMETRO %>
+</p>
+
+</div>
+
+          </table>
+
+          <br>
+          <%= link_to 'editar', edit_parametro_sistema_path(@parametro_sistema), class: 'waves-effect waves-light btn white-text' %>
+
+          <!--FALTA BOTON ELIMINAR-->
+          <%= link_to 'volver', parametro_sistemas_path, class: 'waves-effect waves-light btn white-text' %>
+
+  </div>
+
+    </div>
+</div>
+
+

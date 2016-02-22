@@ -10,21 +10,18 @@ class ParametroSistemasController < ApplicationController
   # GET /parametro_sistemas
   # GET /parametro_sistemas.json
   def index
-    @parametro_sistemas = ParametroSistema.all
-    respond_with(@parametro_sistemas)
+    @parametro_sistemas = ParametroSistema.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /parametro_sistemas/1
   # GET /parametro_sistemas/1.json
   def show
-    @parametro_sistemas = ParametroSistema.where(ID_PARAMETRO: params[:id]).paginate(:page => params[:page], :per_page => 10)
-    respond_with(@parametro_sistemas)
+    @parametro_sistemas = ParametroSistema.find(params[:id])
   end
 
   # GET /parametro_sistemas/new
   def new
     @parametro_sistema = ParametroSistema.new
-    respond_with(@parametro_sistemas)
   end
 
   # GET /parametro_sistemas/1/edit
@@ -38,7 +35,7 @@ class ParametroSistemasController < ApplicationController
 
     respond_to do |format|
       if @parametro_sistema.save
-        format.html { redirect_to @parametro_sistema, notice: 'Parametro sistema was successfully created.' }
+        format.html { redirect_to @parametro_sistema, notice: 'Parametro sistema creado satisfactoriamente.' }
         format.json { render :show, status: :created, location: @parametro_sistema }
       else
         format.html { render :new }
@@ -52,7 +49,7 @@ class ParametroSistemasController < ApplicationController
   def update
     respond_to do |format|
       if @parametro_sistema.update(parametro_sistema_params)
-        format.html { redirect_to @parametro_sistema, notice: 'Parametro sistema was successfully updated.' }
+        format.html { redirect_to @parametro_sistema, notice: 'Parametro sistema actualizado satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @parametro_sistema }
       else
         format.html { render :edit }
@@ -66,7 +63,7 @@ class ParametroSistemasController < ApplicationController
   def destroy
     @parametro_sistema.destroy
     respond_to do |format|
-      format.html { redirect_to parametro_sistemas_url, notice: 'Parametro sistema was successfully destroyed.' }
+      format.html { redirect_to parametro_sistemas_url, notice: 'Parametro sistema eliminado satisfactoriamente.' }
       format.json { head :no_content }
     end
   end
