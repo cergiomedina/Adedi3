@@ -1,6 +1,18 @@
-<h1>Editing parametro_sistema</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @parametro_sistema %> |
-<%= link_to 'Back', parametro_sistemas_path %>
+<div class="row">
+	<div class="col s12 m3">
+		<div class="card-panel green darken-1 white-text">
+			<h4>Editar Parametro</h4>
+			<div class="divider"></div>
+			<p>Acá puedes editar el parámetro del sistema que has seleccionado. Ten en cuenta que información será aplicada dentro de toda la aplicación.</p>
+		</div>
+	</div>
+	<div class="col s12 m8">
+		<div class="card-panel">
+			<h3><i class="medium material-icons">settings</i> Editar parametro: <%= @parametro_sistema.NOMBRE_PARAMETRO %></h3>
+			<div class="divider"></div>
+				<div class="row">
+					<%= render 'form2' %>
+				</div>
+		</div>
+	</div>
+</div>
