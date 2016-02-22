@@ -1,20 +1,30 @@
 class ParametroSistemasController < ApplicationController
   before_action :set_parametro_sistema, only: [:show, :edit, :update, :destroy]
 
+
+
+
+
+
+    respond_to :html
   # GET /parametro_sistemas
   # GET /parametro_sistemas.json
   def index
     @parametro_sistemas = ParametroSistema.all
+    respond_with(@parametro_sistemas)
   end
 
   # GET /parametro_sistemas/1
   # GET /parametro_sistemas/1.json
   def show
+    @parametro_sistemas = ParametroSistema.where(ID_PARAMETRO: params[:id]).paginate(:page => params[:page], :per_page => 10)
+    respond_with(@parametro_sistemas)
   end
 
   # GET /parametro_sistemas/new
   def new
     @parametro_sistema = ParametroSistema.new
+    respond_with(@parametro_sistemas)
   end
 
   # GET /parametro_sistemas/1/edit
@@ -69,6 +79,6 @@ class ParametroSistemasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def parametro_sistema_params
-      params[:parametro_sistema]
+      params.require(:parametro_sistema).permit(:ID_PARAMETRO, :NOMBRE_PARAMETRO, :VALOR_PARAMETRO)
     end
 end
