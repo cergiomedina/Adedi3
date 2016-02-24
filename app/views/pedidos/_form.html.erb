@@ -1,7 +1,7 @@
 <%= form_for(@pedido) do |f| %>
   <% if @pedido.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@pedido.errors.count, "error") %> prohibited this pedido from being saved:</h2>
+      <h2>Errores encontrados:</h2>
 
       <ul>
       <% @pedido.errors.full_messages.each do |message| %>
@@ -10,6 +10,16 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
+    <%= f.label :FECHA_DEL_PEDIDO %><br>
+    <%= f.date_select :FECHA_PEDIDO , class: "datepicker"%>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :ID_EST_PEDIDO, :value => 1 %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :ESTADO_PEDIDO, :value => "EN PROCESO" %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

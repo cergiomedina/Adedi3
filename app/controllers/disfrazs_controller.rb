@@ -27,7 +27,7 @@ class DisfrazsController < ApplicationController
   end
 
   def show
-
+    @cliente = Cliente.find(current_cliente)
     respond_with(@disfraz)
     
   end

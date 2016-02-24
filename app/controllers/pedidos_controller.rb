@@ -18,6 +18,7 @@ class PedidosController < ApplicationController
   # GET /pedidos/new
   def new
     @pedido = Pedido.new
+
   end
 
   # GET /pedidos/1/edit
@@ -27,11 +28,11 @@ class PedidosController < ApplicationController
   # POST /pedidos
   # POST /pedidos.json
   def create
-    @pedido = Pedido.new(pedido_params)
+    @pedido = current_cliente.pedidos.new(pedido_params)
 
     respond_to do |format|
       if @pedido.save
-        format.html { redirect_to @pedido, notice: 'Pedido was successfully created.' }
+        format.html { redirect_to @pedido, notice: 'Nuevo pedido ha sido creado' }
         format.json { render :show, status: :created, location: @pedido }
       else
         format.html { render :new }
@@ -72,6 +73,6 @@ class PedidosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pedido_params
-      params[:pedido]
+      params.require(:pedido).permit(:ID_EST_PEDIDO, :FECHA_PEDIDO,:ESTADO_PEDIDO,:cliente_id)
     end
 end

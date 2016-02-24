@@ -9,8 +9,8 @@ class Cliente < ActiveRecord::Base
       validates_presence_of   :RUT_CLIENTE
       validates_presence_of   :TELEFONO_CLIENTE
       has_many :pedidos
-      has_many :arriendos
-      has_many :devolucions
+      has_many :arriendos, dependent: :destroy
+      has_many :devolucions, dependent: :destroy
       validates :RUT_CLIENTE, rut: true
       
       has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>", big: "200x200>" }, default_url: "default.png"
