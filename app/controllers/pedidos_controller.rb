@@ -1,12 +1,18 @@
 class PedidosController < ApplicationController
   before_action :set_pedido, only: [:show, :edit, :update, :destroy]
+  before_action :cliente_o_vendedor!
 
+  def cliente_o_vendedor!
+    redirect_to root_path , notice: 'No tienes suficientes permisos para estar acá.' unless current_cliente || current_vendedor
+  end 
   # GET /pedidos
   # GET /pedidos.json
   def index
+
     @pedidos = Pedido.all
     if current_cliente
-      @pedidos = Pedido.where(ID_CLIENTE: params[:ID_CLIENTE]).paginate(:page => params[:page], :per_page => 10)
+      @cliente = current_cliente
+      @pedidos = @cliente.pedidos.paginate(:page => params[:page], :per_page => 10)
     end
   end
 
