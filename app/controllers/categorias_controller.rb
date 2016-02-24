@@ -51,6 +51,6 @@ class CategoriasController < ApplicationController
     end
 
     def categorium_params
-      params.require(:categoria).permit(:NOMBRE_CATEGORIA, :STOCK_CATEGORIA, :ID_CATEGORIA)
+      params.require(:categoria).permit(:NOMBRE_CATEGORIA, :ID_CATEGORIA)
     end
 end

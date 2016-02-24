@@ -1,8 +1,14 @@
 class ParametroSistemasController < ApplicationController
   before_action :set_parametro_sistema, only: [:show, :edit, :update, :destroy]
+  before_filter :admin!, only: [:new, :edit, :update, :destroy]
 
-
-
+  def admin!
+    if current_vendedor
+      redirect_to root_path, notice: 'No tienes suficientes permisos para estar acá.' unless current_vendedor.ES_ADMIN==true
+    else
+      redirect_to root_path, notice: 'No tienes suficientes permisos para estar acá.'
+    end
+  end
 
 
 
@@ -35,7 +41,7 @@ class ParametroSistemasController < ApplicationController
 
     respond_to do |format|
       if @parametro_sistema.save
-        format.html { redirect_to @parametro_sistema, notice: 'Parametro sistema creado satisfactoriamente.' }
+        format.html { redirect_to @parametro_sistema, notice: 'El parámetro se ha creado satisfactoriamente.' }
         format.json { render :show, status: :created, location: @parametro_sistema }
       else
         format.html { render :new }
@@ -49,7 +55,7 @@ class ParametroSistemasController < ApplicationController
   def update
     respond_to do |format|
       if @parametro_sistema.update(parametro_sistema_params)
-        format.html { redirect_to @parametro_sistema, notice: 'Parametro sistema actualizado satisfactoriamente.' }
+        format.html { redirect_to @parametro_sistema, notice: 'El parámetro actualizado satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @parametro_sistema }
       else
         format.html { render :edit }

@@ -4,7 +4,7 @@ class DisfrazsController < ApplicationController
   respond_to :html
 
   def index
-      @categorias = Categoria.all
+      @categorias = Categoria.all.order('NOMBRE_CATEGORIA')
       @disfrazs = Disfraz.paginate(:page => params[:page], :per_page => 6)
       if params[:search]
         @disfrazs = Disfraz.search(params[:search]).paginate(:page => params[:page], :per_page => 6)
@@ -33,7 +33,7 @@ class DisfrazsController < ApplicationController
   end
 
   def new
-    @categorias = Categoria.all
+    @categorias = Categoria.all.order('NOMBRE_CATEGORIA')
     @categorium = Categoria.new
     @disfraz = Disfraz.new
     respond_with(@disfraz)
@@ -43,7 +43,7 @@ class DisfrazsController < ApplicationController
   end
 
   def create
-    @categorias = Categoria.all
+    @categorias = Categoria.all.order('NOMBRE_CATEGORIA')
     @categorium = Categoria.new
     @disfraz = Disfraz.new(disfraz_params)
     @disfraz.save
