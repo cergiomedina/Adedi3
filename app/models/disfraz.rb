@@ -13,7 +13,7 @@ class Disfraz < ActiveRecord::Base
     validates_presence_of   :ID_CATEGORIA, :message => "El disfraz debe pertenecer a una categoría"
 
 	def self.search(term)
-	   where("CATEGORIA_DISFRAZ like :term", term: "#{term}")
+	   where("NOMBRE_DISFRAZ like :term", term: "#{term}")
 	 end
 
 end
