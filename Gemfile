@@ -20,6 +20,7 @@ gem "paperclip", "~> 4.3"
 gem 'cocaine', '0.5.5'
 
 gem 'will_paginate-materialize'
+gem 'validates_timeliness', '~> 4.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
