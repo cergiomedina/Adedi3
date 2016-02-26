@@ -5,6 +5,10 @@ class PedidosDetallesController < ApplicationController
   # GET /pedidos_detalles.json
   def index
     @pedidos_detalles = PedidosDetalle.all
+    if current_cliente
+      @cliente = current_cliente
+      @pedidos = @cliente.pedidos.paginate(:page => params[:page], :per_page => 10)
+    end
   end
 
   # GET /pedidos_detalles/1
@@ -24,11 +28,11 @@ class PedidosDetallesController < ApplicationController
   # POST /pedidos_detalles
   # POST /pedidos_detalles.json
   def create
-    @pedidos_detalle = PedidosDetalle.new(pedidos_detalle_params)
+    @pedidos_detalle = @pedidos.pedidos_detalles.new(pedidos_detalle_params)
 
     respond_to do |format|
       if @pedidos_detalle.save
-        format.html { redirect_to @pedidos_detalle, notice: 'Pedidos detalle was successfully created.' }
+        format.html { redirect_to @pedidos_detalle, notice: 'Disfraz añadido.' }
         format.json { render :show, status: :created, location: @pedidos_detalle }
       else
         format.html { render :new }
@@ -42,7 +46,7 @@ class PedidosDetallesController < ApplicationController
   def update
     respond_to do |format|
       if @pedidos_detalle.update(pedidos_detalle_params)
-        format.html { redirect_to @pedidos_detalle, notice: 'Pedidos detalle was successfully updated.' }
+        format.html { redirect_to @pedidos_detalle, notice: 'Pedido actualizado.' }
         format.json { render :show, status: :ok, location: @pedidos_detalle }
       else
         format.html { render :edit }
@@ -56,7 +60,7 @@ class PedidosDetallesController < ApplicationController
   def destroy
     @pedidos_detalle.destroy
     respond_to do |format|
-      format.html { redirect_to pedidos_detalles_url, notice: 'Pedidos detalle was successfully destroyed.' }
+      format.html { redirect_to pedidos_detalles_url, notice: 'El disfraz ha sido eliminado del pedido.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +73,6 @@ class PedidosDetallesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pedidos_detalle_params
-      params[:pedidos_detalle]
+      params.require(:pedidos_detalle).permit(:ID_EST_PEDIDO, :FECHA_PEDIDO,:ESTADO_PEDIDO,:cliente_id)
     end
 end

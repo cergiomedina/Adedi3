@@ -4,11 +4,11 @@ class ClientesController < ApplicationController
   before_filter :vendedor!, only: [:new, :edit, :update, :destroy,:index]
 
   def cliente!
-    redirect_to root_path, notice: 'No tienes suficientes permisos para estar acá.' unless current_cliente 
+    #redirect_to root_path, notice: 'No tienes suficientes permisos para estar acá.' unless current_cliente 
   end
 
   def vendedor!
-    redirect_to root_path, notice: 'No tienes suficientes permisos para estar acá.' unless current_vendedor.ES_ADMIN==true
+    #redirect_to root_path, notice: 'No tienes suficientes permisos para estar acá.' unless current_vendedor
   end
 
   # GET /clientes
@@ -76,7 +76,11 @@ class ClientesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cliente
+      if current_vendedor
+        @cliente = Cliente.find(params[:id])
+      else
       @cliente = Cliente.find(current_cliente)
+    end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

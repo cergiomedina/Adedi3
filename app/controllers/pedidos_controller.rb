@@ -52,7 +52,7 @@ class PedidosController < ApplicationController
   def update
     respond_to do |format|
       if @pedido.update(pedido_params)
-        format.html { redirect_to @pedido, notice: 'Pedido was successfully updated.' }
+        format.html { redirect_to @pedido, notice: 'El pedido ha sido modificado.' }
         format.json { render :show, status: :ok, location: @pedido }
       else
         format.html { render :edit }
@@ -66,7 +66,7 @@ class PedidosController < ApplicationController
   def destroy
     @pedido.destroy
     respond_to do |format|
-      format.html { redirect_to pedidos_url, notice: 'Pedido was successfully destroyed.' }
+      format.html { redirect_to pedidos_url, notice: 'El pedido ha sido eliminado.' }
       format.json { head :no_content }
     end
   end
