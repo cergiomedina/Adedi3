@@ -5,6 +5,7 @@
   </div>
   <br>
   <div class="field">
+      <%= f.label :ID_CATEGORIA, "Categoria" %><br>
     <%= f.collection_select(:ID_CATEGORIA, Categoria.all, :ID_CATEGORIA, :NOMBRE_CATEGORIA, { prompt: "Selecciona una Categoria" }, class: "browser-default") %>
   </div>
 
@@ -13,11 +14,10 @@
     <%= f.text_field :NOMBRE_DISFRAZ %>
   </div>
   <div class="field">
-    <%= f.label :STOCK_DISFRAZ %><br>
-    <%= f.number_field :STOCK_DISFRAZ, :min => 1 %>
+    <%= f.hidden_field :STOCK_DISFRAZ, :value => 0 %>
   </div>
   <div class="field">
-    <%= f.hidden_field :STOCK_DISPONIBLE, :value => :STOCK_DISFRAZ %>
+    <%= f.hidden_field :STOCK_DISPONIBLE, :value => 0 %>
   </div>
 
   <div class="actions">
