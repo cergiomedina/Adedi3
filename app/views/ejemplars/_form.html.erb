@@ -12,6 +12,7 @@
   <% end %>
 
   <div class="field">
+      <%= f.label :ID_DISFRAZ, "Disfraz" %><br>
     <%= f.collection_select(:ID_DISFRAZ, Disfraz.all, :ID_DISFRAZ, :NOMBRE_DISFRAZ, { prompt: "Selecciona un Disfraz" }, class: "browser-default") %>
   </div>
   <div class="field">
@@ -21,11 +22,6 @@
   <div class="field">
     <%= f.label :color %><br>
     <%= f.text_field :COLOR_EJEMPLAR%>
-  </div>
-
-  <div class="field">
-    <%= f.label :estado %><br>
-    <%= f.text_field :ESTADO_EJEMPLAR%>  
   </div>
 
   <div class="field">
