@@ -78,9 +78,11 @@ class ClientesController < ApplicationController
     def set_cliente
       if current_vendedor
         @cliente = Cliente.find(params[:id])
+
+
       else
       @cliente = Cliente.find(current_cliente)
-    end
+     end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
