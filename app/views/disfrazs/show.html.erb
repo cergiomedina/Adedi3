@@ -31,7 +31,7 @@
         <p><b>Stock de la Tienda: </b><%= @disfraz.STOCK_DISFRAZ %></p>
         <p><b>Stock actual: </b><%= @disfraz.STOCK_DISPONIBLE %></p>
 
-        <% if current_cliente%>
+        <% if current_cliente %>
           <%= link_to 'Nuevo Pedido', new_cliente_pedido_path(@cliente),class: 'waves-effect waves-light btn white-text ' %>
 
         <% end %>
