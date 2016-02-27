@@ -42,8 +42,8 @@
 							</div>
 						</div>
 						<div class="col s8">
-							<div class="col s12 m8"> Código del disfraz #<%= disfraz.id %></div>
-							<table>
+							<div class="col s12 m8">#<%= disfraz.id %> - <b>Descripción del disfraz</b></div>
+							<table class="highlight">
 								<tbody>
 									<tr>
 										<td><b>Descripción:</b></td>
@@ -92,7 +92,7 @@
 				<div class="divider"></div>
 
 				<% if !@cart.empty? %>
-				<table>
+				<table class="highlight">
 			        <tbody>
 			          <tr>
 			            <td>Cantidad de disfraces:</td>

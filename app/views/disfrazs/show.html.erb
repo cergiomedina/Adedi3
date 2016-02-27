@@ -6,33 +6,33 @@
   <div class="col s12 m8">
 
     <div class="card-panel">
-      <h3><%= @disfraz.NOMBRE_DISFRAZ %></h3>
-      <br>
-        <div class="row">
-          <div class="col s6 m4">
-            <%= image_tag @disfraz.imagen.url(:medium), class: 'materialboxed z-depth-1'%>
-          </div>
-          <div class="col s6 m4">
-                                          <div class="divider"></div>
-                                          <div class="col s12 m6">
-                                                
-                                          </div>
-                                          <div class="col s12 m6"></div>
-                                          
-                                    </div>
-
-
+      <div class="row">
+        <div class="container">
+        <h5>Disfraz: <b><%= @disfraz.NOMBRE_DISFRAZ %></b></h5>
         </div>
-
-        <!-- <%= @categoria = Categoria.find(@disfraz.ID_CATEGORIA)%> -->
-
-        <p><b>Nombre: </b> <%= @disfraz.NOMBRE_DISFRAZ %></p>
-        <p><b>Categoría: </b><%= @categoria.NOMBRE_CATEGORIA %></p>
+      </div>
+      <div class="row">
+        <div class="col s12 m4">
+          código #<%= @disfraz.id %>
+          <%= image_tag @disfraz.imagen.url(:medium), class: 'materialboxed z-depth-1'%>
+        </div>
+        <div class="col s12 m8">
+          <p><b>Nombre: </b> <%= @disfraz.NOMBRE_DISFRAZ %></p>
+        
         <p><b>Descripcion:</b> <%= @disfraz.descripcion %></p>
 
         <p><b>Stock de la Tienda: </b><%= @disfraz.STOCK_DISFRAZ %></p>
         <p><b>Stock actual: </b><%= @disfraz.STOCK_DISPONIBLE %></p>
         <p><h5>Precio: $ <%= @disfraz.precio %></h5></p>
+        </div>
+
+      </div>
+
+
+      
+      <br>
+
+
         <% if current_cliente %>
           <a href="/carrito/<%= @disfraz.ID_DISFRAZ %>" class="waves-effect waves-light btn white-text blue">Añadir <i class="material-icons">shopping_cart</i></a>
 
