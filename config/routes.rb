@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  
   resources :disfrazs
 
   devise_for :clientes , controllers: { sessions: "clientes/sessions", registrations: "clientes/registrations" }
@@ -6,6 +8,10 @@ Rails.application.routes.draw do
   as :vendedor do
   get "/vendedors/sign_up", to: "vendedors/registrations#new", as: "register"
 end
+
+  get '/carrito' => 'cart#index'
+  get '/carrito/vaciar' =>  'cart#clearCart'
+  get '/carrito/:id' => 'cart#add'
 
   get 'home/index'
 

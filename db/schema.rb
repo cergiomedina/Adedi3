@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160217001539) do
+ActiveRecord::Schema.define(version: 20160227003730) do
 
   create_table "arriendo", primary_key: "ID_ARRIENDO", force: true do |t|
     t.integer "ID_VENDEDOR",                 null: false
     t.integer "ID_EST_ARRIENDO",             null: false
     t.integer "ID_PEDIDO"
-    t.integer "ID_CLIENTE",                  null: false
+    t.integer "cliente_id",                  null: false
     t.integer "NUMERO_DISFRACES",            null: false
     t.date    "FECHA_ARRIENDO",              null: false
     t.string  "ESTADO_ARRIENDO",  limit: 20
@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(version: 20160217001539) do
     t.float   "TOTAL_GARANTIA",   limit: 24, null: false
   end
 
-  add_index "arriendo", ["ID_CLIENTE"], name: "FK_RELATIONSHIP_10", using: :btree
   add_index "arriendo", ["ID_EST_ARRIENDO"], name: "FK_RELATIONSHIP_9", using: :btree
   add_index "arriendo", ["ID_PEDIDO"], name: "FK_RELATIONSHIP_11", using: :btree
   add_index "arriendo", ["ID_VENDEDOR"], name: "FK_RELATIONSHIP_13", using: :btree
+  add_index "arriendo", ["cliente_id"], name: "FK_RELATIONSHIP_10", using: :btree
 
   create_table "arriendo_estado", primary_key: "ID_EST_ARRIENDO", force: true do |t|
     t.string "EST_ARRIENDO", limit: 20
@@ -36,23 +36,23 @@ ActiveRecord::Schema.define(version: 20160217001539) do
 
   create_table "categoria", primary_key: "ID_CATEGORIA", force: true do |t|
     t.string  "NOMBRE_CATEGORIA", limit: 20
-    t.integer "STOCK_CATEGORIA",             default: 0, null: false
+    t.integer "STOCK_CATEGORIA"
   end
 
   create_table "cliente", primary_key: "ID_CLIENTE", force: true do |t|
-    t.integer  "ID_EST_CLIENTE",                    default: 1,  null: false
+    t.integer  "ID_EST_CLIENTE",                    default: 1,    null: false
     t.string   "NOMBRE_CLIENTE",         limit: 20
     t.string   "APELLIDO_CLIENTE",       limit: 20
     t.integer  "RUT_CLIENTE"
     t.string   "DIRECCION_CLIENTE",      limit: 50
-    t.integer  "TELEFONO_CLIENTE"
-    t.string   "ESTADO_CLIENTE",         limit: 20
-    t.string   "email",                             default: "", null: false
-    t.string   "encrypted_password",                default: "", null: false
+    t.integer  "TELEFONO_CLIENTE",       limit: 8
+    t.boolean  "ESTADO_CLIENTE",                    default: true, null: false
+    t.string   "email",                             default: "",   null: false
+    t.string   "encrypted_password",                default: "",   null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                     default: 0,  null: false
+    t.integer  "sign_in_count",                     default: 0,    null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -107,27 +107,31 @@ ActiveRecord::Schema.define(version: 20160217001539) do
 
   create_table "disfraz", primary_key: "ID_DISFRAZ", force: true do |t|
     t.integer  "ID_CATEGORIA",                   null: false
-    t.string   "NOMBRE_DISFRAZ",      limit: 20, null: false
     t.string   "CATEGORIA_DISFRAZ",   limit: 20
+    t.string   "NOMBRE_DISFRAZ",      limit: 20, null: false
     t.integer  "STOCK_DISFRAZ",                  null: false
     t.integer  "STOCK_DISPONIBLE",               null: false
     t.string   "imagen_file_name"
     t.string   "imagen_content_type"
     t.integer  "imagen_file_size"
     t.datetime "imagen_updated_at"
+    t.string   "descripcion"
+    t.integer  "precio"
   end
 
   add_index "disfraz", ["ID_CATEGORIA"], name: "FK_RELATIONSHIP_3", using: :btree
 
   create_table "ejemplar", primary_key: "ID_EJEMPLAR", force: true do |t|
-    t.integer "ID_DISFRAZ",                 null: false
-    t.string  "TALLA_EJEMPLAR",  limit: 20
-    t.string  "COLOR_EJEMPLAR",  limit: 20
-    t.string  "ESTADO_EJEMPLAR", limit: 20
-    t.string  "PRECIO_EJEMPLAR", limit: 20
+    t.integer "ID_ESTADO_CLIENTE",            null: false
+    t.integer "ID_DISFRAZ",                   null: false
+    t.string  "TALLA_EJEMPLAR",    limit: 20
+    t.string  "COLOR_EJEMPLAR",    limit: 20
+    t.string  "ESTADO_EJEMPLAR",   limit: 20
+    t.string  "PRECIO_EJEMPLAR",   limit: 20
   end
 
   add_index "ejemplar", ["ID_DISFRAZ"], name: "FK_RELATIONSHIP_2", using: :btree
+  add_index "ejemplar", ["ID_ESTADO_CLIENTE"], name: "FK_RELATIONSHIP_1", using: :btree
 
   create_table "ejemplar_estado", primary_key: "ID_ESTADO_CLIENTE", force: true do |t|
     t.string "EST_EJEMPLAR", limit: 20
@@ -158,20 +162,20 @@ ActiveRecord::Schema.define(version: 20160217001539) do
 
   create_table "parametro_sistema", primary_key: "ID_PARAMETRO", force: true do |t|
     t.string  "NOMBRE_PARAMETRO",      limit: 20
+    t.string  "TIPO_PARAMETRO",        limit: 50,  null: false
     t.integer "VALOR_PARAMETRO"
-    t.string  "TIPO_PARAMETRO",        limit: 11
-    t.text    "DESCRIPCION_PARAMETRO"
+    t.string  "DESCRIPCION_PARAMETRO", limit: 200
   end
 
   create_table "pedido", primary_key: "ID_PEDIDO", force: true do |t|
-    t.integer "ID_CLIENTE",               null: false
+    t.integer "cliente_id"
     t.integer "ID_EST_PEDIDO",            null: false
     t.date    "FECHA_PEDIDO"
     t.string  "ESTADO_PEDIDO", limit: 20
   end
 
-  add_index "pedido", ["ID_CLIENTE"], name: "FK_RELATIONSHIP_6", using: :btree
   add_index "pedido", ["ID_EST_PEDIDO"], name: "FK_RELATIONSHIP_8", using: :btree
+  add_index "pedido", ["cliente_id"], name: "FK_RELATIONSHIP_6", using: :btree
 
   create_table "pedido_estado", primary_key: "ID_EST_PEDIDO", force: true do |t|
     t.string "EST_PEDIDO", limit: 20

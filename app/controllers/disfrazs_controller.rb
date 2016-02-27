@@ -69,6 +69,6 @@ class DisfrazsController < ApplicationController
     end
 
     def disfraz_params
-      params.require(:disfraz).permit(:ID_DISFRAZ, :ID_CATEGORIA, :NOMBRE_DISFRAZ, :CATEGORIA_DISFRAZ, :STOCK_DISFRAZ, :STOCK_DISPONIBLE,:imagen)
+      params.require(:disfraz).permit(:ID_DISFRAZ,:precio,:descripcion, :ID_CATEGORIA, :NOMBRE_DISFRAZ, :CATEGORIA_DISFRAZ, :STOCK_DISFRAZ, :STOCK_DISPONIBLE,:imagen)
     end
 end

@@ -8,6 +8,18 @@
     <%= f.label :NOMBRE_DISFRAZ %><br>
     <%= f.text_field :NOMBRE_DISFRAZ %>
   </div>
+  <div class="field">
+     <%= f.label :imagen %><br>
+    <%= f.file_field :imagen %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion_del_disfraz %><br>
+    <%= f.text_field :descripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :precio %><br>
+    <%= f.text_field :precio %>
+  </div>
 
   <div class="actions">
     <%= f.submit "Aceptar", class: 'waves-effect waves-light btn' %></a>  

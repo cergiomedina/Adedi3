@@ -1,0 +1,26 @@
+<div class="container">
+	<H1>Tu Carrito de arriendo</H1>
+	
+<% total = 0 %>
+	<% @cart.each do |id, quantity |%>
+		
+		<div class="card-panel">			
+				<% disfraz = Disfraz.find(id) %>
+				<li>
+					<%= disfraz.imagen.url(:thumb) %>
+					<%= link_to disfraz.NOMBRE_DISFRAZ , disfraz %>
+					<p>Descripción: </p>
+					<p>Precio: $...</p>
+					<p>Cantidad: <%= quantity %></p>
+				</li>	
+				<%= total += quantity %>
+		</div>
+
+	<% end %>
+	<p><b>Total: $<%= total %></b> pesos chilenos.</p>
+	<div class="container">
+		<div class="row" align="right">
+			<a href="/carrito/vaciar" class="waves-effect waves-light btn white-text red">Vaciar tu Carrito</a>
+		</div>
+	</div>
+</div>

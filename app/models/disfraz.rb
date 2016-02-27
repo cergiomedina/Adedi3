@@ -11,6 +11,8 @@ class Disfraz < ActiveRecord::Base
 	#validates_presence_of   :CATEGORIA_DISFRAZ, :message => "El disfraz debe poseer una categoría"
     validates_presence_of   :STOCK_DISFRAZ, :message => "El disfraz debe tener al menos 1 prenda disponible"
     validates_presence_of   :ID_CATEGORIA, :message => "El disfraz debe pertenecer a una categoría"
+    validates_presence_of   :precio, :message => "El disfraz debe tener un precio"
+    validates_presence_of   :descripcion, :message => "El disfraz debe tener una descripción."
 
 	def self.search(term)
 	   where("NOMBRE_DISFRAZ like :term", term: "#{term}")

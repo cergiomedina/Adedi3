@@ -28,9 +28,11 @@
 
         <p><b>Nombre: </b> <%= @disfraz.NOMBRE_DISFRAZ %></p>
         <p><b>Categoría: </b><%= @categoria.NOMBRE_CATEGORIA %></p>
+        <p><b>Descripcion:</b> <%= @disfraz.descripcion %></p>
+
         <p><b>Stock de la Tienda: </b><%= @disfraz.STOCK_DISFRAZ %></p>
         <p><b>Stock actual: </b><%= @disfraz.STOCK_DISPONIBLE %></p>
-
+        <p><h5>Precio: $ <%= @disfraz.precio %></h5></p>
         <% if current_cliente %>
           <%= link_to 'Nuevo Pedido', new_cliente_pedido_path(@cliente),class: 'waves-effect waves-light btn white-text ' %>
 

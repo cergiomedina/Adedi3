@@ -14,10 +14,20 @@
     <%= f.text_field :NOMBRE_DISFRAZ %>
   </div>
   <div class="field">
-    <%= f.hidden_field :STOCK_DISFRAZ, :value => 0 %>
+    <%= f.label :descripcion %>
+    <%= f.text_field :descripcion%>
+  </div>
+
+<div class="field">
+  <%= f.label :precio%>
+    <%= f.number_field :precio, :min => 1 %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :STOCK_DISFRAZ, :value => 1 %>
   </div>
   <div class="field">
-    <%= f.hidden_field :STOCK_DISPONIBLE, :value => 0 %>
+    <%= f.hidden_field :STOCK_DISPONIBLE, :value => 1 %>
   </div>
 
   <div class="actions">

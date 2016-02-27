@@ -79,9 +79,21 @@
               <div class="divider"></div>
               <%= image_tag disfraz.imagen.url(:medium), class: 'materialboxed' %>
             </div>
+            <div class="container" align="left">
+              <b>$ <%= disfraz.precio %></b>
+            </div>
             <div class="container" align="center">
             <p><%= link_to 'Ver', disfraz ,class: 'waves-effect waves-light btn white-text '%></p>
             </div>
+
+            <% if !current_vendedor%>
+            <div class="container" align="center">
+              <p>
+                <a href="/carrito/<%= disfraz.ID_DISFRAZ %>" class="waves-effect waves-light btn white-text blue">Agregar al Carrito</a>
+              </p>
+            </div>
+
+            <%end%>
             <% if current_vendedor%>
               <% if current_vendedor.ES_ADMIN == true %>
 
