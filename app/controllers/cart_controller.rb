@@ -39,7 +39,7 @@ class CartController < ApplicationController
 		if cart[id] then
 			cart.delete(id)
 		end
-		redirect_to '/carrito', notice: 'El disfraz se ha eliminado de tu carrito de arriendos.'
+		redirect_to '/carrito', notice: 'El disfraz se ha eliminado de tu carrito de arriendos'
 	end
 
 	  def index
@@ -50,5 +50,29 @@ class CartController < ApplicationController
 	  		@cart = {}
 	  	end
 
+	  end
+
+	  def anadirdisfraz
+	  	id = params[:id]
+		if session[:cart] then
+			cart = session[:cart]
+		else
+			session[:cart] = {}
+			cart = session[:cart]
+		end
+		cart[id] = cart[id] + 1	
+		redirect_to '/carrito', notice: 'Se ha añadido una prenda más del disfraz seleccionado.'
+	  end
+
+	  def quitardisfraz
+	  	id = params[:id]
+		if session[:cart] then
+			cart = session[:cart]
+		else
+			session[:cart] = {}
+			cart = session[:cart]
+		end
+	  	cart[id] = cart[id] - 1
+	  	redirect_to '/carrito', notice: 'Se ha disminuido una prenda del disfraz seleccionado.'
 	  end
 end

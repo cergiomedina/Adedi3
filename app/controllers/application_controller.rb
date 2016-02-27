@@ -8,7 +8,17 @@ class ApplicationController < ActionController::Base
     redirect_to disfrazs_path, :notice => "Ocurrió un error: No se encontró un elemento. Envíanos un correo con este hecho por favor." # Assuming you have a template named 'record_not_found'
   end
 
-#  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_carrito!
+
+  def set_carrito!
+    if current_cliente
+      if session[:cart] then
+          @cart = session[:cart]
+        else
+          @cart = {}
+        end
+    end
+  end
 
  # protected
 

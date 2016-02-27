@@ -1,8 +1,16 @@
 <div class="container">
-	<h3><i class="fa fa-shopping-cart"></i> Tu Carrito de arriendo</h3>
+	<div class="row">
+		<div class="col s12 m8">
+			<h3><i class="fa fa-shopping-cart"></i> Tu Carrito de arriendo</h3>
+		</div>
+		<div class="col s12 m4">
+			<br><br>
+			<a href="/disfrazs" class="waves-effect waves-light btn white-text ">Catálogo</a>
+		</div>
+	
+	</div>
 	<% total = 0 %>
 		<% totaldisfraces = 0%>
-	<div class="divider"></div>
 	<div class="row">
 		<div class="col s6 m8">
 				
@@ -47,7 +55,14 @@
 									</tr>
 									<tr>
 										<td><b>Cantidad:</b></td>
-										<td><%= quantity %></td>
+										<td><%= quantity %>
+											
+											<a href="/carrito/añadir/<%= disfraz.id %>"><i class="fa fa-plus-square"></i>
+												<% if quantity>1%>
+											</a><a href="/carrito/quitar/<%= disfraz.id %>"><i class="fa fa-minus-square-o"></i></a>
+											<%end%>
+										</td>
+
 									</tr>	
 								</tbody>
 							</table>
