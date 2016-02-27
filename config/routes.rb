@@ -12,6 +12,7 @@ end
   get '/carrito' => 'cart#index'
   get '/carrito/vaciar' =>  'cart#clearCart'
   get '/carrito/:id' => 'cart#add'
+  get '/carrito/eliminar/:id' => 'cart#eliminardisfraz'
 
   get 'home/index'
 

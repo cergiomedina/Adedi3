@@ -2,15 +2,14 @@ class Clientes::RegistrationsController < Devise::RegistrationsController
 
  before_filter :configure_permitted_parameters
  before_filter :configure_permitted_parameters2
+
   # GET /resource/sign_up
   # def new
   #   super
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+
 
   # GET /resource/edit
   # def edit
@@ -21,9 +20,6 @@ class Clientes::RegistrationsController < Devise::RegistrationsController
 
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign

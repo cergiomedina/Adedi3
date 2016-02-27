@@ -26,7 +26,24 @@ class CartController < ApplicationController
 		redirect_to :action => :index
 	end	
 
+	def eliminardisfraz
+
+		id = params[:id]
+		if session[:cart] then
+			cart = session[:cart]
+		else
+			session[:cart] = {}
+			cart = session[:cart]
+		end
+
+		if cart[id] then
+			cart.delete(id)
+		end
+		redirect_to '/carrito', notice: 'El disfraz se ha eliminado de tu carrito de arriendos.'
+	end
+
 	  def index
+	  	
 	  	if session[:cart] then
 	  		@cart = session[:cart]
 	  	else
