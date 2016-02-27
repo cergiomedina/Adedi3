@@ -9,11 +9,11 @@
 				<li>
 					<%= disfraz.imagen.url(:thumb) %>
 					<%= link_to disfraz.NOMBRE_DISFRAZ , disfraz %>
-					<p>Descripción: </p>
-					<p>Precio: $...</p>
+					<p>Descripción: <%= disfraz.descripcion%></p>
+					<p>Precio: $ <%= disfraz.precio%></p>
 					<p>Cantidad: <%= quantity %></p>
 				</li>	
-				<%= total += quantity %>
+				<%= total += quantity * disfraz.precio  %>
 		</div>
 
 	<% end %>
