@@ -50,23 +50,23 @@
 
 <% end %>
         
-        <ul class="collection with-header z-depth-3">
-        <li class="collection-header"><h4>Categorías</h4></li>
+        <div class="collection with-header z-depth-3">
+        <div class="collection-header"><h4>Categorías</h4></div>
           
             <% @categorias.each do |c| %>
             <%= form_tag disfrazs_path, :method => 'get' do %>  
     <%= hidden_field_tag :ID_CATEGORIA, params[:ID_CATEGORIA], value: c.ID_CATEGORIA%>
 
-              <li class="collection-item">
+              <div class="collection-item">
               <div class="center">
-              <br>
-              <input  type="submit"  value=<%= c.NOMBRE_CATEGORIA%> class = "waves-effect waves-light btn"></br>
+              
+                <input  type="submit"  value=<%= c.NOMBRE_CATEGORIA%> class = "waves-effect waves-light btn white-text"></br>
               </div>
-              </li>
+              </div>
               <%end%>
 
             <% end %>
-      </ul>
+      </div>
     </div>  
           
 
