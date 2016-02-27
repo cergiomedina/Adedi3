@@ -32,6 +32,9 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
+
+
+  
   # INSTALAR ULTIMA VERSION DE IMAGEMAGICK EN WINDOWS Y COLOCAR LA RUTA ADECUADA DEL ARCHIVO "CONVERT.EXE" EN EL PATH DE AQUI
   Paperclip.options[:command_path] = 'C:/Program Files/ImageMagick-6.9.3-Q16'
   # ------------------------------------------------------------------------------------------------------------------------

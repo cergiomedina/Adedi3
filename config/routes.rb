@@ -11,10 +11,13 @@ end
 
   get '/carrito' => 'cart#index'
   get '/carrito/vaciar' =>  'cart#clearCart'
+  get '/carrito/solicitar' => 'cart#solicitar'
   get '/carrito/:id' => 'cart#add'
   get '/carrito/eliminar/:id' => 'cart#eliminardisfraz'
   get '/carrito/añadir/:id' => 'cart#anadirdisfraz'
   get '/carrito/quitar/:id' => 'cart#quitardisfraz'
+  
+
 
   get 'home/index'
 

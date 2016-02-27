@@ -79,4 +79,24 @@ class CartController < ApplicationController
 	  	cart[id] = cart[id] - 1
 	  	redirect_to '/carrito', notice: 'Se ha disminuido una prenda del disfraz seleccionado.'
 	  end
+
+	  def solicitar
+
+	  	if session[:cart] then
+			cart = session[:cart]
+
+			ActiveRecord::Base.transaction do
+				#params.require(:pedido).permit(:ID_EST_PEDIDO, :FECHA_PEDIDO,:ESTADO_PEDIDO,:cliente_id)
+				@pedido = current_cliente.pedidos.new(ID_EST_PEDIDO: 1, FECHA_PEDIDO: Time.now, ESTADO_PEDIDO:'EN ESPERA')
+				@pedido.save!
+				session[:cart] = nil
+			  	
+			end
+			
+			redirect_to '/pedidos', notice: 'Tu pedido se ha enviado a la tienda Correctamente!'
+		else
+			redirect_to '/carrito', notice: 'No puedes pedir algo que no seleccionaste.'
+		end
+
+	  end
 end

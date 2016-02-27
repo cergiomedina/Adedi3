@@ -123,8 +123,10 @@
 			</div>
 			<div class="container">
 				<div class="row" align="center">
-					<a href="" class="waves-effect waves-light btn white-text green">Pedir</a> 
+					<% if !@cart.empty?%>
+					<a href="/carrito/solicitar" class="waves-effect waves-light btn white-text green">Pedir</a> 
 					<a href="/carrito/vaciar" class="waves-effect waves-light btn white-text red">Vaciar</a>
+					<%end%>
 				</div>
 			</div>
 		</div>
