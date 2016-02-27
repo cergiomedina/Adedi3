@@ -69,6 +69,6 @@ class EjemplarsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ejemplar_params
-      params.require(:ejemplar).permit(:ID_DISFRAZ, :TALLA_EJEMPLAR, :COLOR_EJEMPLAR, :ESTADO_EJEMPLAR, :PRECIO_EJEMPLAR)
+      params.require(:ejemplar).permit(:ID_DISFRAZ, :TALLA_EJEMPLAR, :COLOR_EJEMPLAR, :ESTADO_EJEMPLAR)
     end
 end

@@ -26,10 +26,7 @@
     <% f.label :ESTADO_EJEMPLAR %><br>
     <%= f.hidden_field :ESTADO_EJEMPLAR,:value => 'Disponible' %>
   </div>
-  <div class="field">
-    <%= f.label :precio %><br>
-    <%= f.text_field :PRECIO_EJEMPLAR%>
-  </div>
+
   <div class="actions">
     <%= f.submit class: 'waves-effect waves-light btn' %>
     <%= link_to 'volver', ejemplars_path, class: 'waves-effect waves-light btn yellow' %>
