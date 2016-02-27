@@ -6,7 +6,7 @@
 		<h4>Pedido número: <b>#<%= @pedido.id %></b></h4>
 		<div class="divider"></div>
 		<h5>Disfraces del pedido</h5>
-		dir
+		
 		<ul class="collection">
 		<% @pedido.pedidos_detalles.each do |disfraz| %>
 			<% if Disfraz.exists?(disfraz.disfraz_id) %>
