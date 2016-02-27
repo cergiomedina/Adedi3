@@ -1,4 +1,7 @@
 class CartController < ApplicationController
+
+	before_action :authenticate_cliente!, except: [:index]
+
 	def add
 		id = params[:id]
 		if session[:cart] then
@@ -13,7 +16,9 @@ class CartController < ApplicationController
 		else
 			cart[id] = 1
 		end
-		redirect_to :action => :index
+
+		redirect_to '/carrito' , notice: 'El disfraz ha sido agregado a tu carro de arriendos.' 
+
 	end
 
 	def clearCart
