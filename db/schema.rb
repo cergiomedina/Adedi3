@@ -126,7 +126,6 @@ ActiveRecord::Schema.define(version: 20160227003730) do
     t.string  "TALLA_EJEMPLAR",  limit: 20
     t.string  "COLOR_EJEMPLAR",  limit: 20
     t.string  "ESTADO_EJEMPLAR", limit: 20
-    t.string  "PRECIO_EJEMPLAR", limit: 20
   end
 
   add_index "ejemplar", ["ID_DISFRAZ"], name: "FK_RELATIONSHIP_2", using: :btree
@@ -207,13 +206,13 @@ ActiveRecord::Schema.define(version: 20160227003730) do
   add_index "transicion_est_cliente", ["CLI_ID_EST_CLIENTE"], name: "FK_RELATIONSHIP_28", using: :btree
 
   create_table "transicion_est_ejemplar", id: false, force: true do |t|
-    t.integer "EJE_ID_ESTADO_CLIENTE",            null: false
-    t.integer "ID_ESTADO_CLIENTE",                null: false
-    t.string  "EST_INI_EJEMPLAR",      limit: 20
-    t.string  "EST_FIN_EJEMPLAR",      limit: 20
+    t.integer "EJE_ID_ESTADO_EJEMPLAR",            null: false
+    t.integer "ID_ESTADO_EJEMPLAR",                null: false
+    t.string  "EST_INI_EJEMPLAR",       limit: 20
+    t.string  "EST_FIN_EJEMPLAR",       limit: 20
   end
 
-  add_index "transicion_est_ejemplar", ["ID_ESTADO_CLIENTE"], name: "FK_RELATIONSHIP_30", using: :btree
+  add_index "transicion_est_ejemplar", ["ID_ESTADO_EJEMPLAR"], name: "FK_RELATIONSHIP_30", using: :btree
 
   create_table "transicion_est_pedido", id: false, force: true do |t|
     t.integer "ID_EST_PEDIDO",                null: false
