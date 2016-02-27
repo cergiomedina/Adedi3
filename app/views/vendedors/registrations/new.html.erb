@@ -51,10 +51,14 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div class="field">
-    <%= f.label :ES_ADMIN,  'Administrador' %>
-     <%= f.check_box :ES_ADMIN %>
-  </div>
+  <label>Tipo de Personal</label>
+  <select name="vendedor[ES_ADMIN]" class="browser-default">
+    
+    <option value="false" selected>Vendedor</option>
+    <option value="true">Administrador</option>
+    
+  </select>
+  
 
       <div class="actions">
       <a class="waves-effect waves-light btn"><%= f.submit "Registrarse" %></a>

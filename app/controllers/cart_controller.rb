@@ -72,6 +72,10 @@ class CartController < ApplicationController
 			session[:cart] = {}
 			cart = session[:cart]
 		end
+
+		if cart[id] == 1
+			redirect_to '/carrito', notice: 'No se puede seguir disminuyendo la cantidad de disfraces.'
+		end
 	  	cart[id] = cart[id] - 1
 	  	redirect_to '/carrito', notice: 'Se ha disminuido una prenda del disfraz seleccionado.'
 	  end
