@@ -1,26 +1,103 @@
 <div class="container">
-	<H1>Tu Carrito de arriendo</H1>
-	
-<% total = 0 %>
-	<% @cart.each do |id, quantity |%>
+	<h3><i class="fa fa-shopping-cart"></i> Tu Carrito de arriendo</h3>
+	<% total = 0 %>
+		<% totaldisfraces = 0%>
+	<div class="divider"></div>
+	<div class="row">
+		<div class="col s6 m8">
+			
 		
-		<div class="card-panel">			
-				<% disfraz = Disfraz.find(id) %>
-				<li>
-					<%= disfraz.imagen.url(:thumb) %>
-					<%= link_to disfraz.NOMBRE_DISFRAZ , disfraz %>
-					<p>Descripción: <%= disfraz.descripcion%></p>
-					<p>Precio: $ <%= disfraz.precio%></p>
-					<p>Cantidad: <%= quantity %></p>
-				</li>	
-				<%= total += quantity * disfraz.precio  %>
+			<% @cart.each do |id, quantity |%>
+					<% disfraz = Disfraz.find(id) %>
+				<div class="card-panel hoverable">	
+					<div class="row">
+						<div class="container">
+							<!--<%= link_to disfraz.NOMBRE_DISFRAZ , disfraz %>-->
+							<div class="row">
+								<div class="col s12 m3"> código: #<%= disfraz.id %></div>
+								<div class="col s12 m8">
+									<h5>Disfraz: <b><%= disfraz.NOMBRE_DISFRAZ%></b></h5>
+								</div>
+							
+							</div>
+						</div>
+						<div class="divider"></div>
+						<div class="col s4">
+
+							<div class="row" align="left">
+								<%= image_tag disfraz.imagen.url(:medium)%>
+								
+								
+							</div>
+						</div>
+						<div class="col s8">
+							<table>
+								<tbody>
+									<tr>
+										<td><b>Descripción:</b></td>
+										<td><%= disfraz.descripcion%></td>
+									</tr>
+									<tr>
+										<td><b>Precio:</b></td>
+										<td>$ <%= disfraz.precio%></td>
+									</tr>
+									<tr>
+										<td><b>Cantidad:</b></td>
+										<td><%= quantity %></td>
+									</tr>	
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<% total += quantity * disfraz.precio  %>
+						<% totaldisfraces += quantity %>
+			<% end %>
+			
+			
+		</div>
+		<div class="col s6 m4">
+			<div class="card-panel">
+				<h5>Datos del arriendo</h5>
+				<div class="divider"></div>
+
+				<% if !@cart.empty? %>
+				<table>
+			        <tbody>
+			          <tr>
+			            <td>Cantidad de disfraces:</td>
+			            <td><b><%= totaldisfraces%></b></td>
+			          </tr>
+			          <tr>
+			            <td>Fecha de Retiro: </td>
+			            <td><b>Fecha</b></td>
+			          </tr>
+			          <tr>
+			            <td>Fecha de Devolución: </td>
+			            <td><b>Fecha</b></td>
+			          </tr>
+			        </tbody>
+			      </table>
+			      <%else %>
+			      <br>
+			      <div class="container">
+			      <%=image_tag("empty_cart.png") %>
+			      </div>
+					<br>
+			      <% end %>
+			      <div class="divider"></div>
+			      <div class="container" align="right">
+			            <td>Total:</td>
+			            <td><b>$ <%= total %></b></td>
+			      </div>
+			</div>
+			<div class="container">
+				<div class="row" align="center">
+					<a href="" class="waves-effect waves-light btn white-text green">Pedir</a> 
+					<a href="/carrito/vaciar" class="waves-effect waves-light btn white-text red">Vaciar</a>
+				</div>
+			</div>
 		</div>
 
-	<% end %>
-	<p><b>Total: $<%= total %></b> pesos chilenos.</p>
-	<div class="container">
-		<div class="row" align="right">
-			<a href="/carrito/vaciar" class="waves-effect waves-light btn white-text red">Vaciar tu Carrito</a>
-		</div>
 	</div>
 </div>

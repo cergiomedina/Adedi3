@@ -73,23 +73,25 @@
 
         <% @disfrazs.each do |disfraz| %>
           <div class="col s12 m3">
-          <div class="card-panel" >
+          <div class="card-panel hoverable" >
             <div class="row" align="center">
               <h5><%= disfraz.NOMBRE_DISFRAZ%></h5>
               <div class="divider"></div>
-              <%= image_tag disfraz.imagen.url(:medium), class: 'materialboxed' %>
+              <%= image_tag disfraz.imagen.url(:medium) %>
             </div>
-            <div class="container" align="left">
-              <b>$ <%= disfraz.precio %></b>
+            <div class="container" align="center">
+              <h5>Precio <b>$ <%= disfraz.precio %></b></h5>
             </div>
-            <div class="row" >
-            <%= link_to 'Ver', disfraz ,class: 'waves-effect waves-light btn white-text '%> <a href="/carrito/<%= disfraz.ID_DISFRAZ %>" class="waves-effect waves-light btn white-text blue">Añadir <i class="material-icons">shopping_cart</i></a>
-            </div>
-
-            <% if !current_vendedor%>
+            <div class="row" align="center">
+            <%= link_to 'Ver', disfraz ,class: 'waves-effect waves-light btn white-text '%> 
             
 
+            <% if !current_vendedor%>
+            <a href="/carrito/<%= disfraz.ID_DISFRAZ %>" class="waves-effect waves-light btn white-text blue">Añadir <i class="material-icons">shopping_cart</i></a>
+
             <%end%>
+
+            </div>
             <% if current_vendedor%>
               <% if current_vendedor.ES_ADMIN == true %>
 

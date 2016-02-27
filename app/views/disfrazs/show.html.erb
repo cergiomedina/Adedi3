@@ -10,7 +10,7 @@
       <br>
         <div class="row">
           <div class="col s6 m4">
-            <%= image_tag @disfraz.imagen.url(:original), class: 'materialboxed z-depth-1'%>
+            <%= image_tag @disfraz.imagen.url(:medium), class: 'materialboxed z-depth-1'%>
           </div>
           <div class="col s6 m4">
                                           <div class="divider"></div>
@@ -34,7 +34,7 @@
         <p><b>Stock actual: </b><%= @disfraz.STOCK_DISPONIBLE %></p>
         <p><h5>Precio: $ <%= @disfraz.precio %></h5></p>
         <% if current_cliente %>
-          <%= link_to 'Nuevo Pedido', new_cliente_pedido_path(@cliente),class: 'waves-effect waves-light btn white-text ' %>
+          <a href="/carrito/<%= @disfraz.ID_DISFRAZ %>" class="waves-effect waves-light btn white-text blue">Añadir <i class="material-icons">shopping_cart</i></a>
 
         <% end %>
         <% if current_vendedor%>
