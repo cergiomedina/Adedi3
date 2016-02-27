@@ -86,17 +86,23 @@ class CartController < ApplicationController
 			cart = session[:cart]
 
 			ActiveRecord::Base.transaction do
-				#params.require(:pedido).permit(:ID_EST_PEDIDO, :FECHA_PEDIDO,:ESTADO_PEDIDO,:cliente_id)
-				@pedido = current_cliente.pedidos.new(ID_EST_PEDIDO: 1, FECHA_PEDIDO: Time.now, ESTADO_PEDIDO:'EN ESPERA')
-				@pedido.save!
-				session[:cart] = nil
-			  	
-			end
+					#params.require(:pedido).permit(:ID_EST_PEDIDO, :FECHA_PEDIDO,:ESTADO_PEDIDO,:cliente_id)
+					@pedido = current_cliente.pedidos.new(ID_EST_PEDIDO: 1, FECHA_PEDIDO: Time.now, ESTADO_PEDIDO:'EN ESPERA')
+					respuesta1 = @pedido.save!
+					respuesta2 = false
 			
-			redirect_to '/pedidos', notice: 'Tu pedido se ha enviado a la tienda Correctamente!'
+					if respuesta1 and respuesta2
+						session[:cart] = nil
+						redirect_to '/pedidos', notice: 'El pedido se ha realizado con éxito.'
+					else
+						raise ActiveRecord::Rollback
+					end
+			end
 		else
-			redirect_to '/carrito', notice: 'No puedes pedir algo que no seleccionaste.'
+			
 		end
 
 	  end
+
+
 end
