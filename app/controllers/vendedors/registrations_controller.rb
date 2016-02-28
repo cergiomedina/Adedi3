@@ -10,7 +10,12 @@ class Vendedors::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
    def new
     if current_vendedor
-     super
+      if current_vendedor.ES_ADMIN == true
+
+        super
+      else
+        redirect_to root_path, notice: 'No tienes permisos para entrar a esta ubicación' and return
+      end
    else
     redirect_to root_path, notice: 'No tienes permisos para entrar a esta ubicación' and return
     end
