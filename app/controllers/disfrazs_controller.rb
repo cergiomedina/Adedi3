@@ -48,7 +48,8 @@ class DisfrazsController < ApplicationController
     @categorias = Categoria.all.order('NOMBRE_CATEGORIA')
     @categorium = Categoria.new
     @disfraz = Disfraz.new(disfraz_params)
-    @disfraz.STOCK_DISPONIBLE = @disfraz.STOCK_DISFRAZ
+    @disfraz.STOCK_DISPONIBLE = 0
+    @disfraz.STOCK_DISFRAZ = 0
     @disfraz.save
     respond_with(@disfraz)
   end

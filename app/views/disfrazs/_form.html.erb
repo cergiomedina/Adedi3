@@ -23,12 +23,6 @@
     <%= f.number_field :precio, :min => 1 %>
   </div>
 
-  <div class="field">
-    <%= f.label :stock_del_disfraz%>
-    <%= f.number_field :STOCK_DISFRAZ, :min => 1 %>
-  </div>
-  
-
   <div class="actions">
     <a class="waves-effect waves-light btn"><%= f.submit "Aceptar" %></a>  <%= link_to 'Cancelar', disfrazs_path, class: 'waves-effect waves-light btn red' %>
   </div>
