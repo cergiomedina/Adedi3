@@ -13,7 +13,7 @@ class Disfraz < ActiveRecord::Base
     validates_presence_of   :ID_CATEGORIA, :message => "El disfraz debe pertenecer a una categoría"
     validates_presence_of   :precio, :message => "El disfraz debe tener un precio"
     validates_presence_of   :descripcion, :message => "El disfraz debe tener una descripción."
-
+    validates_uniqueness_of :NOMBRE_DISFRAZ, :message => "Ya existe un disfraz con ese nombre"
 	def self.search(term)
 	   where("NOMBRE_DISFRAZ like :term", term: "#{term}")
 	 end

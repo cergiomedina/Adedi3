@@ -12,7 +12,7 @@ class Cliente < ActiveRecord::Base
       has_many :pedidos
       has_many :arriendos, dependent: :destroy
       
-      validates :RUT_CLIENTE, rut: true, uniqueness: true
+      validates :RUT_CLIENTE, rut: true, uniqueness: true 
       
       has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>", big: "200x200>" }, default_url: "default.png"
       validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/

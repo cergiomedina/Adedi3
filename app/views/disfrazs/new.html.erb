@@ -2,7 +2,8 @@
 	<div class="container row red-text">
 		<% if @disfraz.errors.any? %>
     <div id="error_explanation">
-      <h2>Errores encontrados:</h2>
+    	<div class="card-panel red white-text">
+      <h5>Errores encontrados:</h5>
 
       <ul>
       <% @disfraz.errors.each do |attribute, message| %>
@@ -11,6 +12,7 @@
         <% end %>
       <% end %>
       </ul>
+      </div>
     </div>
   <% end %>
 

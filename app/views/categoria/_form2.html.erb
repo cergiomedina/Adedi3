@@ -1,13 +1,15 @@
 <%= form_for(@categorium) do |f| %>
   <% if @categorium.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@categorium.errors.count, "error") %> prohibited this categorium from being saved:</h2>
+       <div class="card-panel red white-text">
+      <h5>Errores encontrados:</h5>
 
       <ul>
       <% @categorium.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
+      </div>
     </div>
   <% end %>
 
