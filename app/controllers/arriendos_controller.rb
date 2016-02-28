@@ -15,7 +15,7 @@ class ArriendosController < ApplicationController
       @pedido = Pedido.find(@arriendo.ID_PEDIDO)
       @disfrazs = @pedido.pedidos_detalles
     else
-      redirect_to '/arriendos', notice:'No se puede acceder al arriendo seleccionado.'
+      redirect_to '/arriendos', notice:'No se puede acceder al arriendo seleccionado.' and return
     end
   end
 
@@ -57,7 +57,7 @@ class ArriendosController < ApplicationController
 
     respond_to do |format|
       if @arriendo.save
-        format.html { redirect_to @arriendo, notice: 'Arriendo was successfully created.' }
+        format.html { redirect_to @arriendo, notice: 'Arriendo was successfully created.' } 
         format.json { render :show, status: :created, location: @arriendo }
       else
         format.html { render :new }

@@ -58,7 +58,7 @@ class PedidosController < ApplicationController
       end      
     else
       if salida == false
-        redirect_to root_path, notice: 'No tienes suficientes permisos realizar esta acción'
+        redirect_to root_path, notice: 'No tienes suficientes permisos realizar esta acción' and return
       end
     end
   end

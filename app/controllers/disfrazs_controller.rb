@@ -9,14 +9,14 @@ class DisfrazsController < ApplicationController
       if params[:search]
         @disfrazs = Disfraz.search(params[:search]).paginate(:page => params[:page], :per_page => 6)
         if @disfrazs.count == 0
-           redirect_to disfrazs_path, notice: 'No se encontró ningún resultado.'
+           redirect_to disfrazs_path, notice: 'No se encontró ningún resultado.'and return
         else
           respond_with(@disfrazs)
         end
       elsif params[:ID_CATEGORIA]
         @disfrazs = Disfraz.where(ID_CATEGORIA: params[:ID_CATEGORIA]).paginate(:page => params[:page], :per_page => 6)
         if @disfrazs.count == 0
-           redirect_to disfrazs_path, notice: 'No se encontró ningún resultado.'
+           redirect_to disfrazs_path, notice: 'No se encontró ningún resultado.'and return
         else
           @categoria = Categoria.where(ID_CATEGORIA: params[:ID_CATEGORIA]).take
           respond_with(@disfrazs)
