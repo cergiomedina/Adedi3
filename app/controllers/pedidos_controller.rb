@@ -100,7 +100,32 @@ class PedidosController < ApplicationController
   # DELETE /pedidos/1
   # DELETE /pedidos/1.json
   def destroy
-    @pedido.destroy
+      ActiveRecord::Base.transaction do
+          r1 = true
+            @pedido.pedidos_detalles.each do |disfraz|
+              if Disfraz.exists?(disfraz.disfraz_id)
+                @disfraz = Disfraz.find(disfraz.disfraz_id)
+                @disfraz.STOCK_DISPONIBLE += disfraz.cantidad
+                @disfraz.save!
+                r1 = r1 and true
+              else
+                r1 = r1 and false
+              end
+
+            end
+
+            
+          r2 = @pedido.destroy
+          if r1 and r2 
+            redirect_to '/pedidos', notice: 'El pedido fue eliminado correctamente. El stock ha vuelto al valor inicial' and return
+          else
+            raise ActiveRecord::Rollback
+            redirect_to '/pedidos', notice: 'No se pudo eliminar el pedido. alguno de los datos ya no existe' and return
+          end
+    
+      end
+
+    
     respond_to do |format|
       format.html { redirect_to pedidos_url, notice: 'El pedido ha sido eliminado.' }
       format.json { head :no_content }
