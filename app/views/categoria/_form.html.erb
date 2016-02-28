@@ -17,6 +17,9 @@
     <%= f.label :nombre %><br>
     <%= f.text_field :NOMBRE_CATEGORIA, :maxlength=>"20" %>
   </div>
+  <div class="field">
+    <%= f.hidden_field :STOCK_CATEGORIA, :value => 0 %>
+  </div>
   <div class="actions">
     <%= f.submit "crear", class: 'waves-effect waves-light btn' %>
     <%= link_to 'volver', categoria_path, class: 'waves-effect waves-light btn' %>
