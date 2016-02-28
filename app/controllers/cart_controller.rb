@@ -11,13 +11,23 @@ class CartController < ApplicationController
 			cart = session[:cart]
 		end
 
-		if cart[id] then
-			cart[id] = cart[id] + 1
-		else
-			cart[id] = 1
-		end
+		if Disfraz.exists?(id)
+			@disfraz = Disfraz.find(id)
+			if cart[id] then
+				if @disfraz.STOCK_DISPONIBLE > cart[id]
+					cart[id] = cart[id] + 1
+				else
+					redirect_to '/disfrazs' , notice: 'No puedes añadir otra unidad de este disfraz.' and return
+				end
+			else
+				cart[id] = 1
+			end
 
-		redirect_to '/carrito' , notice: 'El disfraz ha sido agregado a tu carro de arriendos.' 
+			redirect_to '/carrito' , notice: 'El disfraz ha sido agregado a tu carro de arriendos.' and return
+
+		else
+			redirect_to '/disfrazs' , notice: 'El disfraz no existe.' and return
+		end
 
 	end
 

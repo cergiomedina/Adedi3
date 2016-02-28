@@ -33,9 +33,12 @@
       <br>
 
 
-        <% if current_cliente %>
+        <% if current_cliente and @disfraz.STOCK_DISPONIBLE > 0%>
           <a href="/carrito/<%= @disfraz.ID_DISFRAZ %>" class="waves-effect waves-light btn white-text blue">Añadir <i class="material-icons">shopping_cart</i></a>
-
+          <%else%>
+          <blockquote>
+              Disfraz fuera de stock.
+            </blockquote>
         <% end %>
         <% if current_vendedor%>
           <%if current_vendedor.ES_ADMIN == true%>
