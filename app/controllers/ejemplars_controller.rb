@@ -34,7 +34,7 @@ class EjemplarsController < ApplicationController
   # POST /ejemplars.json
   def create
     @ejemplar = Ejemplar.new(ejemplar_params)
-
+    @ejemplar.ID_ESTADO_CLIENTE = 1
     respond_to do |format|
       if @ejemplar.save
         format.html { redirect_to @ejemplar, notice: 'Ejemplar creado satisfactoriamente.' }
