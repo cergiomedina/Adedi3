@@ -12,7 +12,7 @@
 			<div class="row" align="center"><h5>Datos del arriendo</h5></div>
 			<div class="row" align="left"><h5>Estado Arriendo:<b> <%= @arriendo.ESTADO_ARRIENDO %></b></h5></div>
 
-			<%if @arriendo.FECHA_ARRIENDO < Time.now%>
+			<%if @arriendo.FECHA_ARRIENDO < Time.now and @arriendo.ESTADO_ARRIENDO!='DEVUELTO'%>
 				<div class="card-panel red white-text">
 				<h5>La devolución del arriendo está atrasada.</h5>
 				</div>
