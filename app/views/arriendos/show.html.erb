@@ -9,9 +9,11 @@
 		<p>Código del arriendo: #<%= @arriendo.id %></p>
 		<div class="divider"></div>
 		<div class="container">
-			<table class="highlight">
+			<div class="row" align="center"><h5>Datos del arriendo</h5></div>
+			<table class="striped">
 		        <thead>
 		          <tr>
+		          		<th data-field="name">Rut Cliente</th>
 		              <th data-field="id">Nombre Cliente</th>
 		              <th data-field="name">Fecha del Arriendo</th>
 		              <th data-field="price">Total Arriendo</th>
@@ -25,6 +27,7 @@
 				          <tr>
 				          	<%if Cliente.exists?(@arriendo.cliente_id)%>
 			        			<% @cliente = Cliente.find(@arriendo.cliente_id)%>
+			        			<td><%= @cliente.RUT_CLIENTE %> </td>
 				            		<td><%= @cliente.NOMBRE_CLIENTE %> <%= @cliente.APELLIDO_CLIENTE %></td>
 				            <%end%>
 				             <td><%= @arriendo.FECHA_ARRIENDO%></td>
@@ -35,6 +38,7 @@
 		      </table>
 
 		</div>
+		<div class="row" align="center"><h5>Disfraces del Arriendo</h5></div>
 		<div class="container">
 			<ul class="collection">
 			    <% @disfrazs.each do |disfraz| %>
@@ -66,6 +70,8 @@
 			    <%end%>
 			  </ul>
 			  <p>Total Arriendo : $ <b><%= @arriendo.TOTAL_ARRIENDO%></b> PESOS CHILENOS</p>
+			  <p>Fecha Retiro: <b><%= @disfrazs[0].FECHA_RETIRO%></b></p>
+			  <p>Fecha Devolución: <b><%= @disfrazs[0].FECHA_DEV%></b></p>
 			  <br>
 			  <blockquote>
 			  	El precio del arriendo es tomado del momento en el que se realizó el pedido. Por ende debe ser respetado sin importar los cambios que se realicen en los disfraces posteriormente.
