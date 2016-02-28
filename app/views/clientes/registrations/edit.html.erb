@@ -18,15 +18,15 @@
   </div>
   <div class="field">
     <%= f.label :nombre %><br />
-    <%= f.text_field :NOMBRE_CLIENTE , autocomplete: "off"%>
+    <%= f.text_field :NOMBRE_CLIENTE , autocomplete: "off", :maxlength=>"20"%>
   </div>
   <div class="field">
     <%= f.label :apellido %><br />
-    <%= f.text_field :APELLIDO_CLIENTE , autocomplete: "off"%>
+    <%= f.text_field :APELLIDO_CLIENTE , autocomplete: "off", :maxlength=>"20"%>
   </div>
   <div class="field">
     <%= f.label :direccion %><br />
-    <%= f.text_field :DIRECCION_CLIENTE , autocomplete: "off"%>
+    <%= f.text_field :DIRECCION_CLIENTE , autocomplete: "off", :maxlength=>"20"%>
   </div>
   <div class="field">
     <%= f.label :telefono %><br />
@@ -44,17 +44,17 @@
 
   <div class="field">
     <%= f.label :nueva_contrasena %> <i>(Dejala en blanco si no la quieres cambiar)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", :maxlength=>"12" %>
   </div>
 
   <div class="field">
     <%= f.label :confirmar_contrasena %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off" , :maxlength=>"12"%>
   </div>
 
   <div class="field">
     <%= f.label :contrasena_actual %> <i>(Necesitamos tu contraseña actual para confirmar los cambios)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+    <%= f.password_field :current_password, autocomplete: "off" , :maxlength=>"12"%>
   </div>
 
     <div class="actions">
