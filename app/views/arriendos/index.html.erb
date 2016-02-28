@@ -4,7 +4,7 @@
 
   <h3>Arriendos</h3>
 
-  <table>
+  <table class="highlight">
     <thead>
       <tr>
         <th colspan="3">Fecha Arriendo</th>
@@ -20,39 +20,43 @@
         
     </thead>
 
-    <tbody>
+    <tbody align="center">
       <% @arriendos.each do |arriendo| %>
       <tr>
-        <td><%= arriendo.FECHA_ARRIENDO %></td>
-      </tr>
-      <tr>
-        <td><%= arriendo.FECHA_ARRIENDO %></td>
-      </tr>
-      <tr>
-        <td><%= arriendo.FECHA_ARRIENDO %></td>
-      </tr>
-      <tr>
-        <td><%= arriendo.FECHA_ARRIENDO %></td>
-      </tr>
+        <td colspan="3"><%= arriendo.FECHA_ARRIENDO %></td>
+     
+        <td colspan="3"><%= arriendo.ESTADO_ARRIENDO %></td>
+    
+        <td colspan="3"><%= arriendo.TOTAL_ARRIENDO %></td>
+      
+      <% if Vendedor.exists?(arriendo.ID_VENDEDOR) %>
+      <% @v = Vendedor.find(arriendo.ID_VENDEDOR) %>
+        <td colspan="3"><%= @v.NOMBRE_VENDEDOR %> <%= @v.APELLIDO_VENDEDOR %></td>
+        <%else%>
+        <td colspan="3">NO EXISTE</td>
+      <%end%>
       <% if !current_cliente %>
-      <tr>
-        <td><%= arriendo.FECHA_ARRIENDO %></td>
-      </tr>
+     
+        <% if Cliente.exists?(arriendo.cliente_id) %>
+      <% @c = Cliente.find(arriendo.cliente_id) %>
+        <td colspan="3"><%= @c.NOMBRE_CLIENTE %> <%= @c.APELLIDO_CLIENTE %></td>
+        <%else%>
+        <td colspan="3">NO EXISTE</td>
+      <%end%>
+  
 
       <%end %>
-      <tr>
-        <td><%= arriendo.FECHA_ARRIENDO %></td>
-      </tr>
-      <tr>
-        <td><%= arriendo.FECHA_ARRIENDO %></td>
-      </tr>
-      <tr>
-        <td><%= arriendo.FECHA_ARRIENDO %></td>
-      </tr>
-        <tr>
-          <td><%= link_to 'Show', arriendo %></td>
-          <td><%= link_to 'Edit', edit_arriendo_path(arriendo) %></td>
-          <td><%= link_to 'Destroy', arriendo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+   
+        <td colspan="3"><%= arriendo.NUMERO_DISFRACES %></td>
+     
+
+        <td colspan="3">$ <%= arriendo.TOTAL_GARANTIA %></td>
+  
+        <td colspan="3">$ <%= arriendo.TOTAL_ARRIENDO %></td>
+   
+          <td><%= link_to 'Ver', arriendo,class: 'waves-effect waves-light btn white-text blue' %></td>
+  <!--           <td><%= link_to 'Edit', edit_arriendo_path(arriendo) %></td>-->
+          
         </tr>
       <% end %>
     </tbody>

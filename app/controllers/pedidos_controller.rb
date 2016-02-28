@@ -29,6 +29,40 @@ class PedidosController < ApplicationController
 
   end
 
+  def aceptarPedido
+    salida = false
+    if current_vendedor
+      @pedido = Pedido.find(params[:id])
+      @cliente = Cliente.find(@pedido.cliente_id)
+      ActiveRecord::Base.transaction do
+          @total_arriendo = 0
+          @cantidad_disfraces = 0
+
+          @pedido.pedidos_detalles.each do |disfraz|
+            @total_arriendo += disfraz.precio_detalle
+            @cantidad_disfraces += disfraz.cantidad
+          end
+          #params.require(:pedido).permit(:ID_EST_PEDIDO, :FECHA_PEDIDO,:ESTADO_PEDIDO,:cliente_id)
+          @pedido.ESTADO_PEDIDO = 'ACEPTADO'
+          respuesta = @pedido.save!
+          @arriendo = @cliente.arriendos.new(ID_EST_ARRIENDO: 1, ID_VENDEDOR: current_vendedor.id, ID_PEDIDO: @pedido.id,NUMERO_DISFRACES: @cantidad_disfraces,FECHA_ARRIENDO: Time.now,ESTADO_ARRIENDO: 'ARRENDADO', TOTAL_ARRIENDO: @total_arriendo, TOTAL_GARANTIA: @total_arriendo )
+          respuesta1 = @arriendo.save!
+         
+            
+          if respuesta1 and respuesta
+            redirect_to '/arriendos', notice: 'El pedido ha pasado a ser Arrendado con éxito!.'
+          else
+            salida = true 
+            raise ActiveRecord::Rollback
+          end
+      end      
+    else
+      if salida == false
+        redirect_to root_path, notice: 'No tienes suficientes permisos realizar esta acción'
+      end
+    end
+  end
+
   # GET /pedidos/1/edit
   def edit
   end

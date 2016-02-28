@@ -16,7 +16,7 @@ end
   get '/carrito/eliminar/:id' => 'cart#eliminardisfraz'
   get '/carrito/añadir/:id' => 'cart#anadirdisfraz'
   get '/carrito/quitar/:id' => 'cart#quitardisfraz'
-  
+  get '/arrendar/:id' => 'pedidos#aceptarPedido'
 
 
   get 'home/index'
@@ -34,8 +34,6 @@ end
   get 'clientes/:id' => 'clientes#show'
 
   get 'transicion_arriendos/show'
-
-  get 'pedidos_detalles/show'
 
   get 'pedido_estados/show'
 

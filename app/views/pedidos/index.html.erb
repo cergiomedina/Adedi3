@@ -21,7 +21,15 @@
               <td><%= pedido.FECHA_PEDIDO %></td>
               <td><%= link_to 'Ver', pedido ,class: 'waves-effect waves-light btn white-text '%></td>
               <% if current_vendedor %>
-              <td><%= link_to 'Modificar', edit_pedido_path(pedido),class: 'waves-effect waves-light btn white-text  ' %></td>
+
+              <% if pedido.ESTADO_PEDIDO == 'EN ESPERA'%>
+              <td>
+                <a href="/arrendar/<%= pedido.id %>" class="waves-effect waves-light btn white-text  blue">Aceptar Pedido</a>
+
+              </td>
+              <%else%>
+              <td></td>
+              <%end%>
               <% end %>
               <td><%= link_to 'Eliminar', pedido, method: :delete, data: { confirm: 'Estas seguro?' },class: 'waves-effect waves-light btn white-text red ' %></td>
             </tr>
