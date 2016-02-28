@@ -15,7 +15,15 @@ class EjemplarsController < ApplicationController
 
   # GET /ejemplars/new
   def new
-    @ejemplar = Ejemplar.new
+    if current_vendedor
+      if current_vendedor.ES_ADMIN == true
+        @ejemplar = Ejemplar.new
+      else
+        redirect_to root_path, notice: 'No tienes suficientes permisos para entrar acá' and return
+      end
+    else
+      redirect_to root_path, notice: 'No tienes suficientes permisos para entrar acá' and return
+    end
   end
 
   # GET /ejemplars/1/edit
