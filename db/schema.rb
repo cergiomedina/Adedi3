@@ -35,9 +35,11 @@ ActiveRecord::Schema.define(version: 20160228001841) do
   end
 
   create_table "categoria", primary_key: "ID_CATEGORIA", force: true do |t|
-    t.string  "NOMBRE_CATEGORIA", limit: 20
+    t.string  "NOMBRE_CATEGORIA", limit: 20, null: false
     t.integer "STOCK_CATEGORIA"
   end
+
+  add_index "categoria", ["NOMBRE_CATEGORIA"], name: "NOMBRE_CATEGORIA", unique: true, using: :btree
 
   create_table "cliente", primary_key: "ID_CLIENTE", force: true do |t|
     t.integer  "ID_EST_CLIENTE",                    default: 1,    null: false
@@ -139,10 +141,10 @@ ActiveRecord::Schema.define(version: 20160228001841) do
 
   create_table "log_auditoria", primary_key: "ID_LOG", force: true do |t|
     t.integer "RUT_USUARIO"
-    t.string  "TABLA_AFECTADA",     limit: 20
-    t.string  "INSTRUCCION",        limit: 20
-    t.string  "DATOS_ANTES",        limit: 20
-    t.string  "DATOS_DESPUES",      limit: 20
+    t.string  "TABLA_AFECTADA"
+    t.string  "INSTRUCCION"
+    t.string  "DATOS_ANTES"
+    t.string  "DATOS_DESPUES"
     t.string  "FECHA_MODIFICACION", limit: 20
   end
 
