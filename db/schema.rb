@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160227204842) do
+ActiveRecord::Schema.define(version: 20160228001841) do
 
   create_table "arriendo", primary_key: "ID_ARRIENDO", force: true do |t|
     t.integer "ID_VENDEDOR",                 null: false
@@ -187,6 +187,7 @@ ActiveRecord::Schema.define(version: 20160227204842) do
     t.date    "FECHA_DEV",      null: false
     t.integer "disfraz_id",     null: false
     t.integer "precio_detalle", null: false
+    t.integer "cantidad"
   end
 
   add_index "pedidos_detalle", ["disfraz_id"], name: "index_pedidos_detalle_on_disfraz_id", using: :btree

@@ -1,31 +1,47 @@
-
+<BR>
 <div class="container">
 
 
 	<div class="card-panel">
 		<h4>Pedido número: <b>#<%= @pedido.id %></b></h4>
 		<div class="divider"></div>
-		<h5>Disfraces del pedido</h5>
-		
+		<% if Cliente.exists?(@pedido.cliente_id)%>
+			<% @c = Cliente.find(@pedido.cliente_id)%>
+			<h5>Detalle del pedido - Cliente: <b><%= @c.NOMBRE_CLIENTE %> <%= @c.APELLIDO_CLIENTE %></b> </h5>
+		<%else %>
+			<h5>Detalle del pedido </h5>
+		<%end%>
+		<% total_arriendo = 0 %>
 		<ul class="collection">
 		<% @pedido.pedidos_detalles.each do |disfraz| %>
 			<% if Disfraz.exists?(disfraz.disfraz_id) %>
-			<% @d = Disfraz.find(disfraz.disfraz_id)%>
-		    <li class="collection-item avatar">
-		      <%= image_tag @d.imagen.url(:thumb), class: "circle" %>
-		      <span class="title">Nombre: <b><%=  @d.NOMBRE_DISFRAZ%></b></span>
-		      <br>
-		      <span>Descripción: <b><%= @d.descripcion%></b></span>
-		      <%= link_to disfraz_path(@d), class: "secondary-content" do%>
-		      <i class="material-icons tooltipped" data-position="right" data-delay="50" data-tooltip="Ver">visibility</i>
-		     </li>
-		     <%end%>
-		    <%else%>
-		    <li>Un disfraz dejó de estar en la tienda mientras está este pedido.</li>
+				<% @d = Disfraz.find(disfraz.disfraz_id)%>
+			    <li class="collection-item avatar ">
+
+			      <%= image_tag @d.imagen.url(:thumb), class: "circle" %>
+			      <span class="title">Código: #<b><%=  @d.id%></b></span>
+			      <br>
+			      <span class="title">Nombre: <b><%=  @d.NOMBRE_DISFRAZ%></b></span>
+			      <br>
+			      <span>Descripción: <b><%= @d.descripcion%></b></span>
+			      <br>
+			      <span>Cantidad: <b><%= disfraz.cantidad %></b></span>
+			      <br>
+			      <span>Precio por unidad: <b>$ <%= @d.precio %></b></span>
+			      <br>
+			      <span>Precio total: <b>$ <%= disfraz.precio_detalle %></b></span>
+			      <%= link_to disfraz_path(@d), class: "secondary-content" do%>
+			      <i class="material-icons tooltipped" data-position="right" data-delay="50" data-tooltip="Ver">visibility</i>
+			     </li>
+			     <% total_arriendo += disfraz.precio_detalle %>
+			     <%end%>
+			    <%else%>
+			    <li>Un disfraz dejó de estar en la tienda mientras está este pedido.</li>
 		    <%end%>
 		<%end%>
 	</ul>
+		<h5>Total del Arriendo: $ <b><%= total_arriendo %></b></h5>
 	</div>
 
-	<%= link_to 'Catálogo', '/disfrazs' %>
+	<%= link_to 'Pedidos', '/pedidos',class: 'waves-effect waves-light btn ' %>
 </div>

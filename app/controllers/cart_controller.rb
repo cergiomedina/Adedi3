@@ -91,7 +91,7 @@ class CartController < ApplicationController
 					respuesta1 = @pedido.save!
 					respuesta2 = true
 					@cart.each do |disfraz|
-						@pedidos_detalles = @pedido.pedidos_detalles.new(FECHA_RETIRO: Time.new,FECHA_DEV: Time.new,disfraz_id: disfraz[0], precio_detalle: Disfraz.find(disfraz[0]).precio * disfraz[1])
+						@pedidos_detalles = @pedido.pedidos_detalles.new(FECHA_RETIRO: Time.new,cantidad: disfraz[1],FECHA_DEV: Time.new,disfraz_id: disfraz[0], precio_detalle: Disfraz.find(disfraz[0]).precio * disfraz[1])
 						respuesta2 = respuesta2 and @pedidos_detalles.save!						
 					end			
 					if respuesta1 and respuesta2

@@ -1,23 +1,65 @@
-<h1>Listing arriendos</h1>
+ <br>
+ <div class="container">
+  <div class="card-panel">
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h3>Arriendos</h3>
 
-  <tbody>
-    <% @arriendos.each do |arriendo| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= link_to 'Show', arriendo %></td>
-        <td><%= link_to 'Edit', edit_arriendo_path(arriendo) %></td>
-        <td><%= link_to 'Destroy', arriendo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th colspan="3">Fecha Arriendo</th>
+        <th colspan="3">Estado</th>
+        <th colspan="3">Total Arriendo</th>
+        <th colspan="3">Vendedor</th>
+        <% if !current_cliente%>
+          <th colspan="3">Cliente</th>
+        <%end%>
+        <th colspan="3">Cantidad Disfraces</th>
+        <th colspan="3">Total Garantía</th>
+        <th colspan="3">Total Arriendo</th>
+        
+    </thead>
+
+    <tbody>
+      <% @arriendos.each do |arriendo| %>
+      <tr>
+        <td><%= arriendo.FECHA_ARRIENDO %></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tr>
+        <td><%= arriendo.FECHA_ARRIENDO %></td>
+      </tr>
+      <tr>
+        <td><%= arriendo.FECHA_ARRIENDO %></td>
+      </tr>
+      <tr>
+        <td><%= arriendo.FECHA_ARRIENDO %></td>
+      </tr>
+      <% if !current_cliente %>
+      <tr>
+        <td><%= arriendo.FECHA_ARRIENDO %></td>
+      </tr>
 
-<br>
+      <%end %>
+      <tr>
+        <td><%= arriendo.FECHA_ARRIENDO %></td>
+      </tr>
+      <tr>
+        <td><%= arriendo.FECHA_ARRIENDO %></td>
+      </tr>
+      <tr>
+        <td><%= arriendo.FECHA_ARRIENDO %></td>
+      </tr>
+        <tr>
+          <td><%= link_to 'Show', arriendo %></td>
+          <td><%= link_to 'Edit', edit_arriendo_path(arriendo) %></td>
+          <td><%= link_to 'Destroy', arriendo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Arriendo', new_arriendo_path %>
+  <br>
+  </div>
+
+<%= link_to 'Catálogo','/disfrazs',class: 'waves-effect waves-light btn white-text' %>
+</div>
