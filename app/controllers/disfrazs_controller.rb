@@ -35,10 +35,18 @@ class DisfrazsController < ApplicationController
   end
 
   def new
-    @categorias = Categoria.all.order('NOMBRE_CATEGORIA')
-    @categorium = Categoria.new
-    @disfraz = Disfraz.new
-    respond_with(@disfraz)
+    if current_vendedor
+      if current_vendedor.ES_ADMIN == true
+        @categorias = Categoria.all.order('NOMBRE_CATEGORIA')
+        @categorium = Categoria.new
+        @disfraz = Disfraz.new
+        respond_with(@disfraz)
+      else
+        redirect_to '/disfrazs', notice: 'No tienes permiso para entrar a esta ubicación.' and return
+      end
+    else  
+      redirect_to '/disfrazs', notice: 'No tienes permiso para entrar a esta ubicación.' and return
+    end 
   end
 
   def edit

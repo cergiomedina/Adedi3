@@ -27,8 +27,16 @@ class CategoriaController < ApplicationController
   end
 
   def new
-    @categorium = Categorium.new
-    respond_with(@categorium)
+    if current_vendedor
+      if current_vendedor.ES_ADMIN == true
+        @categorium = Categorium.new
+        respond_with(@categorium)
+      else
+        redirect_to '/disfrazs', notice: 'No tienes permiso para entrar a esta ubicación.' and return
+      end
+    else
+      redirect_to '/disfrazs', notice: 'No tienes permiso para entrar a esta ubicación.' and return
+    end
   end
 
   def edit
