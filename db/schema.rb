@@ -36,23 +36,23 @@ ActiveRecord::Schema.define(version: 20160228001841) do
 
   create_table "categoria", primary_key: "ID_CATEGORIA", force: true do |t|
     t.string  "NOMBRE_CATEGORIA", limit: 20
-    t.integer "STOCK_CATEGORIA"
+    t.integer "STOCK_CATEGORIA",             default: 0, null: false
   end
 
   create_table "cliente", primary_key: "ID_CLIENTE", force: true do |t|
-    t.integer  "ID_EST_CLIENTE",                    default: 1,    null: false
+    t.integer  "ID_EST_CLIENTE",                    default: 1,  null: false
     t.string   "NOMBRE_CLIENTE",         limit: 20
     t.string   "APELLIDO_CLIENTE",       limit: 20
     t.integer  "RUT_CLIENTE"
     t.string   "DIRECCION_CLIENTE",      limit: 50
-    t.integer  "TELEFONO_CLIENTE",       limit: 8
-    t.boolean  "ESTADO_CLIENTE",                    default: true, null: false
-    t.string   "email",                             default: "",   null: false
-    t.string   "encrypted_password",                default: "",   null: false
+    t.integer  "TELEFONO_CLIENTE"
+    t.string   "ESTADO_CLIENTE",         limit: 20
+    t.string   "email",                             default: "", null: false
+    t.string   "encrypted_password",                default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                     default: 0,    null: false
+    t.integer  "sign_in_count",                     default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -95,55 +95,52 @@ ActiveRecord::Schema.define(version: 20160228001841) do
   add_index "detalle_devolucion", ["ID_NOTA"], name: "FK_RELATIONSHIP_18", using: :btree
 
   create_table "devolucion", primary_key: "ID_DEVOLUCION", force: true do |t|
-    t.integer "ID_NOTA"
+    t.integer "ID_NOTA",          null: false
     t.integer "ID_VENDEDOR",      null: false
-    t.integer "arriendo_id",      null: false
+    t.integer "ID_ARRIENDO",      null: false
     t.date    "FECHA_DEVOLUCION"
   end
 
+  add_index "devolucion", ["ID_ARRIENDO"], name: "FK_RELATIONSHIP_24", using: :btree
   add_index "devolucion", ["ID_NOTA"], name: "FK_RELATIONSHIP_20", using: :btree
   add_index "devolucion", ["ID_VENDEDOR"], name: "FK_RELATIONSHIP_23", using: :btree
-  add_index "devolucion", ["arriendo_id"], name: "FK_RELATIONSHIP_24", using: :btree
 
   create_table "disfraz", primary_key: "ID_DISFRAZ", force: true do |t|
     t.integer  "ID_CATEGORIA",                   null: false
-    t.string   "CATEGORIA_DISFRAZ",   limit: 20
     t.string   "NOMBRE_DISFRAZ",      limit: 20, null: false
+    t.string   "CATEGORIA_DISFRAZ",   limit: 20
     t.integer  "STOCK_DISFRAZ",                  null: false
     t.integer  "STOCK_DISPONIBLE",               null: false
     t.string   "imagen_file_name"
     t.string   "imagen_content_type"
     t.integer  "imagen_file_size"
     t.datetime "imagen_updated_at"
-    t.string   "descripcion",                    null: false
-    t.integer  "precio",                         null: false
+    t.string   "descripcion"
+    t.integer  "precio"
   end
 
   add_index "disfraz", ["ID_CATEGORIA"], name: "FK_RELATIONSHIP_3", using: :btree
 
   create_table "ejemplar", primary_key: "ID_EJEMPLAR", force: true do |t|
-    t.integer "ID_ESTADO_CLIENTE",            null: false
-    t.integer "ID_DISFRAZ",                   null: false
-    t.string  "TALLA_EJEMPLAR",    limit: 20
-    t.string  "COLOR_EJEMPLAR",    limit: 20
-    t.string  "ESTADO_EJEMPLAR",   limit: 20
-    t.string  "PRECIO_EJEMPLAR",   limit: 20
+    t.integer "ID_DISFRAZ",                 null: false
+    t.string  "TALLA_EJEMPLAR",  limit: 20
+    t.string  "COLOR_EJEMPLAR",  limit: 20
+    t.string  "ESTADO_EJEMPLAR", limit: 20
   end
 
   add_index "ejemplar", ["ID_DISFRAZ"], name: "FK_RELATIONSHIP_2", using: :btree
-  add_index "ejemplar", ["ID_ESTADO_CLIENTE"], name: "FK_RELATIONSHIP_1", using: :btree
 
-  create_table "ejemplar_estado", primary_key: "ID_ESTADO_CLIENTE", force: true do |t|
+  create_table "ejemplar_estado", primary_key: "ID_ESTADO_EJEMPLAR", force: true do |t|
     t.string "EST_EJEMPLAR", limit: 20
   end
 
   create_table "log_auditoria", primary_key: "ID_LOG", force: true do |t|
-    t.integer "RUT_USUARIO"
-    t.string  "TABLA_AFECTADA",     limit: 20
-    t.string  "INSTRUCCION",        limit: 20
-    t.string  "DATOS_ANTES",        limit: 20
-    t.string  "DATOS_DESPUES",      limit: 20
-    t.string  "FECHA_MODIFICACION", limit: 20
+    t.integer  "RUT_USUARIO"
+    t.string   "TABLA_AFECTADA",     limit: 250
+    t.string   "INSTRUCCION",        limit: 250
+    t.string   "DATOS_ANTES",        limit: 250
+    t.string   "DATOS_DESPUES",      limit: 250
+    t.datetime "FECHA_MODIFICACION", limit: 6
   end
 
   create_table "multa", primary_key: "ID_MULTA", force: true do |t|
@@ -162,13 +159,13 @@ ActiveRecord::Schema.define(version: 20160228001841) do
 
   create_table "parametro_sistema", primary_key: "ID_PARAMETRO", force: true do |t|
     t.string  "NOMBRE_PARAMETRO",      limit: 20
-    t.string  "TIPO_PARAMETRO",        limit: 50,  null: false
     t.integer "VALOR_PARAMETRO"
-    t.string  "DESCRIPCION_PARAMETRO", limit: 200
+    t.text    "TIPO_PARAMETRO"
+    t.string  "DESCRIPCION_PARAMETRO", limit: 250
   end
 
   create_table "pedido", primary_key: "ID_PEDIDO", force: true do |t|
-    t.integer "cliente_id"
+    t.integer "cliente_id",               null: false
     t.integer "ID_EST_PEDIDO",            null: false
     t.date    "FECHA_PEDIDO"
     t.string  "ESTADO_PEDIDO", limit: 20
@@ -181,17 +178,17 @@ ActiveRecord::Schema.define(version: 20160228001841) do
     t.string "EST_PEDIDO", limit: 20
   end
 
-  create_table "pedidos_detalle", primary_key: "pedidos_detalle_id", force: true do |t|
-    t.integer "pedido_id",      null: false
-    t.date    "FECHA_RETIRO",   null: false
-    t.date    "FECHA_DEV",      null: false
-    t.integer "disfraz_id",     null: false
-    t.integer "precio_detalle", null: false
-    t.integer "cantidad",       null: false
+  create_table "pedidos_detalle", id: false, force: true do |t|
+    t.integer "ID_DISFRAZ",   null: false
+    t.integer "ID_PEDIDO",    null: false
+    t.date    "FECHA_RETIRO"
+    t.date    "FECHA_DEV"
+    t.integer "disfraz_id"
+    t.integer "cantidad"
   end
 
+  add_index "pedidos_detalle", ["ID_PEDIDO"], name: "FK_RELATIONSHIP_7", using: :btree
   add_index "pedidos_detalle", ["disfraz_id"], name: "index_pedidos_detalle_on_disfraz_id", using: :btree
-  add_index "pedidos_detalle", ["pedido_id"], name: "FK_RELATIONSHIP_7", using: :btree
 
   create_table "transicion_arriendo", id: false, force: true do |t|
     t.integer "ARR_ID_EST_ARRIENDO",            null: false
@@ -212,13 +209,13 @@ ActiveRecord::Schema.define(version: 20160228001841) do
   add_index "transicion_est_cliente", ["CLI_ID_EST_CLIENTE"], name: "FK_RELATIONSHIP_28", using: :btree
 
   create_table "transicion_est_ejemplar", id: false, force: true do |t|
-    t.integer "EJE_ID_ESTADO_CLIENTE",            null: false
-    t.integer "ID_ESTADO_CLIENTE",                null: false
-    t.string  "EST_INI_EJEMPLAR",      limit: 20
-    t.string  "EST_FIN_EJEMPLAR",      limit: 20
+    t.integer "EJE_ID_ESTADO_EJEMPLAR",            null: false
+    t.integer "ID_ESTADO_EJEMPLAR",                null: false
+    t.string  "EST_INI_EJEMPLAR",       limit: 20
+    t.string  "EST_FIN_EJEMPLAR",       limit: 20
   end
 
-  add_index "transicion_est_ejemplar", ["ID_ESTADO_CLIENTE"], name: "FK_RELATIONSHIP_30", using: :btree
+  add_index "transicion_est_ejemplar", ["ID_ESTADO_EJEMPLAR"], name: "FK_RELATIONSHIP_30", using: :btree
 
   create_table "transicion_est_pedido", id: false, force: true do |t|
     t.integer "ID_EST_PEDIDO",                null: false
