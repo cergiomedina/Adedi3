@@ -97,6 +97,21 @@ class CartController < ApplicationController
 
 			ActiveRecord::Base.transaction do
 					#params.require(:pedido).permit(:ID_EST_PEDIDO, :FECHA_PEDIDO,:ESTADO_PEDIDO,:cliente_id)
+					respuesta3 = true
+					cart = session[:cart]
+					@cart.each do |d|
+						if Disfraz.exists?(d[0])
+							@disfraz = Disfraz.find(d[0])
+							if @disfraz.STOCK_DISPONIBLE >= cart[d[0]]
+								@disfraz.STOCK_DISPONIBLE -= cart[d[0]]
+								@disfraz.save!
+								respuesta3 = respuesta3 and true
+							end
+						else
+							respuesta3 = false
+						end
+					end
+
 					@pedido = current_cliente.pedidos.new(ID_EST_PEDIDO: 1, FECHA_PEDIDO: Time.now, ESTADO_PEDIDO:'EN ESPERA')
 					respuesta1 = @pedido.save!
 					respuesta2 = true
@@ -104,7 +119,7 @@ class CartController < ApplicationController
 						@pedidos_detalles = @pedido.pedidos_detalles.new(FECHA_RETIRO: Time.new,cantidad: disfraz[1],FECHA_DEV: Time.new,disfraz_id: disfraz[0], precio_detalle: Disfraz.find(disfraz[0]).precio * disfraz[1])
 						respuesta2 = respuesta2 and @pedidos_detalles.save!						
 					end			
-					if respuesta1 and respuesta2
+					if respuesta1 and respuesta2 and respuesta3
 						session[:cart] = nil
 						redirect_to '/pedidos', notice: 'El pedido se ha realizado con éxito.'
 					else
