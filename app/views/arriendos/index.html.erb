@@ -56,7 +56,9 @@
    
           <td><%= link_to 'Ver', arriendo,class: 'waves-effect waves-light btn white-text blue' %></td>
       
-          <td><a href="/devolucion/<%= arriendo.id %>" class="waves-effect waves-light btn white-text green">Devolución</a></td>
+        <%if current_vendedor%>
+          <td><a href="/devolucion/<%= arriendo.id %>" class="waves-effect waves-light btn white-text green">Devuelto</a></td>
+          <%end%>
   <!--           <td><%= link_to 'Edit', edit_arriendo_path(arriendo) %></td>-->
         
         </tr>
@@ -66,6 +68,12 @@
 
   <br>
   </div>
+
+  <%if current_vendedor%>
+  <blockquote>
+    Cualquier cambio en esta sección es una transacción. Es decir, solo se realizará si todo está correctamente. De otra manera no sucederá nada.
+  </blockquote>
+  <%end%>
   <div class="row " align="center"><%= will_paginate @pedidos  %></div>
 <%= link_to 'Catálogo','/disfrazs',class: 'waves-effect waves-light btn white-text' %>
 </div>

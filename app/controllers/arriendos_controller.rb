@@ -4,15 +4,19 @@ class ArriendosController < ApplicationController
   # GET /arriendos
   # GET /arriendos.json
   def index
-    @arriendos = Arriendo.all.paginate(:page => params[:page], :per_page => 10).order('FECHA_ARRIENDO DESC')
+    @arriendos = Arriendo.all.paginate(:page => params[:page], :per_page => 10).order('ESTADO_ARRIENDO ASC')
 
   end
 
   # GET /arriendos/1
   # GET /arriendos/1.json
   def show
-    @pedido = Pedido.find(@arriendo.ID_PEDIDO)
-    @disfrazs = @pedido.pedidos_detalles
+    if Pedido.exists?(@arriendo.ID_PEDIDO)
+      @pedido = Pedido.find(@arriendo.ID_PEDIDO)
+      @disfrazs = @pedido.pedidos_detalles
+    else
+      redirect_to '/arriendos', notice:'No se puede acceder al arriendo seleccionado.'
+    end
   end
 
   # GET /arriendos/new
