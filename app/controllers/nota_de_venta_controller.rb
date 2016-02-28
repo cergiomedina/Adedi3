@@ -69,6 +69,6 @@ class NotaDeVentaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def nota_de_ventum_params
-      params[:nota_de_ventum]
+      params.require(:nota_de_ventum).permit(:ID_DEVOLUCION,:TOTAL_NOTA)
     end
 end

@@ -41,6 +41,8 @@
 		<%end%>
 	</ul>
 		<h5>Total del Arriendo: $ <b><%= total_arriendo %></b></h5>
+		<p>Fecha Retiro: <b><%= @pedido.pedidos_detalles[0].FECHA_RETIRO%></b></p>
+			  <p>Fecha Devolución: <b><%= @pedido.pedidos_detalles[0].FECHA_DEV%></b></p>
 	</div>
 
 	<%= link_to 'Pedidos', '/pedidos',class: 'waves-effect waves-light btn ' %>

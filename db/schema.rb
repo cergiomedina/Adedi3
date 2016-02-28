@@ -95,15 +95,15 @@ ActiveRecord::Schema.define(version: 20160228001841) do
   add_index "detalle_devolucion", ["ID_NOTA"], name: "FK_RELATIONSHIP_18", using: :btree
 
   create_table "devolucion", primary_key: "ID_DEVOLUCION", force: true do |t|
-    t.integer "ID_NOTA",          null: false
+    t.integer "ID_NOTA"
     t.integer "ID_VENDEDOR",      null: false
-    t.integer "ID_ARRIENDO",      null: false
+    t.integer "arriendo_id",      null: false
     t.date    "FECHA_DEVOLUCION"
   end
 
-  add_index "devolucion", ["ID_ARRIENDO"], name: "FK_RELATIONSHIP_24", using: :btree
   add_index "devolucion", ["ID_NOTA"], name: "FK_RELATIONSHIP_20", using: :btree
   add_index "devolucion", ["ID_VENDEDOR"], name: "FK_RELATIONSHIP_23", using: :btree
+  add_index "devolucion", ["arriendo_id"], name: "FK_RELATIONSHIP_24", using: :btree
 
   create_table "disfraz", primary_key: "ID_DISFRAZ", force: true do |t|
     t.integer  "ID_CATEGORIA",                   null: false
@@ -187,7 +187,7 @@ ActiveRecord::Schema.define(version: 20160228001841) do
     t.date    "FECHA_DEV",      null: false
     t.integer "disfraz_id",     null: false
     t.integer "precio_detalle", null: false
-    t.integer "cantidad"
+    t.integer "cantidad",       null: false
   end
 
   add_index "pedidos_detalle", ["disfraz_id"], name: "index_pedidos_detalle_on_disfraz_id", using: :btree

@@ -17,7 +17,7 @@ end
   get '/carrito/añadir/:id' => 'cart#anadirdisfraz'
   get '/carrito/quitar/:id' => 'cart#quitardisfraz'
   get '/arrendar/:id' => 'pedidos#aceptarPedido'
-
+  get '/devolucion/:id' => 'arriendos#devolucion'
 
   get 'home/index'
 

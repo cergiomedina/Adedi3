@@ -4,7 +4,8 @@ class ArriendosController < ApplicationController
   # GET /arriendos
   # GET /arriendos.json
   def index
-    @arriendos = Arriendo.all
+    @arriendos = Arriendo.all.paginate(:page => params[:page], :per_page => 10).order('FECHA_ARRIENDO DESC')
+
   end
 
   # GET /arriendos/1
@@ -23,6 +24,28 @@ class ArriendosController < ApplicationController
   def edit
   end
 
+  def devolucion
+
+    if current_vendedor
+      @arriendo = Arriendo.find(params[:id])
+      ActiveRecord::Base.transaction do
+
+        @arriendo.ESTADO_ARRIENDO = "DEVUELTO"
+
+        @devolucion = @arriendo.devolucion.new( ID_VENDEDOR: current_vendedor.id , FECHA_DEVOLUCION: Time.now)
+        r1 = @devolucion
+
+        r3 = @arriendo.save!
+        if r3 and r1
+          redirect_to '/arriendos', notice: 'El arriendo ha sido devuelto correctamente. Se ha añadido a devoluciones.'
+        else  
+          raise ActiveRecord::Rollback
+        end
+     
+      end 
+    end 
+
+  end
   # POST /arriendos
   # POST /arriendos.json
   def create

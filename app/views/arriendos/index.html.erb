@@ -55,8 +55,10 @@
         <td colspan="3">$ <%= arriendo.TOTAL_ARRIENDO %></td>
    
           <td><%= link_to 'Ver', arriendo,class: 'waves-effect waves-light btn white-text blue' %></td>
+      
+          <td><a href="/devolucion/<%= arriendo.id %>" class="waves-effect waves-light btn white-text green">Devolución</a></td>
   <!--           <td><%= link_to 'Edit', edit_arriendo_path(arriendo) %></td>-->
-          
+        
         </tr>
       <% end %>
     </tbody>
@@ -64,6 +66,6 @@
 
   <br>
   </div>
-
+  <div class="row " align="center"><%= will_paginate @pedidos  %></div>
 <%= link_to 'Catálogo','/disfrazs',class: 'waves-effect waves-light btn white-text' %>
 </div>

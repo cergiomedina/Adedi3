@@ -9,10 +9,10 @@ class PedidosController < ApplicationController
   # GET /pedidos.json
   def index
 
-    @pedidos = Pedido.all
+    @pedidos = Pedido.all.paginate(:page => params[:page], :per_page => 10).order('FECHA_PEDIDO DESC')
     if current_cliente
       @cliente = current_cliente
-      @pedidos = @cliente.pedidos.paginate(:page => params[:page], :per_page => 10)
+      @pedidos = @cliente.pedidos.paginate(:page => params[:page], :per_page => 10).order('FECHA_PEDIDO DESC')
     end
   end
 
