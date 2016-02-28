@@ -7,7 +7,7 @@ class ArriendosController < ApplicationController
     if current_vendedor
     @arriendos = Arriendo.all.paginate(:page => params[:page], :per_page => 10).order('ESTADO_ARRIENDO ASC')
     elsif current_cliente
-      @arriendos = Arriendo.where(ID_ARRIENDO: params[:ID_ARRIENDO]).paginate(:page => params[:page], :per_page => 10).order('ESTADO_ARRIENDO ASC')
+      @arriendos = Arriendo.where(cliente_id: current_cliente.id).paginate(:page => params[:page], :per_page => 10).order('ESTADO_ARRIENDO ASC')
     else
       redirect_to '/disfrazs', notice: 'No tienes permisos para entrar a esta sección.'
     end
