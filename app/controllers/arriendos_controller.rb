@@ -33,6 +33,22 @@ class ArriendosController < ApplicationController
     if current_vendedor
       @arriendo = Arriendo.find(params[:id])
       ActiveRecord::Base.transaction do
+        r2 = true
+        @pedido = Pedido.find(@arriendo.ID_PEDIDO)
+        @pedido.pedidos_detalles.each do |d|
+              disfraz = d
+              if Disfraz.exists?(disfraz.disfraz_id)
+                @disfraz = Disfraz.find(disfraz.disfraz_id)
+                @disfraz.STOCK_DISPONIBLE += d.cantidad
+                @disfraz.save!
+                r2 = r2 and true
+              else
+                r2 = r2 and false
+              end
+
+            end
+
+
 
         @arriendo.ESTADO_ARRIENDO = "DEVUELTO"
 
@@ -40,7 +56,7 @@ class ArriendosController < ApplicationController
         r1 = @devolucion
 
         r3 = @arriendo.save!
-        if r3 and r1
+        if r3 and r1 and r2
           redirect_to '/arriendos', notice: 'El arriendo ha sido devuelto correctamente. Se ha añadido a devoluciones.'
         else  
           raise ActiveRecord::Rollback
