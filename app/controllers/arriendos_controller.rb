@@ -10,6 +10,8 @@ class ArriendosController < ApplicationController
   # GET /arriendos/1
   # GET /arriendos/1.json
   def show
+    @pedido = Pedido.find(@arriendo.ID_PEDIDO)
+    @disfrazs = @pedido.pedidos_detalles
   end
 
   # GET /arriendos/new

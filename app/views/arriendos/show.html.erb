@@ -1,4 +1,79 @@
+
+
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_arriendo_path(@arriendo) %> |
-<%= link_to 'Back', arriendos_path %>
+<div class="container">
+
+	<div class="card-panel">
+		<h3>Arriendo</h3>
+		<p>Código del arriendo: #<%= @arriendo.id %></p>
+		<div class="divider"></div>
+		<div class="container">
+			<table class="highlight">
+		        <thead>
+		          <tr>
+		              <th data-field="id">Nombre Cliente</th>
+		              <th data-field="name">Fecha del Arriendo</th>
+		              <th data-field="price">Total Arriendo</th>
+		              <th data-field="name">Total Garantía</th>
+		              
+		          </tr>
+		        </thead>
+
+		        <tbody>
+		        	
+				          <tr>
+				          	<%if Cliente.exists?(@arriendo.cliente_id)%>
+			        			<% @cliente = Cliente.find(@arriendo.cliente_id)%>
+				            		<td><%= @cliente.NOMBRE_CLIENTE %> <%= @cliente.APELLIDO_CLIENTE %></td>
+				            <%end%>
+				             <td><%= @arriendo.FECHA_ARRIENDO%></td>
+				             <td><%= @arriendo.TOTAL_ARRIENDO%></td>
+				             <td><%= @arriendo.TOTAL_GARANTIA%></td>
+				          </tr>
+		        </tbody>
+		      </table>
+
+		</div>
+		<div class="container">
+			<ul class="collection">
+			    <% @disfrazs.each do |disfraz| %>
+			    <li class="collection-item avatar">
+			    	<% if Disfraz.exists?(disfraz.disfraz_id)%>
+				    	<% @d = Disfraz.find(disfraz.disfraz_id)%>
+				      <%= image_tag @d.imagen.url(:thumb), class: "circle" %>
+				      <span class="title">Código: #<b><%=  @d.id%></b></span>
+				      <br>
+				      <span class="title">Nombre: <b><%=  @d.NOMBRE_DISFRAZ%></b></span>
+				      <br>
+				      <span>Descripción: <b><%= @d.descripcion%></b></span>
+				      <br>	
+				      <span>Cantidad: <b><%= disfraz.cantidad %></b></span>
+				      <br>
+				      <span>Precio por unidad: <b>$ <%= @d.precio %></b></span>
+				      <br>
+				      <span>Precio total: <b>$ <%= disfraz.precio_detalle %></b></span>
+				      <%= link_to disfraz_path(@d), class: "secondary-content" do%>
+				      <i class="material-icons tooltipped" data-position="right" data-delay="50" data-tooltip="Ver">visibility</i>
+				     </li>
+				     
+				     <%end%>
+				    <%else%>
+				    <li>Un disfraz dejó de estar en la tienda mientras está este pedido.</li>
+				      <%end%>
+				      
+			    </li>
+			    <%end%>
+			  </ul>
+			  <p>Total Arriendo : $ <b><%= @arriendo.TOTAL_ARRIENDO%></b> PESOS CHILENOS</p>
+			  <br>
+			  <blockquote>
+			  	El precio del arriendo es tomado del momento en el que se realizó el pedido. Por ende debe ser respetado sin importar los cambios que se realicen en los disfraces posteriormente.
+			  </blockquote>
+		</div>
+
+	</div>
+
+
+<%= link_to 'Ir a Arriendos', arriendos_path,class: 'waves-effect waves-light btn ' %>
+</div>
