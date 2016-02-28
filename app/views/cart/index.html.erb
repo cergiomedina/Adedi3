@@ -54,10 +54,15 @@
 										<td>$ <%= disfraz.precio%></td>
 									</tr>
 									<tr>
+										<td><b>Stock Disponible:</b></td>
+										<td><%= disfraz.STOCK_DISPONIBLE%></td>
+									</tr>
+									<tr>
 										<td><b>Cantidad:</b></td>
 										<td><%= quantity %>
-											
+											<% if disfraz.STOCK_DISPONIBLE > quantity%>
 											<a href="/carrito/añadir/<%= disfraz.id %>"><i class="fa fa-plus-square"></i>
+												<%end %>
 												<% if quantity>1%>
 											</a><a href="/carrito/quitar/<%= disfraz.id %>"><i class="fa fa-minus-square-o"></i></a>
 											<%end%>
