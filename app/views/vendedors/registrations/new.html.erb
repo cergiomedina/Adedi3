@@ -19,23 +19,23 @@
   </div>
   <div class="field">
     <%= f.label :NOMBRE_VENDEDOR, 'Nombre' %><br />
-    <%= f.text_field :NOMBRE_VENDEDOR , autocomplete: "off"%>
+    <%= f.text_field :NOMBRE_VENDEDOR , autocomplete: "off", :maxlength=>"20"%>
   </div>
   <div class="field">
     <%= f.label :APELLIDO_VENDEDOR, 'Apellido' %><br />
-    <%= f.text_field :APELLIDO_VENDEDOR , autocomplete: "off"%>
+    <%= f.text_field :APELLIDO_VENDEDOR , autocomplete: "off", :maxlength=>"20"%>
   </div>
   <div class="field">
     <%= f.label :DIRECCION_VENDEDOR, 'Direccion' %><br />
-    <%= f.text_field :DIRECCION_VENDEDOR , autocomplete: "off"%>
+    <%= f.text_field :DIRECCION_VENDEDOR , autocomplete: "off", :maxlength=>"20"%>
   </div>
   <div class="field">
     <%= f.label :TELEFONO_VENDEDOR, 'Telefono' %><br />
-    <%= f.text_field :TELEFONO_VENDEDOR , autocomplete: "off"%>
+    <%= f.text_field :TELEFONO_VENDEDOR , autocomplete: "off", :maxlength=>"20"%>
   </div>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true , :maxlength=>"20"%>
   </div>
 
   <div class="field">
@@ -43,12 +43,12 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> carácteres como mínimo)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off" , :maxlength=>"20"%>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation, 'Confirmar Contraseña' %>
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", :maxlength=>"20" %>
   </div>
 
   <label>Tipo de Personal</label>
