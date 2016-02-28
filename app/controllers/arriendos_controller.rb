@@ -4,7 +4,13 @@ class ArriendosController < ApplicationController
   # GET /arriendos
   # GET /arriendos.json
   def index
+    if current_vendedor
     @arriendos = Arriendo.all.paginate(:page => params[:page], :per_page => 10).order('ESTADO_ARRIENDO ASC')
+    elsif current_cliente
+      @arriendos = Arriendo.where(ID_ARRIENDO: params[:ID_ARRIENDO]).paginate(:page => params[:page], :per_page => 10).order('ESTADO_ARRIENDO ASC')
+    else
+      redirect_to '/disfrazs', notice: 'No tienes permisos para entrar a esta sección.'
+    end
 
   end
 
