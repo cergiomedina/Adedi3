@@ -7,6 +7,7 @@
   <table class="highlight">
     <thead>
       <tr>
+        <th colspan="3">Código</th>
         <th colspan="3">Fecha Arriendo</th>
         <th colspan="3">Estado</th>
         <th colspan="3">Total Arriendo</th>
@@ -23,6 +24,7 @@
     <tbody align="center">
       <% @arriendos.each do |arriendo| %>
       <tr>
+        <td colspan="3"><%= arriendo.id %></td>
         <td colspan="3"><%= arriendo.FECHA_ARRIENDO %></td>
      
         <td colspan="3"><%= arriendo.ESTADO_ARRIENDO %></td>

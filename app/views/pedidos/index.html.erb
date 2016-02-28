@@ -4,41 +4,55 @@
     <div class="card-panel">
       <h3>Pedidos</h3>
       <%if @pedidos.count != 0%>
-      <table>
-        <thead>
-          <tr>
-            <th colspan="3">Estado</th>
-             <th colspan="3">Fecha Pedido</th>
-             <th colspan="3">Acciones</th>
-          </tr>
-        </thead>
 
-        <tbody>
+      <table class="striped">
+            <thead>
+              <tr>
+                <th>Código Pedido</th>
+                <th>Fecha Pedido</th>
+                <th>Estado</th>
+                
+                <th>Acciones</th>
 
+              </tr>
+            </thead>
 
-          <% @pedidos.each do |pedido| %>
-            <tr>
-              <td><%= pedido.ESTADO_PEDIDO %></td>
-              <td><%= pedido.FECHA_PEDIDO %></td>
-              <td><%= link_to 'Ver', pedido ,class: 'waves-effect waves-light btn white-text '%></td>
-              <% if current_vendedor %>
+            <tbody>
+              <% @pedidos.each do |pedido| %>
+                <tr>
+                  <td><%= pedido.id %></td>
+                  <td><%= pedido.FECHA_PEDIDO %></td>
+                  <td><b><%= pedido.ESTADO_PEDIDO %></b></td>
+                  
+                  <td><%= link_to 'Ver', pedido ,class: 'waves-effect waves-light btn white-text '%></td>
+                  <% if current_vendedor %>
 
-              <% if pedido.ESTADO_PEDIDO == 'EN ESPERA'%>
-              <td>
-                <a href="/arrendar/<%= pedido.id %>" class="waves-effect waves-light btn white-text  blue">Aceptar Pedido</a>
+                    <% if pedido.ESTADO_PEDIDO == 'EN ESPERA'%>
+                      <td>
+                        <a href="/arrendar/<%= pedido.id %>" class="waves-effect waves-light btn white-text  blue">Aceptar Pedido</a>
+                      </td>
+                  <%else%>
+                 
+                  <%end%>
+                <% end %>
+                   <% if pedido.ESTADO_PEDIDO != 'ACEPTADO'%>
+                    <td><%= link_to 'Eliminar', pedido, method: :delete, data: { confirm: 'Estas seguro?' },class: 'waves-effect waves-light btn white-text red ' %></td>
+                  <%end%>
+              
+                </tr>
+           
+                  
 
-              </td>
-              <%else%>
-              <td></td>
-              <%end%>
               <% end %>
-              <% if pedido.ESTADO_PEDIDO != 'ACEPTADO'%>
-              <td><%= link_to 'Eliminar', pedido, method: :delete, data: { confirm: 'Estas seguro?' },class: 'waves-effect waves-light btn white-text red ' %></td>
-              <%end%>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+              <div class="col " align="center"><%= will_paginate @clientes  %></div>
+            </tbody>
+          </table>
+
+
+
+
+
+
 
       <br>
 
