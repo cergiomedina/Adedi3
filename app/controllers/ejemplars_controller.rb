@@ -1,5 +1,6 @@
 class EjemplarsController < ApplicationController
   before_action :set_ejemplar, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_vendedor!
 
   # GET /ejemplars
   # GET /ejemplars.json
