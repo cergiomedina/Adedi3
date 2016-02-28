@@ -11,11 +11,11 @@
 
   <div class="field">
     <%= f.label :NOMBRE_DISFRAZ %><br>
-    <%= f.text_field :NOMBRE_DISFRAZ %>
+    <%= f.text_field :NOMBRE_DISFRAZ , :maxlength=>"20"%>
   </div>
   <div class="field">
     <%= f.label :descripcion %>
-    <%= f.text_field :descripcion%>
+    <%= f.text_field :descripcion, :maxlength=>"150"%>
   </div>
 
 <div class="field">
@@ -24,10 +24,10 @@
   </div>
 
   <div class="field">
-    <%= f.hidden_field :STOCK_DISFRAZ, :value => 0 %>
+    <%= f.hidden_field :STOCK_DISFRAZ, :value => 1 %>
   </div>
   <div class="field">
-    <%= f.hidden_field :STOCK_DISPONIBLE, :value => 0 %>
+    <%= f.hidden_field :STOCK_DISPONIBLE, :value => 1 %>
   </div>
 
   <div class="actions">

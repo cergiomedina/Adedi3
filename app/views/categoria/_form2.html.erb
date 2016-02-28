@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :nombre %><br>
-    <%= f.text_field :NOMBRE_CATEGORIA%>
+    <%= f.text_field :NOMBRE_CATEGORIA, :maxlength=>"20"%>
   </div>
   <div class="actions">
     <%= f.submit "actualizar", class: 'waves-effect waves-light btn' %>
