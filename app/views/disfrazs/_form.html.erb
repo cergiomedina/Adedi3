@@ -24,11 +24,10 @@
   </div>
 
   <div class="field">
-    <%= f.hidden_field :STOCK_DISFRAZ, :value => 1 %>
+    <%= f.label :stock_del_disfraz%>
+    <%= f.number_field :STOCK_DISFRAZ, :min => 1 %>
   </div>
-  <div class="field">
-    <%= f.hidden_field :STOCK_DISPONIBLE, :value => 1 %>
-  </div>
+  
 
   <div class="actions">
     <a class="waves-effect waves-light btn"><%= f.submit "Aceptar" %></a>  <%= link_to 'Cancelar', disfrazs_path, class: 'waves-effect waves-light btn red' %>
