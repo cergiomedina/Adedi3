@@ -68,8 +68,13 @@ class DisfrazsController < ApplicationController
   end
 
   def destroy
-    @disfraz.destroy
-    respond_with(@disfraz)
+    @ejemplares = Ejemplar.where(ID_DISFRAZ: @disfraz.id)
+    if @ejemplares.count == 0
+      @disfraz.destroy
+      respond_with(@disfraz)
+    else
+      redirect_to '/disfrazs', notice: 'El disfraz no puede ser eliminado, ya que posee ejemplares asociados'
+    end
   end
 
   private
