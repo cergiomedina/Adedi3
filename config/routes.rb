@@ -53,6 +53,7 @@ end
 
   get 'multas/show'
 
+  get '/log_auditorias' => 'log_auditoria#index'
   get 'log_auditorias/index'
 
   get 'log_auditorias/show'
@@ -145,7 +146,7 @@ end
     resource :vendedor_estado
   end
 
-
+  resources :log_auditorias
   resources :vendedor_estados
 
   # The priority is based upon order of creation: first created -> highest priority.

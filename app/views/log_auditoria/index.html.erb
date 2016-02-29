@@ -1,23 +1,38 @@
-<h1>Listing log_auditoria</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container">
+  <div class="card-panel">
+  <h3>Log de Auditoría</h3>
 
-  <tbody>
-    <% @log_auditoria.each do |log_auditorium| %>
-      <tr>
-        <td><%= link_to 'Show', log_auditorium %></td>
-        <td><%= link_to 'Edit', edit_log_auditorium_path(log_auditorium) %></td>
-        <td><%= link_to 'Destroy', log_auditorium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <table>
+      <thead>
+        <tr>
+          <th >Id</th>
+          <th >Rut</th>
+          <th >Tabla Afectada</th>
+          <th >Instrucción</th>
+          <th >Antes</th>
+          <th >Después</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
 
-<br>
+      <tbody>
+        <% @log_auditoria.each do |log| %>
+          <tr>
+            <td><%= log.id %></td>
+            <td><%= log.RUT_USUARIO %></td>
+            <td><%= log.TABLA_AFECTADA %></td>
+            <td><%= log.INSTRUCCION %></td>
+            <td><%= log.DATOS_ANTES %></td>
+            <td><%= log.DATOS_DESPUES %></td>
+            <td><%= log.FECHA_MODIFICACION %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<%= link_to 'New Log auditorium', new_log_auditorium_path %>
+    <br>
+
+  </div>
+  <div class="row " align="center"><%= will_paginate @log_auditoria  %></div>
+</div>
